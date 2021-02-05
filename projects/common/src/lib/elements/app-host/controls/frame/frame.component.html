@@ -1,0 +1,47 @@
+<mat-drawer-container
+  class="app-drawers"
+  [hasBackdrop]="IsMobile"
+  ngClass.lt-md="md"
+  ngClass.lt-sm="sm"
+>
+  <mat-drawer
+    class="app-nav-drawer"
+    [class.sticky]="State.StickyNav"
+    [mode]="NavDrawerMode"
+    [opened]="State.Opened && !LessThanMD"
+    #navDrawer
+  >
+    <div class="app-nav-container">
+      <ng-content select="nav"></ng-content>
+    </div>
+  </mat-drawer>
+
+  <mat-drawer-content class="app-content-drawer" [@stretch]="CollapsedState">
+    <div class="app-content-container">
+      <ng-content></ng-content>
+    </div>
+  </mat-drawer-content>
+
+  <!-- <mat-drawer
+    class="details-drawer"
+    #detailsDrawer
+    mode="over"
+    position="end"
+  >
+    <div class="content spread">
+      <button mat-icon-button class="close" (click)="CloseDetailsDrawer()">
+        <mat-icon>close</mat-icon>
+      </button>
+
+      <h2>Welcome to IoT Ensemble</h2>
+
+      <p>You can use this dashboard to get your data flowing.</p>
+    </div>
+  </mat-drawer> -->
+</mat-drawer-container>
+
+<div class="app-nav-menu" [style.top]="(State.StaticMenuTop || 250) + 'px'">
+  <button mat-mini-fab color="accent" (click)="ToggleNavDrawer()">
+    <mat-icon>menu</mat-icon>
+  </button>
+</div>

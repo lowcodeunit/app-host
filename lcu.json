@@ -1,14 +1,23 @@
 {
-  "templates": {
-    "repository": "lowcodeunit-devkit/lcu-cli-templates-core",
-    "scope": "@lowcodeunit",
-    "workspace": "app-host"
-  },
-  "config": {
-    "wc": ["wc/app-host.lcu.js"],
-    "solutions": {},
-    "elements": {},
-    "data-flow": {},
-    "dependencies": {}
-  }
+	"templates": {
+		"repository": "lowcodeunit-devkit/lcu-cli-templates-core",
+		"scope": "@lowcodeunit",
+		"workspace": "app-host"
+	},
+	"config": {
+		"wc": [
+			"wc/app-host.lcu.js"
+		],
+		"solutions": {
+			"app-host": {
+				"element": "lcu-app-host-element"
+			},
+			"dashboard-card": {
+				"element": "app-host-dashboard-card-element"
+			}
+		},
+		"elements": {},
+		"data-flow": {},
+		"dependencies": {}
+	}
 }

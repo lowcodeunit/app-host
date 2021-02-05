@@ -1,0 +1,13 @@
+@import "../../../../../common/src/assets/common";
+
+:host {
+  .logo {
+    height: 60px;
+    width: 160px;
+    @extend .logo-config;
+
+    &.mobile {
+      width: 50px;
+    }
+  }
+}

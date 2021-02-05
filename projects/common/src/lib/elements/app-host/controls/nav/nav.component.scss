@@ -1,0 +1,65 @@
+@import "../../../../../assets/common";
+
+:host ::ng-deep {
+  display: block;
+  overflow: auto;
+
+  .nav-title {
+    @extend .mat-headline;
+  }
+
+  .nav-list {
+    .nav-item {
+      .mat-button-focus-overlay {
+        background: transparent;
+      }
+
+      .nav-item-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 48px;
+      }
+
+      .nav-item-action {
+        width: 220px;
+
+        .lcu-action {
+          .mat-icon {
+            display: none;
+          }
+        }
+      }
+
+      .mat-list-text {
+        font-size: 24px;
+        @extend .padding-left-0;
+      }
+
+      &.nav-item-collapse {
+        .mat-icon {
+          width: 18px;
+          height: 18px;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes rotate-home {
+  from {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}

@@ -1,0 +1,33 @@
+@import "../../../assets/common";
+@include theme-setup($global-theme);
+
+:host ::ng-deep {
+  .page {
+    > .page-toolbar {
+      height: 64px;
+    }
+
+    > .page-container {
+      @extend .margin-2;
+
+      lcu-app-host-header {
+        @extend .margin-bottom-2;
+      }
+
+      lcu-app-host-frame {
+        @extend .margin-bottom-2;
+
+        .app-nav {
+          position: relative;
+        }
+
+        .app-content {
+          @extend .margin-2;
+        }
+      }
+
+      > .footer {
+      }
+    }
+  }
+}

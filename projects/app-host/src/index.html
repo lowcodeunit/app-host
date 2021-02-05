@@ -1,13 +1,94 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>AppHost</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <lcu-root></lcu-root>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>LowCodeUnit | Web Apps & Micro-Frontends Delivery SystemTeam</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <script id="lcu-reg">
+      const appHost = {
+        Toolbar: {
+          Title: "IoT Ensemble Beta",
+          Logo: "/assets/logo.svg",
+          Actions: [
+            {
+              Text: "Docs",
+              Path: "/docs",
+              Align: "start",
+              Target: "_blank"
+            },
+            {
+              Text: "Upgrade",
+              Path: "/billing/iot",
+              // Icon: "upgrade",
+              Align: "end",
+            },
+            {
+              Text: "Sign Out",
+              Path: "/.oauth/logout",
+              Align: "end",
+            },
+          ],
+        },
+        Header: {
+          BrandTitle: "IoT Ensemble",
+          InfoText: "Emulate, simulate, and connect your devices to unlock the power of your IoT applications.",
+          InfoTitle: "Device Dashboard",
+          WelcomeTitle: "Welcome to",
+        },
+        Frame: {
+          Collapsed: true,
+          Opened: true,
+          StaticMenuTop: 250,
+          StickyNav: true
+        },
+        Nav: {
+          Title: "IoT Ensemble Beta",
+          ShowCollapse: true,
+          Actions: [
+            {
+              Text: "Dashboard",
+              Path: "/dashboard",
+              Icon: "dashboard",
+              Target: "_blank"
+            }
+          ],
+        },
+      };
+
+      window.LCU = {
+        // APIRoot: "https://localhost:44387",
+        // APIRoot: "https://www.lowcodeunit.com",
+        Application: {},
+        State: {
+          ActionRoot: "/api/state",
+          Root: "/api/state",
+          // Environment: "local",
+          UsernameMock: "michael.gearhardt@fathym.com",
+          Analytics: {
+            Google: {
+              Token: "G-NEWEXH7W8C",
+            },
+            Oribi: {
+              Token: "XzcwMzAwMzkyNA",
+            },
+          },
+          AppHost: appHost,
+        },
+        Settings: {},
+        User: {
+          Email: "local-tester@fathym.com",
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <lcu-root></lcu-root>
+  </body>
 </html>

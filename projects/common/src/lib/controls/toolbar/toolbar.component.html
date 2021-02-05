@@ -1,0 +1,64 @@
+<mat-toolbar color="primary">
+  <div
+    class="logo"
+    fxHide.lt-md="true"
+    [style.background-image]="'url(' + (State.Logo || State.MobileLogo) + ')'"
+    *ngIf="State.Logo || State.MobileLogo"
+  ></div>
+
+  <div
+    class="logo mobile"
+    fxHide
+    fxShow.lt-md="true"
+    [style.background-image]="'url(' + (State.MobileLogo || State.Logo) + ')'"
+    *ngIf="State.MobileLogo || State.Logo"
+  ></div>
+
+  <div fxFlex fxLayoutGap="10px" fxLayoutGap.lt-sm="5px">
+    <a mat-button href="/" [innerHTML]="State.Title"></a>
+
+    <div fxFlex fxHide.lt-md="true">
+      <div fxFlex fxLayoutAlign="start">
+        <ng-container *ngFor="let action of State.Actions">
+          <ng-container *ngIf="action.Align == 'start'">
+            <lcu-action
+              class="toolbar-action"
+              [action]="action"
+              (action-click)="ActionClicked($event)"
+            ></lcu-action>
+          </ng-container>
+        </ng-container>
+      </div>
+
+      <div fxFlex fxLayoutAlign="end">
+        <ng-container *ngFor="let action of State.Actions">
+          <ng-container *ngIf="action.Align == 'end'">
+            <lcu-action
+              class="toolbar-action"
+              [action]="action"
+              (action-click)="ActionClicked($event)"
+            ></lcu-action>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+
+    <div fxFlex fxLayoutAlign="end" fxHide fxHide.lt-md="false">
+      <div>
+        <button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon>menu</mat-icon>
+        </button>
+
+        <mat-menu #menu="matMenu">
+          <ng-container *ngFor="let action of State.Actions">
+            <lcu-action
+              class="toolbar-action"
+              [action]="action"
+              (action-click)="ActionClicked($event)"
+            ></lcu-action>
+          </ng-container>
+        </mat-menu>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,17 @@
+<ng-container *ngIf="Action">
+  <ng-container *ngIf="Action.Path">
+    <a mat-button [href]="Action.Path" [target]="Action.Target">
+      <mat-icon *ngIf="Action.Icon">{{ Action.Icon }}</mat-icon>
+
+      <span *ngIf="Action.Text" [innerHTML]="Action.Text"></span>
+    </a>
+  </ng-container>
+
+  <ng-container *ngIf="!Action.Path">
+    <button mat-button (click)="Clicked()">
+      <mat-icon *ngIf="Action.Icon">{{ Action.Icon }}</mat-icon>
+
+      <span *ngIf="Action.Text" [innerHTML]="Action.Text"></span>
+    </button>
+  </ng-container>
+</ng-container>

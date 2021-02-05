@@ -1,0 +1,23 @@
+<mat-nav-list class="nav-list" [class.collapsed]="State.Collapsed">
+  <mat-list-item class="nav-item nav-item-collapse" (click)="ToggleCollapse()">
+    <mat-icon matListIcon [@rotate]="CollapsedState">
+      {{ State.CollapseIcon || "west" }}
+    </mat-icon>
+  </mat-list-item>
+
+  <ng-container *ngFor="let action of State.Actions">
+    <mat-list-item class="nav-item">
+      <mat-icon matListIcon class="nav-item-icon">
+        {{ action.Icon }}
+      </mat-icon>
+
+      <span matLine class="nav-item-action" [@collapse]="CollapsedState">
+        <lcu-action
+          class="nav-action"
+          [action]="action"
+          (action-click)="ActionClicked($event)"
+        ></lcu-action>
+      </span>
+    </mat-list-item>
+  </ng-container>
+</mat-nav-list>

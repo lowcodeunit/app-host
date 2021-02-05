@@ -1,0 +1,94 @@
+@import "../../../../../assets/common";
+
+:host ::ng-deep {
+  display: block;
+  overflow: auto;
+
+  .app-header-container {
+    .app-header-details {
+      @extend .background-fill;
+
+      .app-header-details-container {
+        @extend .margin-5;
+
+        .app-header-title {
+          @extend .margin-right-5;
+
+          h1 {
+            margin-bottom: 0;
+            @extend .plain-text;
+            @extend .mat-display-1;
+            @extend .margin-bottom-3;
+
+            .welcome-text {
+              @extend .theme-accent-text;
+            }
+
+            .brand-text {
+            }
+          }
+        }
+
+        .app-header-info {
+          @extend .margin-left-5;
+
+          h2 {
+            margin-bottom: 0;
+            @extend .mat-headline;
+            @extend .plain-text;
+            @extend .margin-bottom-1;
+            @extend .theme-accent-text;
+          }
+
+          p {
+            @extend .mat-body-2;
+            @extend .margin-bottom-3;
+          }
+        }
+      }
+    }
+
+    .app-header-extras {
+      @extend .plain-text;
+      @extend .background-fill;
+
+      .app-header-extras-container {
+        @extend .margin-5;
+      }
+    }
+
+    &.sm {
+      .divider-fill-hor {
+        @extend .margin-bottom-5;
+        @extend .margin-top-5;
+      }
+
+      .app-header-details {
+        .app-header-details-container {
+          .app-header-title {
+            @extend .margin-right-0;
+
+            h1 {
+              @extend .mat-headline;
+              @extend .margin-bottom-0;
+            }
+          }
+
+          .app-header-info {
+            @extend .margin-left-0;
+
+            h2 {
+              margin-bottom: 0;
+              @extend .mat-title;
+            }
+
+            p {
+              @extend .mat-body-1;
+              @extend .margin-bottom-0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
