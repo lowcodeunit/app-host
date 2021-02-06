@@ -10,6 +10,7 @@ import { FrameComponent } from './elements/app-host/controls/frame/frame.compone
 import { AppHostDashboardCardElementComponent } from './elements/dashboard-card/dashboard-card.component';
 import { ActionComponent } from './controls/action/action.component';
 import { NavComponent } from './elements/app-host/controls/nav/nav.component';
+import { LazyElementModule } from '@lowcodeunit/lazy-element';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { NavComponent } from './elements/app-host/controls/nav/nav.component';
     ReactiveFormsModule,
     FlexLayoutModule,
     MaterialModule,
+    LazyElementModule,
   ],
   exports: [
     FlexLayoutModule,

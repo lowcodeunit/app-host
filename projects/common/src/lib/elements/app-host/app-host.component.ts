@@ -9,8 +9,9 @@ import {
   HostBinding,
 } from '@angular/core';
 import { LCUElementContext, LcuElementComponent } from '@lcu/common';
+import { LazyElementConfig } from '@lowcodeunit/lazy-element';
 import { LCUActionState } from '../../controls/action/action.component';
-import { AppHostState } from '../../state/app-host.state';
+import { AppHostPageState, AppHostState } from '../../state/app-host.state';
 
 export class LCUAppHostElementState {}
 
@@ -29,6 +30,8 @@ export class LCUAppHostElementComponent
   //  Fields
 
   //  Properties
+  public ActivePage: AppHostPageState;
+
   @HostBinding('class.lcu-app-host-element')
   public get ClassLCUAppHostElement(): boolean {
     return true;
@@ -60,8 +63,14 @@ export class LCUAppHostElementComponent
 
     this.State.Frame = {
       ...this.State.Frame,
-      Collapsed: this.State.Nav.Collapsed
+      Collapsed: this.State.Nav.Collapsed,
     };
+
+    this.ActivePage = (this.State?.Page
+      ? {
+          ...this.State?.Page,
+        }
+      : {}) as AppHostPageState;
   }
 
   //  API Methods
@@ -73,7 +82,7 @@ export class LCUAppHostElementComponent
     if (closed) {
       this.State.Frame = {
         ...this.State.Frame,
-        Opened: false
+        Opened: false,
       };
     }
   }
@@ -82,7 +91,7 @@ export class LCUAppHostElementComponent
     // this.NavCollapseToggle.emit(action);
     this.State.Frame = {
       ...this.State.Frame,
-      Collapsed: collapsed
+      Collapsed: collapsed,
     };
   }
 

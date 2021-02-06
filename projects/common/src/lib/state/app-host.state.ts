@@ -1,3 +1,4 @@
+import { LazyElementConfig } from '@lowcodeunit/lazy-element';
 import { LCUActionState } from '../controls/action/action.component';
 
 export class AppHostState {
@@ -8,6 +9,8 @@ export class AppHostState {
   public Header?: AppHostHeaderState;
 
   public Nav?: AppHostNavState;
+
+  public Page?: AppHostPageState;
 
   public Theme?: AppHostThemeState;
 
@@ -24,6 +27,16 @@ export class AppHostFrameState {
   public StickyNav?: boolean;
 }
 
+export class AppHostHeaderState {
+  public BrandTitle?: string;
+
+  public InfoText?: string;
+
+  public InfoTitle?: string;
+
+  public WelcomeTitle?: string;
+}
+
 export class AppHostNavState {
   public Actions?: LCUActionState[];
 
@@ -34,14 +47,12 @@ export class AppHostNavState {
   public ShowCollapse?: boolean;
 }
 
-export class AppHostHeaderState {
-  public BrandTitle?: string;
+export class AppHostPageState {
+  public Description?: string;
 
-  public InfoText?: string;
+  public ElementConfig: LazyElementConfig;
 
-  public InfoTitle?: string;
-
-  public WelcomeTitle?: string;
+  public Title?: string;
 }
 
 export class AppHostThemeState {
