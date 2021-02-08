@@ -10,6 +10,10 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <link
+      href="https://www.iot-ensemble.com/_lcu/lcu-device-data-flow-lcu/wc/lcu-device-data-flow.lcu.css"
+      rel="stylesheet"
+    />
 
     <script id="lcu-reg">
       const appHost = {
@@ -21,7 +25,7 @@
               Text: "Docs",
               Path: "/docs",
               Align: "start",
-              Target: "_blank"
+              Target: "_blank",
             },
             {
               Text: "Upgrade",
@@ -38,7 +42,8 @@
         },
         Header: {
           BrandTitle: "IoT Ensemble",
-          InfoText: "Emulate, simulate, and connect your devices to unlock the power of your IoT applications.",
+          InfoText:
+            "Emulate, simulate, and connect your devices to unlock the power of your IoT applications.",
           InfoTitle: "Device Dashboard",
           WelcomeTitle: "Welcome to",
         },
@@ -46,7 +51,7 @@
           Collapsed: true,
           Opened: true,
           StaticMenuTop: 250,
-          StickyNav: true
+          StickyNav: true,
         },
         Nav: {
           Title: "IoT Ensemble Beta",
@@ -56,31 +61,32 @@
               Text: "Dashboard",
               Path: "/dashboard",
               Icon: "dashboard",
-              Target: "_blank"
-            }
+              Target: "_blank",
+            },
           ],
         },
         Page: {
-          Title: '',
-          Description: '',
+          Title: "",
+          Description: "",
           ElementConfig: {
             Assets: [
-              'https://www.iot-ensemble.com/_lcu/lcu-setup-lcu/wc/lcu-setup.lcu.js'
+              "https://www.iot-ensemble.com/_lcu/lcu-device-data-flow-lcu/wc/lcu-device-data-flow.lcu.js",
             ],
-            ElementName: 'lcu-setup-manage-element'
-          }
-        }
+            ElementName: "lcu-device-data-flow-manage-element",
+          },
+        },
       };
 
       window.LCU = {
         // APIRoot: "https://localhost:44387",
-        // APIRoot: "https://www.lowcodeunit.com",
+        APIRoot: "https://www.iot-ensemble.com",
         Application: {},
         State: {
           ActionRoot: "/api/state",
           Root: "/api/state",
           // Environment: "local",
           UsernameMock: "michael.gearhardt@fathym.com",
+          FreeboardURL: "https://www.iot-ensemble.com/freeboard",
           Analytics: {
             Google: {
               Token: "G-NEWEXH7W8C",

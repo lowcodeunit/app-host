@@ -39,6 +39,7 @@
 
     .app-content-drawer {
       overflow: initial;
+      min-height: 200px;
       @extend .background-fill;
 
       .app-content-container {
