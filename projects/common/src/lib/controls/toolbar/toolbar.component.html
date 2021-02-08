@@ -2,16 +2,16 @@
   <div
     class="logo"
     fxHide.lt-md="true"
-    [style.background-image]="'url(' + (State.Logo || State.MobileLogo) + ')'"
-    *ngIf="State.Logo || State.MobileLogo"
+    [style.background-image]="'url(' + (State.Logo || State.LogoMobile) + ')'"
+    *ngIf="State.Logo || State.LogoMobile"
   ></div>
 
   <div
     class="logo mobile"
     fxHide
     fxShow.lt-md="true"
-    [style.background-image]="'url(' + (State.MobileLogo || State.Logo) + ')'"
-    *ngIf="State.MobileLogo || State.Logo"
+    [style.background-image]="'url(' + (State.LogoMobile || State.Logo) + ')'"
+    *ngIf="State.LogoMobile || State.Logo"
   ></div>
 
   <div fxFlex fxLayoutGap="10px" fxLayoutGap.lt-sm="5px">
