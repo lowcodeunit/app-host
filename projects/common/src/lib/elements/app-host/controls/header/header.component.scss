@@ -6,6 +6,7 @@
 
   .app-header-container {
     .app-header-details {
+      @extend .margin-right-1;
       @extend .background-fill;
 
       .app-header-details-container {
@@ -50,6 +51,7 @@
 
     .app-header-extras {
       @extend .plain-text;
+      @extend .margin-left-1;
       @extend .background-fill;
 
       .app-header-extras-container {
