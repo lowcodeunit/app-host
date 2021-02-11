@@ -89,8 +89,8 @@ export class LCUAppHostElementComponent
 
   public NavClosed(closed: boolean) {
     if (closed) {
-      this.State.Frame = {
-        ...this.State.Frame,
+      this.State.Frame = this.ActivePage.Frame = {
+        ...this.ActivePage.Frame,
         Opened: false,
       };
     }
@@ -98,8 +98,14 @@ export class LCUAppHostElementComponent
 
   public NavCollapseToggled(collapsed: boolean) {
     // this.NavCollapseToggle.emit(action);
-    this.State.Frame = {
-      ...this.State.Frame,
+
+    this.State.Frame = this.ActivePage.Frame = {
+      ...this.ActivePage.Frame,
+      Collapsed: collapsed,
+    };
+
+    this.State.Nav = this.ActivePage.Nav = {
+      ...this.ActivePage.Nav,
       Collapsed: collapsed,
     };
   }
@@ -109,26 +115,47 @@ export class LCUAppHostElementComponent
   }
 
   //  Helpers
+  protected processForStrAdd(val: any, parentStr: string) {
+    if (typeof val === 'string' && val?.startsWith('++')) {
+      return `${parentStr || ''}${val.replace('++', '')}`;
+    } else {
+      return val;
+    }
+  }
+
+  protected processObjectForStrAdd(val: any, parent: any) {
+    const valKeys = Object.keys(val);
+
+    valKeys.forEach((valKey) => {
+      const valProp = val[valKey];
+
+      if (
+        valProp instanceof Object &&
+        !(valProp instanceof Array) &&
+        valProp != null
+      ) {
+        val[valKey] = this.processObjectForStrAdd(valProp, parent[valKey]);
+      } else {
+        val[valKey] = this.processForStrAdd(val[valKey], parent[valKey]);
+      }
+    });
+
+    return {
+      ...parent,
+      ...val,
+    };
+  }
+
   protected setActivePage(route: string) {
     const page =
       this.State?.Pages?.find((p) => p.Route === route) ||
       this.State?.Pages.find((p) => p);
 
-    this.ActivePage = (page
-      ? {
-          ...page,
-          ...this.State,
-        }
-      : {}) as AppHostPageState;
-
-    const pageKeys = Object.keys(page);
-
-    pageKeys.forEach((pageKey) => {
-      this.ActivePage[pageKey] = {
-        ...this.ActivePage[pageKey],
-        ...page[pageKey],
-      };
+    this.processObjectForStrAdd(page, {
+      ...this.State,
     });
+
+    this.ActivePage = ;
 
     console.log(this.ActivePage);
   }

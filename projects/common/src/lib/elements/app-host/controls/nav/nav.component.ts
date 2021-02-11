@@ -83,9 +83,7 @@ export class NavComponent implements OnInit {
   }
 
   public ToggleCollapse() {
-    this.State.Collapsed = !this.State.Collapsed;
-
-    this.CollapseToggle.emit(this.State.Collapsed);
+    this.CollapseToggle.emit(!this.State.Collapsed);
   }
 
   //  Helpers

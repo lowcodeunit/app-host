@@ -15,7 +15,7 @@
       const appHost = {
         Toolbar: {
           Title: "IoT Ensemble Beta",
-          Logo: "/assets/logo.svg",
+          Logo: "./assets/logo.svg",
           Actions: [
             {
               Text: "Docs",
@@ -58,11 +58,47 @@
               Path: "/",
               Icon: "dashboard",
             },
+            // {
+            //   Text: "Landing Page",
+            //   Path: "/landing-page",
+            //   Icon: "cloud  ",
+            // },
           ],
         },
         SEO: {
           Title: "IoT Ensemble",
           Description: "IoT Made Easy",
+        },
+        LandingPage: {
+          Hero: {
+            BackgroundImage:
+              "/_lcu/lcu-landing-pages-lcu/assets/images/daniel-vogel-sVothhm7iRI-unsplash.jpg",
+            Message:
+              "Helps breweries develop solutions that can add a significant level of insight and reliability to brewing",
+            SubTitle: "for Breweries",
+            Title: "IoT Ensemble",
+          },
+          CallToAction: {
+            Label: "Sign up today",
+            Message:
+              "To learn how fathym can save your brewery thousands of dollars in time and lost product.",
+            Target: "_blank",
+            URL: "#",
+          },
+          InfoCards: [
+            {
+              Icon: "backup",
+              Info:
+                "Connect sensors to IoT Ensemble and collect real-time data in the cloud.",
+              Title: "Connect Sensors",
+            },
+            {
+              Icon: "insert_chart",
+              Info:
+                "Easily access data for use in 3rd party dashboards and reports.",
+              Title: "Access Data",
+            },
+          ],
         },
         ElementConfigs: {
           "lcu-device-data-flow-manage-element": {
@@ -76,12 +112,29 @@
             ],
             ElementName: "lcu-device-data-flow-manage-element",
           },
+          // "lcu-landing-pages-template-element": {
+          //   Scripts: [
+          //     "https://www.iot-ensemble.com/_lcu/lcu-landing-pages-lcu/wc/landing-pages.lcu.js",
+          //   ],
+          //   Styles: [
+          //     "https://www.iot-ensemble.com/_lcu/lcu-landing-pages-lcu/wc/landing-pages.lcu.css",
+          //   ],
+          //   ElementName: "lcu-landing-pages-template-element",
+          // },
         },
         Pages: [
           {
             Route: "/",
             ElementConfigs: ["lcu-device-data-flow-manage-element"],
+            SEO: {
+              Title: "++Do It!",
+              Description: "IoT Made Easy-ish",
+            },
           },
+          // {
+          //   Route: "/landing-page",
+          //   ElementConfigs: ["lcu-landing-pages-template-element"],
+          // },
         ],
       };
 

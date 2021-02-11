@@ -18,6 +18,8 @@
 
   <mat-drawer-content class="app-content-drawer" [@stretch]="CollapsedState">
     <div class="app-content-container">
+      <div>Ok: {{ State.Collapsed }}{{ CollapsedState }}</div>
+
       <ng-content></ng-content>
     </div>
   </mat-drawer-content>
