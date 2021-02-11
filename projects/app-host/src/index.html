@@ -10,10 +10,6 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link
-      href="https://www.iot-ensemble.com/_lcu/lcu-device-data-flow-lcu/wc/lcu-device-data-flow.lcu.css"
-      rel="stylesheet"
-    />
 
     <script id="lcu-reg">
       const appHost = {
@@ -40,18 +36,18 @@
             },
           ],
         },
+        Frame: {
+          Collapsed: true,
+          Opened: true,
+          StaticMenuTop: 250,
+          StickyNav: true,
+        },
         Header: {
           BrandTitle: "IoT Ensemble",
           InfoText:
             "Emulate, simulate, and connect your devices to unlock the power of your IoT applications.",
           InfoTitle: "Device Dashboard",
           WelcomeTitle: "Welcome to",
-        },
-        Frame: {
-          Collapsed: true,
-          Opened: true,
-          StaticMenuTop: 250,
-          StickyNav: true,
         },
         Nav: {
           Title: "IoT Ensemble Beta",
@@ -69,9 +65,12 @@
           Title: "",
           Description: "",
           ElementConfig: {
-            Assets: [
+            Scripts: [
               "/assets/lcu-device-data-flow.lcu.js",
               "https://www.iot-ensemble.com/_lcu/lcu-device-data-flow-lcu/wc/lcu-device-data-flow.lcu.jss",
+            ],
+            Styles: [
+              "https://www.iot-ensemble.com/_lcu/lcu-device-data-flow-lcu/wc/lcu-device-data-flow.lcu.css",
             ],
             ElementName: "lcu-device-data-flow-manage-element",
           },

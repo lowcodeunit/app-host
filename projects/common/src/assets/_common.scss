@@ -38,7 +38,7 @@ $secondary-text: map-get(map-get($global-theme, 'foreground'), 'secondary-text')
 
 html, body {
     height: 100%;
-    background-color: $background;
+    background-color: $background !important;
     color: white;
 }
 
