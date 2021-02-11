@@ -59,7 +59,9 @@ export class LCUAppHostElementComponent
   }
 
   //  Life Cycle
-  public ngOnChanges() {}
+  public ngOnChanges() {
+    this.setActivePage(this.router.routerState.snapshot.url);
+  }
 
   public ngOnInit() {
     super.ngOnInit();
@@ -115,8 +117,18 @@ export class LCUAppHostElementComponent
     this.ActivePage = (page
       ? {
           ...page,
+          ...this.State,
         }
       : {}) as AppHostPageState;
+
+    const pageKeys = Object.keys(page);
+
+    pageKeys.forEach((pageKey) => {
+      this.ActivePage[pageKey] = {
+        ...this.ActivePage[pageKey],
+        ...page[pageKey],
+      };
+    });
 
     console.log(this.ActivePage);
   }

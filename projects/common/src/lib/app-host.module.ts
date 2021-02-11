@@ -11,6 +11,7 @@ import { AppHostDashboardCardElementComponent } from './elements/dashboard-card/
 import { ActionComponent } from './controls/action/action.component';
 import { NavComponent } from './elements/app-host/controls/nav/nav.component';
 import { LazyElementModule } from '@lowcodeunit/lazy-element';
+import { LoaderComponent } from './controls/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { LazyElementModule } from '@lowcodeunit/lazy-element';
     AppHostDashboardCardElementComponent,
     ActionComponent,
     NavComponent,
+    LoaderComponent,
   ],
   imports: [
     FathymSharedModule,
@@ -40,6 +42,7 @@ import { LazyElementModule } from '@lowcodeunit/lazy-element';
     AppHostDashboardCardElementComponent,
     ActionComponent,
     NavComponent,
+    LoaderComponent,
   ],
   entryComponents: [
     LCUAppHostElementComponent,

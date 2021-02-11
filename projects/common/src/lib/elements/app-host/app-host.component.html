@@ -1,13 +1,13 @@
-<div fxFlexFill fxLayout="column" class="page" *ngIf="State">
+<div fxFlexFill fxLayout="column" class="page" *ngIf="ActivePage">
   <lcu-toolbar
     class="page-toolbar"
-    [state]="State.Toolbar"
+    [state]="ActivePage.Toolbar"
     (action-click)="ToolbarActionClicked($event)"
-    *ngIf="State.Toolbar"
+    *ngIf="ActivePage.Toolbar"
   >
   </lcu-toolbar>
 
-  <div class="page-container">
+  <div class="page-container" *ngIf="ActivePage">
     <lcu-app-host-header
       class="app-header"
       [state]="State.Header"
@@ -29,33 +29,38 @@
       </div>
     </lcu-app-host-header>
 
-    <lcu-app-host-frame [state]="State.Frame" *ngIf="State.Frame">
+    <lcu-app-host-frame [state]="ActivePage.Frame" *ngIf="ActivePage.Frame">
       <nav class="app-nav">
         <lcu-app-host-nav
-          [state]="State.Nav"
+          [state]="ActivePage.Nav"
           (action-click)="NavActionClicked($event)"
           (close)="NavClosed($event)"
           (collapse-toggle)="NavCollapseToggled($event)"
+          *ngIf="ActivePage.Nav"
         >
         </lcu-app-host-nav>
       </nav>
 
       <div class="app-content">
-        <ng-container *ngFor="let elCfgName of ActivePage?.ElementConfigs">
-          <ng-container *ngIf="State.ElementConfigs[elCfgName]; let elCfg">
-            <lcu-lazy-element [config]="elCfg"></lcu-lazy-element>
-          </ng-container>
-        </ng-container>
+        <lcu-loader [loading]="ActivePage.Loading"></lcu-loader>
+
+        <lcu-lazy-elements
+          [names]="ActivePage?.ElementConfigs"
+          [configs]="ActivePage.ElementConfigs"
+        >
+        </lcu-lazy-elements>
       </div>
     </lcu-app-host-frame>
 
-    <div class="app-content" *ngIf="!State.Frame">
-      <ng-container *ngFor="let elCfgName of ActivePage?.ElementConfigs">
-        <ng-container *ngIf="State.ElementConfigs[elCfgName]; let elCfg">
-          <lcu-lazy-element [config]="elCfg"></lcu-lazy-element>
-        </ng-container>
-      </ng-container>
+    <div class="app-content" *ngIf="!ActivePage.Frame">
+      <lcu-loader [loading]="ActivePage.Loading"></lcu-loader>
+
+      <lcu-lazy-elements
+        [names]="ActivePage.ElementConfigs"
+        [configs]="ActivePage.ElementConfigs"
+      ></lcu-lazy-elements>
     </div>
   </div>
 </div>
 
+<lcu-loader [loading]="!ActivePage"></lcu-loader>
