@@ -1,6 +1,6 @@
 <ng-container *ngIf="Action">
   <ng-container *ngIf="Action.Path">
-    <a mat-button [href]="Action.Path" [target]="Action.Target">
+    <a mat-button [href]="Action.Path" [target]="Action.Target || ''">
       <mat-icon *ngIf="Action.Icon">{{ Action.Icon }}</mat-icon>
 
       <span *ngIf="Action.Text" [innerHTML]="Action.Text"></span>

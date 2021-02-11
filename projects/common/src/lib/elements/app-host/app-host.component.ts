@@ -7,9 +7,12 @@ import {
   EventEmitter,
   Output,
   HostBinding,
+  OnChanges,
 } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { LCUElementContext, LcuElementComponent } from '@lcu/common';
 import { LazyElementConfig } from '@lowcodeunit/lazy-element';
+import { filter } from 'rxjs/operators';
 import { LCUActionState } from '../../controls/action/action.component';
 import { AppHostPageState, AppHostState } from '../../state/app-host.state';
 
@@ -26,7 +29,7 @@ export const SELECTOR_LCU_APP_HOST_ELEMENT = 'lcu-app-host-element';
 })
 export class LCUAppHostElementComponent
   extends LcuElementComponent<LCUAppHostContext>
-  implements OnInit {
+  implements OnChanges, OnInit {
   //  Fields
 
   //  Properties
@@ -47,7 +50,7 @@ export class LCUAppHostElementComponent
   public ToolbarActionClick: EventEmitter<LCUActionState>;
 
   //  Constructors
-  constructor(protected injector: Injector) {
+  constructor(protected injector: Injector, private router: Router) {
     super(injector);
 
     this.ToolbarActionClick = new EventEmitter();
@@ -56,6 +59,8 @@ export class LCUAppHostElementComponent
   }
 
   //  Life Cycle
+  public ngOnChanges() {}
+
   public ngOnInit() {
     super.ngOnInit();
 
@@ -66,11 +71,13 @@ export class LCUAppHostElementComponent
       Collapsed: this.State.Nav.Collapsed,
     };
 
-    this.ActivePage = (this.State?.Page
-      ? {
-          ...this.State?.Page,
-        }
-      : {}) as AppHostPageState;
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        this.setActivePage(event.url);
+      });
+
+    this.setActivePage(this.router.routerState.snapshot.url);
   }
 
   //  API Methods
@@ -100,4 +107,17 @@ export class LCUAppHostElementComponent
   }
 
   //  Helpers
+  protected setActivePage(route: string) {
+    const page =
+      this.State?.Pages?.find((p) => p.Route === route) ||
+      this.State?.Pages.find((p) => p);
+
+    this.ActivePage = (page
+      ? {
+          ...page,
+        }
+      : {}) as AppHostPageState;
+
+    console.log(this.ActivePage);
+  }
 }

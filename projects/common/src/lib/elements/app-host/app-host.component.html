@@ -1,13 +1,18 @@
-<div fxFlexFill fxLayout="column" class="page">
+<div fxFlexFill fxLayout="column" class="page" *ngIf="State">
   <lcu-toolbar
     class="page-toolbar"
     [state]="State.Toolbar"
     (action-click)="ToolbarActionClicked($event)"
+    *ngIf="State.Toolbar"
   >
   </lcu-toolbar>
 
   <div class="page-container">
-    <lcu-app-host-header class="app-header" [state]="State.Header">
+    <lcu-app-host-header
+      class="app-header"
+      [state]="State.Header"
+      *ngIf="State.Header"
+    >
       <div fxLayout="column">
         <div class="divider-fill-hor"></div>
 
@@ -16,14 +21,15 @@
         </h3>
 
         <p>
-          Check out our getting started <a mat-link-button href="/docs" target="_blank">documentation</a>
+          Check out our getting started
+          <a mat-link-button href="/docs" target="_blank">documentation</a>
         </p>
 
         <div class="divider-fill-hor"></div>
       </div>
     </lcu-app-host-header>
 
-    <lcu-app-host-frame [state]="State.Frame">
+    <lcu-app-host-frame [state]="State.Frame" *ngIf="State.Frame">
       <nav class="app-nav">
         <lcu-app-host-nav
           [state]="State.Nav"
@@ -35,8 +41,21 @@
       </nav>
 
       <div class="app-content">
-        <lcu-lazy-element [config]="ActivePage.ElementConfig"></lcu-lazy-element>
+        <ng-container *ngFor="let elCfgName of ActivePage?.ElementConfigs">
+          <ng-container *ngIf="State.ElementConfigs[elCfgName]; let elCfg">
+            <lcu-lazy-element [config]="elCfg"></lcu-lazy-element>
+          </ng-container>
+        </ng-container>
       </div>
     </lcu-app-host-frame>
+
+    <div class="app-content" *ngIf="!State.Frame">
+      <ng-container *ngFor="let elCfgName of ActivePage?.ElementConfigs">
+        <ng-container *ngIf="State.ElementConfigs[elCfgName]; let elCfg">
+          <lcu-lazy-element [config]="elCfg"></lcu-lazy-element>
+        </ng-container>
+      </ng-container>
+    </div>
   </div>
 </div>
+

@@ -2,11 +2,11 @@ import { LazyElementConfig } from '@lowcodeunit/lazy-element';
 import { LCUActionState } from '../controls/action/action.component';
 
 export class AppHostStateBase {
-  public Loading?: boolean;
-
   public Frame?: AppHostFrameState;
 
   public Header?: AppHostHeaderState;
+
+  public Loading?: boolean;
 
   public Nav?: AppHostNavState;
 
@@ -18,7 +18,9 @@ export class AppHostStateBase {
 }
 
 export class AppHostState extends AppHostStateBase {
-  public Page?: AppHostPageState;
+  public ElementConfigs?: LazyElementConfig[];
+
+  public Pages?: AppHostPageState[];
 }
 
 export class AppHostFrameState {
@@ -52,7 +54,9 @@ export class AppHostNavState {
 }
 
 export class AppHostPageState extends AppHostStateBase {
-  public ElementConfig: LazyElementConfig;
+  public ElementConfigs: string[];
+
+  public Route: string;
 }
 
 export class AppHostSEOState {

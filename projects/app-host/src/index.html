@@ -55,26 +55,35 @@
           Actions: [
             {
               Text: "Dashboard",
-              Path: "/dashboard",
+              Path: "/",
               Icon: "dashboard",
-              Target: "_blank",
             },
           ],
         },
-        Page: {
-          Title: "",
-          Description: "",
-          ElementConfig: {
+        SEO: {
+          Title: "IoT Ensemble",
+          Description: "IoT Made Easy",
+        },
+
+        ElementConfigs: {
+          "lcu-device-data-flow-manage-element": {
             Scripts: [
-              "/assets/lcu-device-data-flow.lcu.js",
-              "https://www.iot-ensemble.com/_lcu/lcu-device-data-flow-lcu/wc/lcu-device-data-flow.lcu.jss",
+              // "/assets/lcu-device-data-flow.lcu.js",
+              "https://www.iot-ensemble.com/_lcu/lcu-device-data-flow-lcu/wc/lcu-device-data-flow.lcu.js",
             ],
             Styles: [
+              // "/assets/lcu-device-data-flow.lcu.css",
               "https://www.iot-ensemble.com/_lcu/lcu-device-data-flow-lcu/wc/lcu-device-data-flow.lcu.css",
             ],
             ElementName: "lcu-device-data-flow-manage-element",
           },
         },
+        Pages: [
+          {
+            Route: "/",
+            ElementConfigs: ["lcu-device-data-flow-manage-element", "lcu-device-data-flow-manage-element"],
+          },
+        ],
       };
 
       window.LCU = {
