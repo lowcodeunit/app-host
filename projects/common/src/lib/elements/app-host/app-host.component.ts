@@ -151,11 +151,9 @@ export class LCUAppHostElementComponent
       this.State?.Pages?.find((p) => p.Route === route) ||
       this.State?.Pages.find((p) => p);
 
-    this.processObjectForStrAdd(page, {
+    this.ActivePage = this.processObjectForStrAdd(page, {
       ...this.State,
     });
-
-    this.ActivePage = ;
 
     console.log(this.ActivePage);
   }

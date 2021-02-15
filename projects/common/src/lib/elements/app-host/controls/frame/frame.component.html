@@ -18,28 +18,9 @@
 
   <mat-drawer-content class="app-content-drawer" [@stretch]="CollapsedState">
     <div class="app-content-container">
-      <div>Ok: {{ State.Collapsed }}{{ CollapsedState }}</div>
-
       <ng-content></ng-content>
     </div>
   </mat-drawer-content>
-
-  <!-- <mat-drawer
-    class="details-drawer"
-    #detailsDrawer
-    mode="over"
-    position="end"
-  >
-    <div class="content spread">
-      <button mat-icon-button class="close" (click)="CloseDetailsDrawer()">
-        <mat-icon>close</mat-icon>
-      </button>
-
-      <h2>Welcome to IoT Ensemble</h2>
-
-      <p>You can use this dashboard to get your data flowing.</p>
-    </div>
-  </mat-drawer> -->
 </mat-drawer-container>
 
 <div class="app-nav-menu" [style.top]="(State.StaticMenuTop || 250) + 'px'">
