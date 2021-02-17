@@ -24,9 +24,6 @@ export class LCUActionState {
   selector: 'lcu-action',
   templateUrl: './action.component.html',
   styleUrls: ['./action.component.scss'],
-  host: {
-    class: 'l',
-  },
 })
 export class ActionComponent implements OnInit {
   //  Fields
@@ -40,7 +37,7 @@ export class ActionComponent implements OnInit {
     return true;
   }
 
-  @Output('click')
+  @Output('action-click')
   public Click: EventEmitter<LCUActionState>;
 
   //  Constructors
