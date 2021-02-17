@@ -8,7 +8,11 @@
   </ng-container>
 
   <ng-container *ngIf="!Action.Path">
-    <button mat-button (click)="Clicked()">
+    <button 
+    [color]="Action.ButtonColor"
+    [ngStyle]="{'color': Action.ButtonColor}"
+    [ngClass]="Action.ButtonColor"
+    mat-button (click)="Clicked()">
       <mat-icon *ngIf="Action.Icon">{{ Action.Icon }}</mat-icon>
 
       <span *ngIf="Action.Text" [innerHTML]="Action.Text"></span>
