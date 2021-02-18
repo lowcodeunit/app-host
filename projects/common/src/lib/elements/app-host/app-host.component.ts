@@ -177,8 +177,8 @@ export class LCUAppHostElementComponent
   }
 
   protected setContext(): void {
-    this.Context = {
+    this.SetContext({
       AppHost: this.settings.State.AppHost,
-    };
+    });
   }
 }
