@@ -17,6 +17,8 @@ export class LCUActionState {
 
   public Path?: string;
 
+  public Raised?: boolean;
+
   public Target?: string;
 
   public Text?: string;
