@@ -4,7 +4,6 @@
       <a
         mat-button
         [color]="Action.Color"
-        [ngClass]="Action.Color"
         [href]="Action.Path"
         [target]="Action.Target || ''"
       >
@@ -18,7 +17,6 @@
       <a
         mat-raised-button
         [color]="Action.Color"
-        [ngClass]="Action.Color"
         [href]="Action.Path"
         [target]="Action.Target || ''"
       >
@@ -34,7 +32,6 @@
       <button
         mat-button
         [color]="Action.Color"
-        [ngClass]="Action.Color"
         (click)="Clicked()"
       >
         <mat-icon *ngIf="Action.Icon">{{ Action.Icon }}</mat-icon>
@@ -47,7 +44,6 @@
       <button
         mat-raised-button
         [color]="Action.Color"
-        [ngClass]="Action.Color"
         (click)="Clicked()"
       >
         <mat-icon *ngIf="Action.Icon">{{ Action.Icon }}</mat-icon>
