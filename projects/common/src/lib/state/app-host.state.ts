@@ -18,7 +18,7 @@ export class AppHostStateBase {
 }
 
 export class AppHostState extends AppHostStateBase {
-  public ElementConfigs?: LazyElementConfig[];
+  public ElementConfigs?: { [key: string]: LazyElementConfig };
 
   public Pages?: AppHostPageState[];
 }

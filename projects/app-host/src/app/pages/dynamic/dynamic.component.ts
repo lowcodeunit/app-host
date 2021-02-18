@@ -17,12 +17,58 @@ export class DynamicComponent implements OnInit {
   public AppHostContext: LCUAppHostContext;
 
   //  Constructors
-  constructor() {
-  }
+  constructor() {}
 
   //  Life Cycle
   public ngOnInit(): void {
-    // this.AppHostContext = {};
+    this.AppHostContext = {
+      AppHost: {
+        Toolbar: {
+          Title: 'IoT Ensemble Beta',
+          Logo: './assets/logo.svg',
+          Actions: [
+            {
+              Text: 'Docs',
+              Path: '/docs',
+              Align: 'start',
+              Target: '_blank',
+            },
+            {
+              Text: 'Upgrade',
+              Path: '/billing/iot',
+              Align: 'end',
+            },
+            {
+              Text: 'Sign Out',
+              Path: '/.oauth/logout',
+              Align: 'end',
+            },
+          ],
+        },
+        SEO: {
+          Title: 'IoT Ensemble',
+          Description: 'IoT Made Easy',
+        },
+        ElementConfigs: {
+          'landing-pages-blocks-element': {
+            Assets: null,
+            Scripts: [
+              'https://www.iot-ensemble.com/_lcu/lcu-landing-pages-lcu/wc/landing-pages.lcu.js',
+            ],
+            Styles: [
+              'https://www.iot-ensemble.com/_lcu/lcu-landing-pages-lcu/wc/landing-pages.lcu.css',
+            ],
+            ElementName: 'landing-pages-blocks-element',
+          },
+        },
+        Pages: [
+          {
+            Route: '/',
+            ElementConfigs: ['landing-pages-blocks-element'],
+          },
+        ],
+      },
+    };
   }
 
   //  API Methods

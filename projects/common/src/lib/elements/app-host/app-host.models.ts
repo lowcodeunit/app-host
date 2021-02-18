@@ -4,6 +4,5 @@ import { AppHostState } from '../../state/app-host.state';
 export class LCUAppHostElementState {}
 
 export class LCUAppHostContext extends LCUElementContext<LCUAppHostElementState> {
-  public AppHost?: AppHostState
-  ;
+  public AppHost?: AppHostState;
 }
