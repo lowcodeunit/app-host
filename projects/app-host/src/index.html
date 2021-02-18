@@ -131,20 +131,24 @@
             },
           },
           LandingPage: {
+            CallToAction: {
+              Action: {
+                Text: "Sign up today",
+                Target: "_blank",
+                Path: "#",
+                Raised: true,
+                ButtonColor: "primary",
+              },
+              Message:
+                "To learn how fathym can save your brewery thousands of dollars in time and lost product.",
+            },
             Hero: {
               BackgroundImage:
-                "/_lcu/lcu-landing-pages-lcu/assets/images/daniel-vogel-sVothhm7iRI-unsplash.jpg",
+                "assets/images/daniel-vogel-sVothhm7iRI-unsplash.jpg",
               Message:
                 "Helps breweries develop solutions that can add a significant level of insight and reliability to brewing",
               SubTitle: "for Breweries",
               Title: "IoT Ensemble",
-            },
-            CallToAction: {
-              Label: "Sign up today",
-              Message:
-                "To learn how fathym can save your brewery thousands of dollars in time and lost product.",
-              Target: "_blank",
-              URL: "#",
             },
             InfoCards: [
               {
@@ -161,7 +165,52 @@
               },
             ],
           },
-          AppHost: appHost,
+          AppHost: {
+            Toolbar: {
+              Title: "IoT Ensemble Beta",
+              Logo: "./assets/logo.svg",
+              Actions: [
+                {
+                  Text: "Docs",
+                  Path: "/docs",
+                  Align: "start",
+                  Target: "_blank",
+                },
+                {
+                  Text: "Upgrade",
+                  Path: "/billing/iot",
+                  Align: "end",
+                },
+                {
+                  Text: "Sign Out",
+                  Path: "/.oauth/logout",
+                  Align: "end",
+                },
+              ],
+            },
+            SEO: {
+              Title: "IoT Ensemble",
+              Description: "IoT Made Easy",
+            },
+            ElementConfigs: {
+              "landing-pages-blocks-element": {
+                Scripts: [
+                  "https://www.iot-ensemble.com/_lcu/lcu-landing-pages-lcu/wc/landing-pages.lcu.js",
+                ],
+                Styles: [
+                  "https://www.iot-ensemble.com/_lcu/lcu-landing-pages-lcu/wc/landing-pages.lcu.css",
+                ],
+                ElementName: "landing-pages-blocks-element",
+              },
+            },
+            Pages: [
+              {
+                Route: "/",
+                ElementConfigs: ["landing-pages-blocks-element"],
+              },
+            ],
+          },
+          // AppHost: appHost,
         },
         Settings: {},
         User: {
