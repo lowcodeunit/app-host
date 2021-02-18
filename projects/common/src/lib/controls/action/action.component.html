@@ -3,7 +3,7 @@
     <ng-container *ngIf="!Action.Raised">
       <a
         mat-button
-        [color]="Action.ButtonColor"
+        [color]="Action.Color"
         [href]="Action.Path"
         [target]="Action.Target || ''"
       >
@@ -16,7 +16,7 @@
     <ng-container *ngIf="Action.Raised">
       <a
         mat-raised-button
-        [color]="Action.ButtonColor"
+        [color]="Action.Color"
         [href]="Action.Path"
         [target]="Action.Target || ''"
       >
@@ -31,9 +31,9 @@
     <ng-container *ngIf="!Action.Raised">
       <button
         mat-button
-        [color]="Action.ButtonColor"
-        [ngStyle]="{ color: Action.ButtonColor }"
-        [ngClass]="Action.ButtonColor"
+        [color]="Action.Color"
+        [ngStyle]="{ color: Action.Color }"
+        [ngClass]="Action.Color"
         (click)="Clicked()"
       >
         <mat-icon *ngIf="Action.Icon">{{ Action.Icon }}</mat-icon>
@@ -45,9 +45,9 @@
     <ng-container *ngIf="Action.Raised">
       <button
         mat-raised-button
-        [color]="Action.ButtonColor"
-        [ngStyle]="{ color: Action.ButtonColor }"
-        [ngClass]="Action.ButtonColor"
+        [color]="Action.Color"
+        [ngStyle]="{ color: Action.Color }"
+        [ngClass]="Action.Color"
         (click)="Clicked()"
       >
         <mat-icon *ngIf="Action.Icon">{{ Action.Icon }}</mat-icon>

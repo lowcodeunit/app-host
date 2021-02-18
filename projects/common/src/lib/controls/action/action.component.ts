@@ -11,7 +11,7 @@ import {
 export class LCUActionState {
   public Align?: 'start' | 'end';
 
-  public ButtonColor?: string;
+  public Color?: string;
 
   public Icon?: string;
 
