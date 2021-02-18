@@ -10,15 +10,16 @@ import {
   OnChanges,
 } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { LCUElementContext, LcuElementComponent } from '@lcu/common';
+import {
+  LCUElementContext,
+  LcuElementComponent,
+  LCUServiceSettings,
+} from '@lcu/common';
 import { LazyElementConfig } from '@lowcodeunit/lazy-element';
 import { filter } from 'rxjs/operators';
 import { LCUActionState } from '../../controls/action/action.component';
 import { AppHostPageState, AppHostState } from '../../state/app-host.state';
-
-export class LCUAppHostElementState {}
-
-export class LCUAppHostContext extends LCUElementContext<LCUAppHostElementState> {}
+import { LCUAppHostContext } from './app-host.models';
 
 export const SELECTOR_LCU_APP_HOST_ELEMENT = 'lcu-app-host-element';
 
@@ -43,14 +44,19 @@ export class LCUAppHostElementComponent
   @Output('nav-action-click')
   public NavActionClick: EventEmitter<LCUActionState>;
 
-  @Input('state')
-  public State: AppHostState;
+  public get State(): AppHostState {
+    return this.Context?.AppHost;
+  }
 
   @Output('toolbar-action-click')
   public ToolbarActionClick: EventEmitter<LCUActionState>;
 
   //  Constructors
-  constructor(protected injector: Injector, private router: Router) {
+  constructor(
+    protected injector: Injector,
+    private router: Router,
+    protected settings: LCUServiceSettings
+  ) {
     super(injector);
 
     this.ToolbarActionClick = new EventEmitter();
@@ -66,7 +72,11 @@ export class LCUAppHostElementComponent
   public ngOnInit() {
     super.ngOnInit();
 
-    console.log(this.State);
+    if (!this.Context) {
+      this.setContext();
+    }
+
+    console.log(this.Context);
 
     this.State.Frame = {
       ...this.State.Frame,
@@ -147,14 +157,22 @@ export class LCUAppHostElementComponent
   }
 
   protected setActivePage(route: string) {
-    const page =
-      this.State?.Pages?.find((p) => p.Route === route) ||
-      this.State?.Pages.find((p) => p);
+    if (this.State) {
+      const page =
+        this.State?.Pages?.find((p) => p.Route === route) ||
+        this.State?.Pages.find((p) => p);
 
-    this.ActivePage = this.processObjectForStrAdd(page, {
-      ...this.State,
-    });
+      this.ActivePage = this.processObjectForStrAdd(page, {
+        ...this.State,
+      });
 
-    console.log(this.ActivePage);
+      console.log(this.ActivePage);
+    }
+  }
+
+  protected setContext(): void {
+    this.Context = {
+      AppHost: this.settings.State.AppHost,
+    };
   }
 }

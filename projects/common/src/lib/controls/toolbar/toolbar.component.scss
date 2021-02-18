@@ -1,6 +1,6 @@
 @import "../../../../../common/src/assets/common";
 
-:host {
+:host ::ng-deep {
   .logo {
     height: 60px;
     width: 160px;
@@ -8,12 +8,6 @@
 
     &.mobile {
       width: 75px;
-    }
-  }
-
-  lcu-action {
-    .mat-button-base {
-      width: 100%;
     }
   }
 }
