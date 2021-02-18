@@ -78,11 +78,6 @@ export class LCUAppHostElementComponent
 
     console.log(this.Context);
 
-    this.State.Frame = {
-      ...this.State.Frame,
-      Collapsed: this.State.Nav.Collapsed,
-    };
-
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
@@ -167,6 +162,11 @@ export class LCUAppHostElementComponent
       });
 
       console.log(this.ActivePage);
+
+      this.State.Frame = {
+        ...this.State.Frame,
+        Collapsed: this.State.Nav.Collapsed,
+      };
     }
   }
 
