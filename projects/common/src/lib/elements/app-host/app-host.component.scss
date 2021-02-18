@@ -8,7 +8,9 @@
     }
 
     > .page-container {
-      @extend .margin-2;
+      &.page-margin {
+        @extend .margin-2;
+      }
 
       lcu-app-host-header {
         @extend .margin-bottom-2;

@@ -67,6 +67,8 @@ export class AppHostSEOState {
 
 export class AppHostThemeState {
   public Name?: string;
+
+  public UsePageMargin?: boolean;
 }
 
 export class AppHostToolbarState {

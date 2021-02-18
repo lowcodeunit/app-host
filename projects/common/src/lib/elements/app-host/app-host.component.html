@@ -7,7 +7,7 @@
   >
   </lcu-toolbar>
 
-  <div class="page-container" *ngIf="ActivePage">
+  <div class="page-container" [class.page-margin]="ActivePage.Theme?.UsePageMargin" *ngIf="ActivePage">
     <lcu-app-host-header
       class="app-header"
       [state]="ActivePage.Header"
