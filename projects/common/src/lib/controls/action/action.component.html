@@ -1,6 +1,11 @@
 <ng-container *ngIf="Action">
   <ng-container *ngIf="Action.Path">
-    <a mat-button [href]="Action.Path" [target]="Action.Target || ''">
+    <a
+      mat-button
+      [color]="Action.ButtonColor"
+      [href]="Action.Path"
+      [target]="Action.Target || ''"
+    >
       <mat-icon *ngIf="Action.Icon">{{ Action.Icon }}</mat-icon>
 
       <span *ngIf="Action.Text" [innerHTML]="Action.Text"></span>
@@ -8,11 +13,13 @@
   </ng-container>
 
   <ng-container *ngIf="!Action.Path">
-    <button 
-    [color]="Action.ButtonColor"
-    [ngStyle]="{'color': Action.ButtonColor}"
-    [ngClass]="Action.ButtonColor"
-    mat-button (click)="Clicked()">
+    <button
+      [color]="Action.ButtonColor"
+      [ngStyle]="{ color: Action.ButtonColor }"
+      [ngClass]="Action.ButtonColor"
+      mat-button
+      (click)="Clicked()"
+    >
       <mat-icon *ngIf="Action.Icon">{{ Action.Icon }}</mat-icon>
 
       <span *ngIf="Action.Text" [innerHTML]="Action.Text"></span>
