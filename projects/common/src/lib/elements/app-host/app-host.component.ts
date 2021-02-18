@@ -76,8 +76,6 @@ export class LCUAppHostElementComponent
       this.setContext();
     }
 
-    console.log(this.Context);
-
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
@@ -161,24 +159,24 @@ export class LCUAppHostElementComponent
         this.State?.Pages?.find((p) => p.Route === route) ||
         this.State?.Pages?.find((p) => p);
 
-      this.ActivePage = this.processObjectForStrAdd(page, {
-        ...this.State,
-      });
-
-      console.log(this.ActivePage);
-
       if (this.State.Frame) {
         this.State.Frame = {
           ...this.State.Frame,
-          Collapsed: this.State.Nav?.Collapsed || this.State.Frame.Collapsed,
+          Collapsed: this.State.Nav?.Collapsed,
         };
       }
+
+      this.ActivePage = this.processObjectForStrAdd(page, {
+        ...this.State,
+      });
     }
   }
 
   protected setContext(): void {
-    this.SetContext({
-      AppHost: this.settings.State.AppHost,
-    });
+    if (this.settings.State.AppHost) {
+      this.SetContext({
+        AppHost: this.settings.State.AppHost,
+      });
+    }
   }
 }
