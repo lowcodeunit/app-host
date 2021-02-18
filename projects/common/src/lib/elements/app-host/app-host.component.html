@@ -10,8 +10,8 @@
   <div class="page-container" *ngIf="ActivePage">
     <lcu-app-host-header
       class="app-header"
-      [state]="State.Header"
-      *ngIf="State.Header"
+      [state]="ActivePage.Header"
+      *ngIf="ActivePage.Header"
     >
       <div fxLayout="column">
         <div class="divider-fill-hor"></div>

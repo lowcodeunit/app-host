@@ -134,6 +134,10 @@ export class LCUAppHostElementComponent
     const valKeys = Object.keys(val);
 
     valKeys.forEach((valKey) => {
+      if (valKey == 'Header') {
+        // debugger;
+        console.log(valKey);
+      }
       const valProp = val[valKey];
 
       if (
@@ -174,9 +178,9 @@ export class LCUAppHostElementComponent
 
   protected setContext(): void {
     if (this.settings.State.AppHost) {
-      this.SetContext({
+      this.Context = {
         AppHost: this.settings.State.AppHost,
-      });
+      };
     }
   }
 }
