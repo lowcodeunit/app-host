@@ -93,7 +93,7 @@ export class LCUAppHostElementComponent
   }
 
   public NavClosed(closed: boolean) {
-    if (closed) {
+    if (closed && this.ActivePage.Frame) {
       this.State.Frame = this.ActivePage.Frame = {
         ...this.ActivePage.Frame,
         Opened: false,
@@ -104,15 +104,19 @@ export class LCUAppHostElementComponent
   public NavCollapseToggled(collapsed: boolean) {
     // this.NavCollapseToggle.emit(action);
 
-    this.State.Frame = this.ActivePage.Frame = {
-      ...this.ActivePage.Frame,
-      Collapsed: collapsed,
-    };
+    if (this.ActivePage.Frame) {
+      this.State.Frame = this.ActivePage.Frame = {
+        ...this.ActivePage.Frame,
+        Collapsed: collapsed,
+      };
+    }
 
-    this.State.Nav = this.ActivePage.Nav = {
-      ...this.ActivePage.Nav,
-      Collapsed: collapsed,
-    };
+    if (this.ActivePage.Nav) {
+      this.State.Nav = this.ActivePage.Nav = {
+        ...this.ActivePage.Nav,
+        Collapsed: collapsed,
+      };
+    }
   }
 
   public ToolbarActionClicked(action: LCUActionState) {
@@ -155,7 +159,7 @@ export class LCUAppHostElementComponent
     if (this.State) {
       const page =
         this.State?.Pages?.find((p) => p.Route === route) ||
-        this.State?.Pages.find((p) => p);
+        this.State?.Pages?.find((p) => p);
 
       this.ActivePage = this.processObjectForStrAdd(page, {
         ...this.State,
@@ -163,10 +167,12 @@ export class LCUAppHostElementComponent
 
       console.log(this.ActivePage);
 
-      this.State.Frame = {
-        ...this.State.Frame,
-        Collapsed: this.State.Nav.Collapsed,
-      };
+      if (this.State.Frame) {
+        this.State.Frame = {
+          ...this.State.Frame,
+          Collapsed: this.State.Nav?.Collapsed || this.State.Frame.Collapsed,
+        };
+      }
     }
   }
 
