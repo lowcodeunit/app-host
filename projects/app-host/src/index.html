@@ -69,7 +69,7 @@
           Description: "IoT Made Easy",
         },
         Theme: {
-          UsePageMargin: true
+          UsePageMargin: true,
         },
         ElementConfigs: {
           "lcu-device-data-flow-manage-element": {
@@ -92,7 +92,7 @@
               "/assets/landing-pages.lcu.css",
               // "https://www.iot-ensemble.com/_lcu/lcu-landing-pages-lcu/wc/landing-pages.lcu.css",
             ],
-            ElementName: "landing-pages-blocks-element",
+            ElementName: "landing-pages-home-page-element",
           },
         },
         Pages: [
@@ -110,9 +110,62 @@
             Frame: null,
             Nav: null,
             Header: null,
-            Theme: null
+            Theme: null,
           },
         ],
+      };
+
+      const landingPage = {
+        Hero: {
+          Message: `Don't wait for the right hire, use the team you have.  Take control of Cloud.`,
+          SubTitle: "Virtual Developers",
+          Title: "Fathym Cloud",
+          Action: {
+            Text: "Get started for free",
+            Target: "_blank",
+            Path: "/dashboard",
+            Color: "accent",
+            Raised: true,
+          },
+          Image: "./assets/images/fathym-cloud-dashboard.png",
+          // BackgroundColor: 'green',
+        },
+        InfoCards: [
+          {
+            Icon: "backup",
+            Info: `Accelerate adoption and usage of cloud-native technology with Fathym's Virtual Developers.`,
+            Title: "Accelerate Solutions",
+          },
+          {
+            Icon: "insert_chart",
+            Info:
+              "Easily access data for use in 3rd party dashboards and reports.",
+            Title: "Access Data",
+          },
+          {
+            Icon: "backup",
+            Info: `Accelerate adoption and usage of cloud-native technology with Fathym's Virtual Developers.`,
+            Title: "Accelerate Solutions",
+          },
+          {
+            Icon: "insert_chart",
+            Info:
+              "Easily access data for use in 3rd party dashboards and reports.",
+            Title: "Access Data",
+          },
+        ],
+        CallToAction: {
+          Action: {
+            Text: "Sign up today",
+            Target: "_blank",
+            Path: "#",
+            Color: "accent",
+            Raised: true,
+          },
+          Title: "Sign up for free",
+          Message:
+            "Learn how fathym can save thousands of dollars in time and efficiency.",
+        },
       };
 
       window.LCU = {
@@ -138,41 +191,7 @@
               MeasurementID: "G-NEWEXH7W8C",
             },
           },
-          LandingPage: {
-            CallToAction: {
-              Action: {
-                Text: "Sign up today",
-                Target: "_blank",
-                Path: "#",
-                Raised: true,
-                Color: "primary",
-              },
-              Message:
-                "To learn how fathym can save your brewery thousands of dollars in time and lost product.",
-            },
-            Hero: {
-              BackgroundImage:
-                "assets/images/daniel-vogel-sVothhm7iRI-unsplash.jpg",
-              Message:
-                "Helps breweries develop solutions that can add a significant level of insight and reliability to brewing",
-              SubTitle: "for Breweries",
-              Title: "IoT Ensemble",
-            },
-            InfoCards: [
-              {
-                Icon: "backup",
-                Info:
-                  "Connect sensors to IoT Ensemble and collect real-time data in the cloud.",
-                Title: "Connect Sensors",
-              },
-              {
-                Icon: "insert_chart",
-                Info:
-                  "Easily access data for use in 3rd party dashboards and reports.",
-                Title: "Access Data",
-              },
-            ],
-          },
+          LandingPage: landingPage,
           AppHost: appHost,
         },
         Settings: {},

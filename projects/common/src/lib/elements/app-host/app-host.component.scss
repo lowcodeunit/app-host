@@ -3,12 +3,18 @@
 
 :host ::ng-deep {
   .page {
+    min-height: 100%;
+
+    &.background {
+      background-color: $background;
+    }
+
     > .page-toolbar {
       height: 64px;
     }
 
     > .page-container {
-      &.page-margin {
+      &.margin {
         @extend .margin-2;
       }
 

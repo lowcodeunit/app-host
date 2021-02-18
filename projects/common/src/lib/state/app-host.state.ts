@@ -68,6 +68,8 @@ export class AppHostSEOState {
 export class AppHostThemeState {
   public Name?: string;
 
+  public UsePageBackground?: boolean;
+
   public UsePageMargin?: boolean;
 }
 
