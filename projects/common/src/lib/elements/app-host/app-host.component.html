@@ -1,4 +1,10 @@
-<div fxFlexFill fxLayout="column" class="page" *ngIf="ActivePage">
+<div
+  fxFlexFill
+  fxLayout="column"
+  class="page"
+  [class.background]="ActivePage.Theme?.UsePageBackground"
+  *ngIf="ActivePage && State"
+>
   <lcu-toolbar
     class="page-toolbar"
     [state]="ActivePage.Toolbar"
@@ -7,11 +13,15 @@
   >
   </lcu-toolbar>
 
-  <div class="page-container" *ngIf="ActivePage">
+  <div
+    class="page-container"
+    [class.margin]="ActivePage.Theme?.UsePageMargin"
+    *ngIf="ActivePage"
+  >
     <lcu-app-host-header
       class="app-header"
-      [state]="State.Header"
-      *ngIf="State.Header"
+      [state]="ActivePage.Header"
+      *ngIf="ActivePage.Header"
     >
       <div fxLayout="column">
         <div class="divider-fill-hor"></div>

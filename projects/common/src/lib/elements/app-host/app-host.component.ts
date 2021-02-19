@@ -10,15 +10,16 @@ import {
   OnChanges,
 } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { LCUElementContext, LcuElementComponent } from '@lcu/common';
+import {
+  LCUElementContext,
+  LcuElementComponent,
+  LCUServiceSettings,
+} from '@lcu/common';
 import { LazyElementConfig } from '@lowcodeunit/lazy-element';
 import { filter } from 'rxjs/operators';
 import { LCUActionState } from '../../controls/action/action.component';
 import { AppHostPageState, AppHostState } from '../../state/app-host.state';
-
-export class LCUAppHostElementState {}
-
-export class LCUAppHostContext extends LCUElementContext<LCUAppHostElementState> {}
+import { LCUAppHostContext } from './app-host.models';
 
 export const SELECTOR_LCU_APP_HOST_ELEMENT = 'lcu-app-host-element';
 
@@ -43,14 +44,19 @@ export class LCUAppHostElementComponent
   @Output('nav-action-click')
   public NavActionClick: EventEmitter<LCUActionState>;
 
-  @Input('state')
-  public State: AppHostState;
+  public get State(): AppHostState {
+    return this.Context?.AppHost;
+  }
 
   @Output('toolbar-action-click')
   public ToolbarActionClick: EventEmitter<LCUActionState>;
 
   //  Constructors
-  constructor(protected injector: Injector, private router: Router) {
+  constructor(
+    protected injector: Injector,
+    private router: Router,
+    protected settings: LCUServiceSettings
+  ) {
     super(injector);
 
     this.ToolbarActionClick = new EventEmitter();
@@ -66,12 +72,9 @@ export class LCUAppHostElementComponent
   public ngOnInit() {
     super.ngOnInit();
 
-    console.log(this.State);
-
-    this.State.Frame = {
-      ...this.State.Frame,
-      Collapsed: this.State.Nav.Collapsed,
-    };
+    if (!this.Context) {
+      this.setContext();
+    }
 
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
@@ -88,7 +91,7 @@ export class LCUAppHostElementComponent
   }
 
   public NavClosed(closed: boolean) {
-    if (closed) {
+    if (closed && this.ActivePage.Frame) {
       this.State.Frame = this.ActivePage.Frame = {
         ...this.ActivePage.Frame,
         Opened: false,
@@ -99,15 +102,19 @@ export class LCUAppHostElementComponent
   public NavCollapseToggled(collapsed: boolean) {
     // this.NavCollapseToggle.emit(action);
 
-    this.State.Frame = this.ActivePage.Frame = {
-      ...this.ActivePage.Frame,
-      Collapsed: collapsed,
-    };
+    if (this.ActivePage.Frame) {
+      this.State.Frame = this.ActivePage.Frame = {
+        ...this.ActivePage.Frame,
+        Collapsed: collapsed,
+      };
+    }
 
-    this.State.Nav = this.ActivePage.Nav = {
-      ...this.ActivePage.Nav,
-      Collapsed: collapsed,
-    };
+    if (this.ActivePage.Nav) {
+      this.State.Nav = this.ActivePage.Nav = {
+        ...this.ActivePage.Nav,
+        Collapsed: collapsed,
+      };
+    }
   }
 
   public ToolbarActionClicked(action: LCUActionState) {
@@ -127,6 +134,10 @@ export class LCUAppHostElementComponent
     const valKeys = Object.keys(val);
 
     valKeys.forEach((valKey) => {
+      if (valKey == 'Header') {
+        // debugger;
+        console.log(valKey);
+      }
       const valProp = val[valKey];
 
       if (
@@ -147,14 +158,29 @@ export class LCUAppHostElementComponent
   }
 
   protected setActivePage(route: string) {
-    const page =
-      this.State?.Pages?.find((p) => p.Route === route) ||
-      this.State?.Pages.find((p) => p);
+    if (this.State) {
+      const page =
+        this.State?.Pages?.find((p) => p.Route === route) ||
+        this.State?.Pages?.find((p) => p);
 
-    this.ActivePage = this.processObjectForStrAdd(page, {
-      ...this.State,
-    });
+      if (this.State.Frame) {
+        this.State.Frame = {
+          ...this.State.Frame,
+          Collapsed: this.State.Nav?.Collapsed,
+        };
+      }
 
-    console.log(this.ActivePage);
+      this.ActivePage = this.processObjectForStrAdd(page, {
+        ...this.State,
+      });
+    }
+  }
+
+  protected setContext(): void {
+    if (this.settings.State.AppHost) {
+      this.Context = {
+        AppHost: this.settings.State.AppHost,
+      };
+    }
   }
 }

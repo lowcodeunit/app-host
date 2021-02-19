@@ -18,7 +18,7 @@ export class AppHostStateBase {
 }
 
 export class AppHostState extends AppHostStateBase {
-  public ElementConfigs?: LazyElementConfig[];
+  public ElementConfigs?: { [key: string]: LazyElementConfig };
 
   public Pages?: AppHostPageState[];
 }
@@ -67,6 +67,10 @@ export class AppHostSEOState {
 
 export class AppHostThemeState {
   public Name?: string;
+
+  public UsePageBackground?: boolean;
+
+  public UsePageMargin?: boolean;
 }
 
 export class AppHostToolbarState {

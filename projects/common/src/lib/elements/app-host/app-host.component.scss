@@ -3,12 +3,20 @@
 
 :host ::ng-deep {
   .page {
+    min-height: 100%;
+
+    &.background {
+      background-color: $background;
+    }
+
     > .page-toolbar {
       height: 64px;
     }
 
     > .page-container {
-      @extend .margin-2;
+      &.margin {
+        @extend .margin-2;
+      }
 
       lcu-app-host-header {
         @extend .margin-bottom-2;
