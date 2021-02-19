@@ -7,15 +7,19 @@ import {
   EventEmitter,
   Output,
   HostBinding,
+  OnChanges,
 } from '@angular/core';
-import { LCUElementContext, LcuElementComponent } from '@lcu/common';
+import { NavigationEnd, Router } from '@angular/router';
+import {
+  LCUElementContext,
+  LcuElementComponent,
+  LCUServiceSettings,
+} from '@lcu/common';
 import { LazyElementConfig } from '@lowcodeunit/lazy-element';
+import { filter } from 'rxjs/operators';
 import { LCUActionState } from '../../controls/action/action.component';
 import { AppHostPageState, AppHostState } from '../../state/app-host.state';
-
-export class LCUAppHostElementState {}
-
-export class LCUAppHostContext extends LCUElementContext<LCUAppHostElementState> {}
+import { LCUAppHostContext } from './app-host.models';
 
 export const SELECTOR_LCU_APP_HOST_ELEMENT = 'lcu-app-host-element';
 
@@ -26,7 +30,7 @@ export const SELECTOR_LCU_APP_HOST_ELEMENT = 'lcu-app-host-element';
 })
 export class LCUAppHostElementComponent
   extends LcuElementComponent<LCUAppHostContext>
-  implements OnInit {
+  implements OnChanges, OnInit {
   //  Fields
 
   //  Properties
@@ -40,14 +44,19 @@ export class LCUAppHostElementComponent
   @Output('nav-action-click')
   public NavActionClick: EventEmitter<LCUActionState>;
 
-  @Input('state')
-  public State: AppHostState;
+  public get State(): AppHostState {
+    return this.Context?.AppHost;
+  }
 
   @Output('toolbar-action-click')
   public ToolbarActionClick: EventEmitter<LCUActionState>;
 
   //  Constructors
-  constructor(protected injector: Injector) {
+  constructor(
+    protected injector: Injector,
+    private router: Router,
+    protected settings: LCUServiceSettings
+  ) {
     super(injector);
 
     this.ToolbarActionClick = new EventEmitter();
@@ -56,21 +65,24 @@ export class LCUAppHostElementComponent
   }
 
   //  Life Cycle
+  public ngOnChanges() {
+    this.setActivePage(this.router.routerState.snapshot.url);
+  }
+
   public ngOnInit() {
     super.ngOnInit();
 
-    console.log(this.State);
+    if (!this.Context) {
+      this.setContext();
+    }
 
-    this.State.Frame = {
-      ...this.State.Frame,
-      Collapsed: this.State.Nav.Collapsed,
-    };
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        this.setActivePage(event.url);
+      });
 
-    this.ActivePage = (this.State?.Page
-      ? {
-          ...this.State?.Page,
-        }
-      : {}) as AppHostPageState;
+    this.setActivePage(this.router.routerState.snapshot.url);
   }
 
   //  API Methods
@@ -79,9 +91,9 @@ export class LCUAppHostElementComponent
   }
 
   public NavClosed(closed: boolean) {
-    if (closed) {
-      this.State.Frame = {
-        ...this.State.Frame,
+    if (closed && this.ActivePage.Frame) {
+      this.State.Frame = this.ActivePage.Frame = {
+        ...this.ActivePage.Frame,
         Opened: false,
       };
     }
@@ -89,10 +101,20 @@ export class LCUAppHostElementComponent
 
   public NavCollapseToggled(collapsed: boolean) {
     // this.NavCollapseToggle.emit(action);
-    this.State.Frame = {
-      ...this.State.Frame,
-      Collapsed: collapsed,
-    };
+
+    if (this.ActivePage.Frame) {
+      this.State.Frame = this.ActivePage.Frame = {
+        ...this.ActivePage.Frame,
+        Collapsed: collapsed,
+      };
+    }
+
+    if (this.ActivePage.Nav) {
+      this.State.Nav = this.ActivePage.Nav = {
+        ...this.ActivePage.Nav,
+        Collapsed: collapsed,
+      };
+    }
   }
 
   public ToolbarActionClicked(action: LCUActionState) {
@@ -100,4 +122,65 @@ export class LCUAppHostElementComponent
   }
 
   //  Helpers
+  protected processForStrAdd(val: any, parentStr: string) {
+    if (typeof val === 'string' && val?.startsWith('++')) {
+      return `${parentStr || ''}${val.replace('++', '')}`;
+    } else {
+      return val;
+    }
+  }
+
+  protected processObjectForStrAdd(val: any, parent: any) {
+    const valKeys = Object.keys(val);
+
+    valKeys.forEach((valKey) => {
+      if (valKey == 'Header') {
+        // debugger;
+        console.log(valKey);
+      }
+      const valProp = val[valKey];
+
+      if (
+        valProp instanceof Object &&
+        !(valProp instanceof Array) &&
+        valProp != null
+      ) {
+        val[valKey] = this.processObjectForStrAdd(valProp, parent[valKey]);
+      } else {
+        val[valKey] = this.processForStrAdd(val[valKey], parent[valKey]);
+      }
+    });
+
+    return {
+      ...parent,
+      ...val,
+    };
+  }
+
+  protected setActivePage(route: string) {
+    if (this.State) {
+      const page =
+        this.State?.Pages?.find((p) => p.Route === route) ||
+        this.State?.Pages?.find((p) => p);
+
+      if (this.State.Frame) {
+        this.State.Frame = {
+          ...this.State.Frame,
+          Collapsed: this.State.Nav?.Collapsed,
+        };
+      }
+
+      this.ActivePage = this.processObjectForStrAdd(page, {
+        ...this.State,
+      });
+    }
+  }
+
+  protected setContext(): void {
+    if (this.settings.State.AppHost) {
+      this.Context = {
+        AppHost: this.settings.State.AppHost,
+      };
+    }
+  }
 }

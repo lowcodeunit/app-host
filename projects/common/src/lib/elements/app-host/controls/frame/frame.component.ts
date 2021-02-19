@@ -104,6 +104,7 @@ export class FrameComponent implements OnChanges, OnDestroy, OnInit {
     } else if (this.State.Collapsed && this.NavDrawer?.opened) {
       colState = 'collapsed';
     }
+    // debugger;
 
     this.CollapsedState = colState;
   }

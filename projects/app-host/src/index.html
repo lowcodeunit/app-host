@@ -10,16 +10,12 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link
-      href="https://www.iot-ensemble.com/_lcu/lcu-device-data-flow-lcu/wc/lcu-device-data-flow.lcu.css"
-      rel="stylesheet"
-    />
 
     <script id="lcu-reg">
       const appHost = {
         Toolbar: {
           Title: "IoT Ensemble Beta",
-          Logo: "/assets/logo.svg",
+          Logo: "./assets/logo.svg",
           Actions: [
             {
               Text: "Docs",
@@ -40,6 +36,12 @@
             },
           ],
         },
+        Frame: {
+          Collapsed: true,
+          Opened: true,
+          StaticMenuTop: 250,
+          StickyNav: true,
+        },
         Header: {
           BrandTitle: "IoT Ensemble",
           InfoText:
@@ -47,34 +49,122 @@
           InfoTitle: "Device Dashboard",
           WelcomeTitle: "Welcome to",
         },
-        Frame: {
-          Collapsed: true,
-          Opened: true,
-          StaticMenuTop: 250,
-          StickyNav: true,
-        },
         Nav: {
-          Title: "IoT Ensemble Beta",
           ShowCollapse: true,
           Actions: [
             {
               Text: "Dashboard",
-              Path: "/dashboard",
+              Path: "/",
               Icon: "dashboard",
-              Target: "_blank",
+            },
+            {
+              Text: "Landing Page",
+              Path: "/landing-page",
+              Icon: "cloud",
             },
           ],
         },
-        Page: {
-          Title: "",
-          Description: "",
-          ElementConfig: {
-            Assets: [
-              "/assets/lcu-device-data-flow.lcu.js",
-              "https://www.iot-ensemble.com/_lcu/lcu-device-data-flow-lcu/wc/lcu-device-data-flow.lcu.jss",
+        SEO: {
+          Title: "IoT Ensemble",
+          Description: "IoT Made Easy",
+        },
+        Theme: {
+          UsePageMargin: true,
+        },
+        ElementConfigs: {
+          "lcu-device-data-flow-manage-element": {
+            Scripts: [
+              // "/assets/lcu-device-data-flow.lcu.js",
+              "https://www.iot-ensemble.com/_lcu/lcu-device-data-flow-lcu/wc/lcu-device-data-flow.lcu.js",
+            ],
+            Styles: [
+              // "/assets/lcu-device-data-flow.lcu.css",
+              "https://www.iot-ensemble.com/_lcu/lcu-device-data-flow-lcu/wc/lcu-device-data-flow.lcu.css",
             ],
             ElementName: "lcu-device-data-flow-manage-element",
           },
+          "landing-pages-blocks-element": {
+            Scripts: [
+              "/assets/landing-pages.lcu.js",
+              // "https://www.iot-ensemble.com/_lcu/lcu-landing-pages-lcu/wc/landing-pages.lcu.js",
+            ],
+            Styles: [
+              "/assets/landing-pages.lcu.css",
+              // "https://www.iot-ensemble.com/_lcu/lcu-landing-pages-lcu/wc/landing-pages.lcu.css",
+            ],
+            ElementName: "landing-pages-home-page-element",
+          },
+        },
+        Pages: [
+          {
+            Route: "/",
+            ElementConfigs: ["lcu-device-data-flow-manage-element"],
+            SEO: {
+              Title: "++Do It!",
+              Description: "IoT Made Easy-ish",
+            },
+          },
+          {
+            Route: "/landing-page",
+            ElementConfigs: ["landing-pages-blocks-element"],
+            Frame: null,
+            Nav: null,
+            Header: null,
+            Theme: null,
+          },
+        ],
+      };
+
+      const landingPage = {
+        Hero: {
+          Message: `Don't wait for the right hire, use the team you have.  Take control of Cloud.`,
+          SubTitle: "Virtual Developers",
+          Title: "Fathym Cloud",
+          Action: {
+            Text: "Get started for free",
+            Target: "_blank",
+            Path: "/dashboard",
+            Color: "accent",
+            Raised: true,
+          },
+          Image: "./assets/images/fathym-cloud-dashboard.png",
+          // BackgroundColor: 'green',
+        },
+        InfoCards: [
+          {
+            Icon: "backup",
+            Info: `Accelerate adoption and usage of cloud-native technology with Fathym's Virtual Developers.`,
+            Title: "Accelerate Solutions",
+          },
+          {
+            Icon: "insert_chart",
+            Info:
+              "Easily access data for use in 3rd party dashboards and reports.",
+            Title: "Access Data",
+          },
+          {
+            Icon: "backup",
+            Info: `Accelerate adoption and usage of cloud-native technology with Fathym's Virtual Developers.`,
+            Title: "Accelerate Solutions",
+          },
+          {
+            Icon: "insert_chart",
+            Info:
+              "Easily access data for use in 3rd party dashboards and reports.",
+            Title: "Access Data",
+          },
+        ],
+        CallToAction: {
+          Action: {
+            Text: "Sign up today",
+            Target: "_blank",
+            Path: "#",
+            Color: "accent",
+            Raised: true,
+          },
+          Title: "Sign up for free",
+          Message:
+            "Learn how fathym can save thousands of dollars in time and efficiency.",
         },
       };
 
@@ -101,6 +191,7 @@
               MeasurementID: "G-NEWEXH7W8C",
             },
           },
+          LandingPage: landingPage,
           AppHost: appHost,
         },
         Settings: {},

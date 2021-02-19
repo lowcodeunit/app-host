@@ -11,9 +11,13 @@ import {
 export class LCUActionState {
   public Align?: 'start' | 'end';
 
+  public Color?: string;
+
   public Icon?: string;
 
   public Path?: string;
+
+  public Raised?: boolean;
 
   public Target?: string;
 
@@ -24,9 +28,6 @@ export class LCUActionState {
   selector: 'lcu-action',
   templateUrl: './action.component.html',
   styleUrls: ['./action.component.scss'],
-  host: {
-    class: 'l',
-  },
 })
 export class ActionComponent implements OnInit {
   //  Fields
@@ -40,7 +41,7 @@ export class ActionComponent implements OnInit {
     return true;
   }
 
-  @Output('click')
+  @Output('action-click')
   public Click: EventEmitter<LCUActionState>;
 
   //  Constructors
