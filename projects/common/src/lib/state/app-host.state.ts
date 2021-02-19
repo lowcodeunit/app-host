@@ -23,6 +23,20 @@ export class AppHostState extends AppHostStateBase {
   public Pages?: AppHostPageState[];
 }
 
+export class AppHostFooterState {
+  public ActionGroups?: AppHostActionGroupState[];
+
+  public Partners?: AppHostActionGroupState;
+}
+
+export class AppHostActionGroupState {
+  public Actions?: LCUActionState[];
+
+  public Class?: string;
+
+  public Title?: string;
+}
+
 export class AppHostFrameState {
   public Collapsed?: boolean;
 

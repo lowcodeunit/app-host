@@ -39,37 +39,61 @@
       </div>
     </lcu-app-host-header>
 
-    <lcu-app-host-frame [state]="ActivePage.Frame" *ngIf="ActivePage.Frame">
-      <nav class="app-nav">
-        <lcu-app-host-nav
-          [state]="ActivePage.Nav"
-          (action-click)="NavActionClicked($event)"
-          (close)="NavClosed($event)"
-          (collapse-toggle)="NavCollapseToggled($event)"
-          *ngIf="ActivePage.Nav"
-        >
-        </lcu-app-host-nav>
-      </nav>
+    <div class="app-frame">
+      <lcu-app-host-frame [state]="ActivePage.Frame" *ngIf="ActivePage.Frame">
+        <nav class="app-nav">
+          <lcu-app-host-nav
+            [state]="ActivePage.Nav"
+            (action-click)="NavActionClicked($event)"
+            (close)="NavClosed($event)"
+            (collapse-toggle)="NavCollapseToggled($event)"
+            *ngIf="ActivePage.Nav"
+          >
+          </lcu-app-host-nav>
+        </nav>
 
-      <div class="app-content">
+        <div class="app-content">
+          <lcu-loader [loading]="ActivePage.Loading"></lcu-loader>
+
+          <lcu-lazy-elements
+            [names]="ActivePage?.ElementConfigs"
+            [configs]="State.ElementConfigs"
+          >
+          </lcu-lazy-elements>
+        </div>
+      </lcu-app-host-frame>
+
+      <div class="app-content" *ngIf="!ActivePage.Frame">
         <lcu-loader [loading]="ActivePage.Loading"></lcu-loader>
 
         <lcu-lazy-elements
-          [names]="ActivePage?.ElementConfigs"
+          [names]="ActivePage.ElementConfigs"
           [configs]="State.ElementConfigs"
-        >
-        </lcu-lazy-elements>
+        ></lcu-lazy-elements>
       </div>
-    </lcu-app-host-frame>
-
-    <div class="app-content" *ngIf="!ActivePage.Frame">
-      <lcu-loader [loading]="ActivePage.Loading"></lcu-loader>
-
-      <lcu-lazy-elements
-        [names]="ActivePage.ElementConfigs"
-        [configs]="State.ElementConfigs"
-      ></lcu-lazy-elements>
     </div>
+
+    <lcu-app-host-footer
+      class="app-footer"
+      [state]="ActivePage.Footer"
+      (action-click)="FooterActionClicked($event)"
+      *ngIf="ActivePage.Footer"
+    >
+      <div fxLayout="column">
+        <div class="divider-fill-hor"></div>
+
+        <h3 class="plain-text theme-accent-text mat-subheading-2">
+          Getting Started?
+        </h3>
+
+        <p>
+          Check out our getting started
+          <a mat-link-button href="/docs" target="_blank">documentation</a>
+        </p>
+
+        <div class="divider-fill-hor"></div>
+      </div>
+    </lcu-app-host-footer>
   </div>
 </div>
 

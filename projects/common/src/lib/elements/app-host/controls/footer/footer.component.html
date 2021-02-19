@@ -1,0 +1,43 @@
+<footer ngClass.lt-sm="sm" ngClass.lt-md="md" *ngIf="State">
+  <div class="footer-container">
+    <div class="columns">
+      <div
+        class="column"
+        [ngClass]="group.Class"
+        *ngFor="let group of State.ActionGroups"
+      >
+        <h4 class="title" *ngIf="group.Title">{{ group.Title }}</h4>
+
+        <mat-nav-list class="links">
+          <mat-list-item class="link" *ngFor="let action of group.Actions">
+            <lcu-action
+              class="footer-action"
+              [action]="action"
+              (action-click)="ActionClicked($event)"
+            ></lcu-action>
+          </mat-list-item>
+        </mat-nav-list>
+      </div>
+
+      <div class="column partners" *ngIf="State.Partners">
+        <h4 class="title" *ngIf="State.Partners.Title">
+          {{ State.Partners.Title }}
+        </h4>
+
+        <div class="links">
+          <div class="link" *ngFor="let action of State.Partners.Actions">
+            <lcu-action
+              class="footer-partner-action"
+              [action]="action"
+              (action-click)="ActionClicked($event)"
+            ></lcu-action>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <div>Copyright © {{ Year }} Fathym, Inc</div>
+    </div>
+  </div>
+</footer>

@@ -26,7 +26,6 @@
             {
               Text: "Upgrade",
               Path: "/billing/iot",
-              // Icon: "upgrade",
               Align: "end",
             },
             {
@@ -36,18 +35,18 @@
             },
           ],
         },
-        Frame: {
-          Collapsed: true,
-          Opened: true,
-          StaticMenuTop: 250,
-          StickyNav: true,
-        },
         Header: {
           BrandTitle: "IoT Ensemble",
           InfoText:
             "Emulate, simulate, and connect your devices to unlock the power of your IoT applications.",
           InfoTitle: "Device Dashboard",
           WelcomeTitle: "Welcome to",
+        },
+        Frame: {
+          Collapsed: true,
+          Opened: true,
+          StaticMenuTop: 250,
+          StickyNav: true,
         },
         Nav: {
           ShowCollapse: true,
@@ -63,6 +62,56 @@
               Icon: "cloud",
             },
           ],
+        },
+        Footer: {
+          ActionGroups: [
+            {
+              Title: "Next Steps",
+              Actions: [
+                {
+                  Text: "Getting started",
+                  Path: "/docs",
+                },
+                {
+                  Text: "Pricing",
+                  Path: "/pricing",
+                },
+                {
+                  Text: "Support",
+                  Path: "/docs/introduction/support",
+                },
+              ],
+            },
+            {
+              Title: "Community",
+              Actions: [
+                {
+                  Text: "Stack Overflow",
+                  Path: "https://stackoverflow.com/questions/tagged/fathym",
+                  Target: "_blank",
+                },
+                {
+                  Text: "Discord",
+                  Path: "https://discordapp.com/invite/fathym",
+                  Target: "_blank",
+                },
+                {
+                  Text: "Twitter",
+                  Path: "https://twitter.com/fathym",
+                  Target: "_blank",
+                },
+              ],
+            },
+          ],
+          Partners: {
+            Actions: [
+              {
+                Image: "./assets/images/gold-cloud-partner.gif",
+                Path: "https://www.microsoft.com",
+                Target: "_blank",
+              },
+            ],
+          },
         },
         SEO: {
           Title: "IoT Ensemble",
@@ -117,9 +166,9 @@
 
       const landingPage = {
         Hero: {
+          Title: "Supercharge Cloud",
+          SubTitle: "with Virtual Developers",
           Message: `Don't wait for the right hire, use the team you have.  Take control of Cloud.`,
-          SubTitle: "Virtual Developers",
-          Title: "Fathym Cloud",
           Action: {
             Text: "Get started for free",
             Target: "_blank",
@@ -127,31 +176,32 @@
             Color: "accent",
             Raised: true,
           },
+          Image: "./assets/images/fathym-cloud.svg",
+          BackgroundImage: "url(./assets/images/background-wave-fathym.svg)",
+        },
+        HeroCallToAction: {
+          Message:
+            "Modular and reusable components and tools that help your team deliver repeatable, low-code solutions.",
           Image: "./assets/images/fathym-cloud-dashboard.png",
-          // BackgroundColor: 'green',
         },
         InfoCards: [
           {
-            Icon: "backup",
-            Info: `Accelerate adoption and usage of cloud-native technology with Fathym's Virtual Developers.`,
-            Title: "Accelerate Solutions",
-          },
-          {
-            Icon: "insert_chart",
+            Icon: "auto_awesome",
             Info:
-              "Easily access data for use in 3rd party dashboards and reports.",
-            Title: "Access Data",
+              "Teams get value from their Cloud on day one, skipping the multi-month learning curves and tedius hiring processes.",
+            Title: "Accelerate",
           },
           {
-            Icon: "backup",
-            Info: `Accelerate adoption and usage of cloud-native technology with Fathym's Virtual Developers.`,
-            Title: "Accelerate Solutions",
-          },
-          {
-            Icon: "insert_chart",
+            Icon: "apps",
             Info:
-              "Easily access data for use in 3rd party dashboards and reports.",
-            Title: "Access Data",
+              "Deliver your solutions faster and more reliably on cloud infrastructure, with out the massive learning curve.",
+            Title: "Deliver",
+          },
+          {
+            Icon: "cloud",
+            Info:
+              "Bring control to adoption and usage of cloud-native technology with best practices anyone on the team can leverage, today.",
+            Title: "Control",
           },
         ],
         CallToAction: {

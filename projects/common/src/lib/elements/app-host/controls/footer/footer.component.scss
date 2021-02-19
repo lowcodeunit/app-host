@@ -1,0 +1,53 @@
+@import "../../../../../assets/common";
+
+:host ::ng-deep {
+  display: block;
+  overflow: auto;
+
+  footer {
+    color: $white;
+    background-color: #303846;
+
+    .footer-container {
+      max-width: 900px;
+      margin: auto;
+      @extend .padding-x-3;
+      @extend .padding-y-5;
+
+      .columns {
+        @extend .flex-row;
+
+        .column {
+          min-width: 250px;
+          @extend .margin-top-4;
+          @extend .padding-2;
+
+          .title {
+            @extend .mat-title;
+          }
+        }
+      }
+
+      .copyright {
+        text-align: center;
+      }
+    }
+  }
+}
+
+footer.md ::ng-deep,
+footer.sm ::ng-deep {
+}
+
+footer.md ::ng-deep {
+}
+
+footer.sm ::ng-deep {
+  .footer-container {
+    text-align: center;
+
+    .columns {
+      @extend .flex-column;
+    }
+  }
+}

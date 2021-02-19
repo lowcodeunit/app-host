@@ -9,7 +9,9 @@
       >
         <mat-icon *ngIf="Action.Icon">{{ Action.Icon }}</mat-icon>
 
-        <span *ngIf="Action.Text" [innerHTML]="Action.Text"></span>
+        <img [src]="Action.Image" [alt]="Action.Text" *ngIf="Action.Image" />
+
+        <span [innerHTML]="Action.Text" *ngIf="Action.Text"></span>
       </a>
     </ng-container>
 

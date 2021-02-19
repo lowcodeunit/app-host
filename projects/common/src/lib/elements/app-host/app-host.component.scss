@@ -22,15 +22,17 @@
         @extend .margin-bottom-2;
       }
 
-      lcu-app-host-frame {
-        @extend .margin-bottom-2;
+      .app-frame {
+        lcu-app-host-frame {
+          @extend .margin-bottom-2;
 
-        .app-nav {
-          position: relative;
-        }
+          .app-nav {
+            position: relative;
+          }
 
-        .app-content {
-          @extend .margin-2;
+          .app-content {
+            @extend .margin-2;
+          }
         }
       }
 

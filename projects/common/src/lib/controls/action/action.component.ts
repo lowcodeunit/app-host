@@ -15,6 +15,8 @@ export class LCUActionState {
 
   public Icon?: string;
 
+  public Image?: string;
+
   public Path?: string;
 
   public Raised?: boolean;
