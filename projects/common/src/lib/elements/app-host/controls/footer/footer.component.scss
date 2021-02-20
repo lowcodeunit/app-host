@@ -37,6 +37,7 @@
 
       .copyright {
         text-align: center;
+        @extend .mat-title;
         @extend .margin-top-5;
       }
     }
