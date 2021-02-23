@@ -1,2 +1,6 @@
 @import "../../common/src/assets/common";
 @include theme-setup($global-theme);
+
+.mat-menu-panel {
+  background: $white;
+}

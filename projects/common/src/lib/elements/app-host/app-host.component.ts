@@ -145,7 +145,6 @@ export class LCUAppHostElementComponent
 
     valKeys.forEach((valKey) => {
       if (valKey == 'Header') {
-        // debugger;
         console.log(valKey);
       }
       const valProp = val[valKey];

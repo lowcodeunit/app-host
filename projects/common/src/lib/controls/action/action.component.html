@@ -5,7 +5,9 @@
         mat-button
         [color]="Action.Color"
         [href]="Action.Path"
+        [matMenuTriggerFor]="actionMenu"
         [target]="Action.Target || ''"
+        (click)="Clicked($event)"
       >
         <mat-icon *ngIf="Action.Icon">{{ Action.Icon }}</mat-icon>
 
@@ -20,7 +22,9 @@
         mat-raised-button
         [color]="Action.Color"
         [href]="Action.Path"
+        [matMenuTriggerFor]="actionMenu"
         [target]="Action.Target || ''"
+        (click)="Clicked($event)"
       >
         <mat-icon *ngIf="Action.Icon">{{ Action.Icon }}</mat-icon>
 
@@ -34,7 +38,8 @@
       <button
         mat-button
         [color]="Action.Color"
-        (click)="Clicked()"
+        [matMenuTriggerFor]="actionMenu"
+        (click)="Clicked($event)"
       >
         <mat-icon *ngIf="Action.Icon">{{ Action.Icon }}</mat-icon>
 
@@ -46,7 +51,8 @@
       <button
         mat-raised-button
         [color]="Action.Color"
-        (click)="Clicked()"
+        [matMenuTriggerFor]="actionMenu"
+        (click)="Clicked($event)"
       >
         <mat-icon *ngIf="Action.Icon">{{ Action.Icon }}</mat-icon>
 
@@ -54,4 +60,18 @@
       </button>
     </ng-container>
   </ng-container>
+
+  <mat-menu
+    #actionMenu="matMenu"
+    [overlapTrigger]="false"
+    fxShow="Action.Actions?.length > 0"
+  >
+    <ng-container *ngFor="let action of Action.Actions">
+      <lcu-action
+        class="toolbar-menu-action"
+        [action]="action"
+        (action-click)="Clicked($event)"
+      ></lcu-action>
+    </ng-container>
+  </mat-menu>
 </ng-container>

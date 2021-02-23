@@ -56,7 +56,7 @@
           <lcu-loader [loading]="ActivePage.Loading"></lcu-loader>
 
           <lcu-lazy-elements
-            [names]="ActivePage?.ElementConfigs"
+            [elements]="ActivePage?.ElementConfigs"
             [configs]="State.ElementConfigs"
           >
           </lcu-lazy-elements>
@@ -67,7 +67,7 @@
         <lcu-loader [loading]="ActivePage.Loading"></lcu-loader>
 
         <lcu-lazy-elements
-          [names]="ActivePage.ElementConfigs"
+          [elements]="ActivePage.ElementConfigs"
           [configs]="State.ElementConfigs"
         ></lcu-lazy-elements>
       </div>

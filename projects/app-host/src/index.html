@@ -18,9 +18,33 @@
           Logo: "./assets/logo.svg",
           Actions: [
             {
+              Text: "Products",
+              Align: "end",
+              Actions: [
+                {
+                  Text: "IoT Ensemble",
+                  Path: "https://www.iot-ensemble.com/home",
+                  Align: "end",
+                  Target: "_blank",
+                },
+                {
+                  Text: "Habistack",
+                  Path: "https://www.habistack.com/home",
+                  Align: "end",
+                  Target: "_blank",
+                },
+              ],
+            },
+            {
+              Text: "Pricing",
+              Path: "/pricing",
+              Align: "end",
+              ByRoute: true,
+            },
+            {
               Text: "Docs",
               Path: "/docs",
-              Align: "start",
+              Align: "end",
               Target: "_blank",
             },
             {
@@ -60,6 +84,7 @@
               Text: "Landing Page",
               Path: "/landing-page",
               Icon: "cloud",
+              ByRoute: true,
             },
           ],
         },
@@ -147,15 +172,28 @@
         Pages: [
           {
             Route: "/",
-            ElementConfigs: ["lcu-device-data-flow-manage-element"],
+            ElementConfigs: [
+              {
+                Name: "lcu-device-data-flow-manage-element",
+                StateKey: null,
+              },
+            ],
             SEO: {
               Title: "++Do It!",
               Description: "IoT Made Easy-ish",
             },
+            Theme: {
+              UsePageBackground: true,
+            },
           },
           {
             Route: "/landing-page",
-            ElementConfigs: ["landing-pages-blocks-element"],
+            ElementConfigs: [
+              {
+                Name: "landing-pages-blocks-element",
+                StateKey: "LandingPages.Blocks",
+              },
+            ],
             Frame: null,
             Nav: null,
             Header: null,
@@ -164,7 +202,7 @@
         ],
       };
 
-      const landingPage = {
+      const blocksLandingPage = {
         Hero: {
           Title: "Supercharge Cloud",
           SubTitle: "with Virtual Developers",
@@ -177,7 +215,8 @@
             Raised: true,
           },
           Image: "./assets/images/fathym-cloud.svg",
-          BackgroundImage: "url(./assets/images/background-wave-iot-ensemble.svg)",
+          BackgroundImage:
+            "url(./assets/images/background-wave-iot-ensemble.svg)",
         },
         HeroCallToAction: {
           Message:
@@ -215,8 +254,9 @@
           Title: "Sign up for free",
           Message:
             "Learn how fathym can save thousands of dollars in time and efficiency.",
+          BackgroundImage:
+            "url(./assets/images/background-wave-cta-iot-ensemble.svg)",
         },
-        BackgroundImage: 'url(./assets/images/background-wave-cta-fathym.svg)',
       };
 
       window.LCU = {
@@ -242,7 +282,7 @@
               MeasurementID: "G-NEWEXH7W8C",
             },
           },
-          LandingPage: landingPage,
+          "LandingPages.Blocks": blocksLandingPage,
           AppHost: appHost,
         },
         Settings: {},

@@ -6,10 +6,17 @@ import {
   Input,
   OnInit,
   Output,
+  ViewChild,
 } from '@angular/core';
+import { MatMenu } from '@angular/material/menu';
+import { Router } from '@angular/router';
 
 export class LCUActionState {
+  public Actions?: LCUActionState[];
+
   public Align?: 'start' | 'end';
+
+  public ByRoute?: boolean;
 
   public Color?: string;
 
@@ -38,6 +45,9 @@ export class ActionComponent implements OnInit {
   @Input('action')
   public Action: LCUActionState;
 
+  @ViewChild('actionMenu')
+  public ActionMenu: MatMenu;
+
   @HostBinding('class.lcu-action')
   public get ClassLCUAction(): boolean {
     return true;
@@ -47,7 +57,7 @@ export class ActionComponent implements OnInit {
   public Click: EventEmitter<LCUActionState>;
 
   //  Constructors
-  constructor(protected injector: Injector) {
+  constructor(protected injector: Injector, protected router: Router) {
     this.Click = new EventEmitter();
   }
 
@@ -55,8 +65,16 @@ export class ActionComponent implements OnInit {
   public ngOnInit() {}
 
   //  API Methods
-  public Clicked() {
-    this.Click.emit(this.Action);
+  public Clicked(e: MouseEvent) {
+    if (this.Action.ByRoute && this.Action.Path) {
+      this.router.navigateByUrl(this.Action.Path);
+
+      e.preventDefault();
+    } else if (!this.Action.Path) {
+      this.Click.emit(this.Action);
+    } else if (this.Action.Path) {
+      //  Do nothing and let anchor handle
+    }
   }
 
   //  Helpers
