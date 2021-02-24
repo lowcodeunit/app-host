@@ -41,6 +41,10 @@ export class LCUAppHostElementComponent
     return true;
   }
 
+  @Output('footer-action-click')
+  public FooterActionClick: EventEmitter<LCUActionState>;
+
+
   @Output('nav-action-click')
   public NavActionClick: EventEmitter<LCUActionState>;
 
@@ -59,9 +63,11 @@ export class LCUAppHostElementComponent
   ) {
     super(injector);
 
-    this.ToolbarActionClick = new EventEmitter();
+    this.FooterActionClick = new EventEmitter();
 
     this.NavActionClick = new EventEmitter();
+
+    this.ToolbarActionClick = new EventEmitter();
   }
 
   //  Life Cycle
@@ -86,6 +92,10 @@ export class LCUAppHostElementComponent
   }
 
   //  API Methods
+  public FooterActionClicked(action: LCUActionState) {
+    this.FooterActionClick.emit(action);
+  }
+
   public NavActionClicked(action: LCUActionState) {
     this.NavActionClick.emit(action);
   }
@@ -135,7 +145,6 @@ export class LCUAppHostElementComponent
 
     valKeys.forEach((valKey) => {
       if (valKey == 'Header') {
-        // debugger;
         console.log(valKey);
       }
       const valProp = val[valKey];

@@ -14,7 +14,7 @@
     *ngIf="State.LogoMobile || State.Logo"
   ></div>
 
-  <a mat-button href="/" [innerHTML]="State.Title"></a>
+  <a mat-button href="/" class="title" [innerHTML]="State.Title"></a>
 
   <span fxHide.lt-md="true">
     <ng-container *ngFor="let action of State.Actions">
@@ -43,18 +43,10 @@
   </span>
 
   <span fxHide fxHide.lt-md="false">
-    <button mat-button [matMenuTriggerFor]="menu">
-      <mat-icon>menu</mat-icon>
-    </button>
-
-    <mat-menu #menu="matMenu">
-      <ng-container *ngFor="let action of State.Actions">
-        <lcu-action
-          class="toolbar-action"
-          [action]="action"
-          (action-click)="ActionClicked($event)"
-        ></lcu-action>
-      </ng-container>
-    </mat-menu>
+    <lcu-action
+      class="menu-action"
+      [action]="MenuAction"
+      (action-click)="ActionClicked($event)"
+    ></lcu-action>
   </span>
 </mat-toolbar>

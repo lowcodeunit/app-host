@@ -1,0 +1,76 @@
+@import "../../../../../assets/common";
+
+:host ::ng-deep {
+  display: block;
+  overflow: auto;
+
+  footer {
+    background-color: #303846;
+
+    .footer-container {
+      max-width: 900px;
+      margin: auto;
+      @extend .padding-x-3;
+      @extend .padding-y-5;
+
+      .columns-container {
+        margin: auto;
+        @extend .flex-row;
+        @extend .flex-row-center;
+
+        .columns {
+          @extend .flex-row;
+          @extend .flex-row-center;
+
+          .column {
+            min-width: 250px;
+            @extend .margin-top-4;
+            @extend .padding-2;
+
+            .title {
+              @extend .mat-title;
+            }
+          }
+        }
+      }
+
+      .copyright {
+        text-align: center;
+        @extend .mat-title;
+        @extend .margin-top-5;
+      }
+    }
+  }
+}
+
+footer.md ::ng-deep,
+footer.sm ::ng-deep {
+  .footer-container {
+    text-align: center;
+
+    .columns-container {
+      @extend .flex-column;
+
+      .columns {
+        .column {
+          lcu-action {
+            margin: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+footer.md ::ng-deep {
+}
+
+footer.sm ::ng-deep {
+  .footer-container {
+    .columns-container {
+      .columns {
+        @extend .flex-column;
+      }
+    }
+  }
+}
