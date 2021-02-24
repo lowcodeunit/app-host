@@ -1,4 +1,5 @@
-<svg height="100%" width="100%" id="bg-svg" viewBox="0 0 1440 700" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150" transform="rotate(180) scale(2, 2)" style="opacity: .90;">
+<svg height="100%" width="100%" id="bg-svg" viewBox="0 0 1440 700" xmlns="http://www.w3.org/2000/svg"
+  class="transition duration-300 ease-in-out delay-150" style="opacity: .90;">
   <defs>
     <linearGradient id="gradient">
       <stop offset="5%" stop-color="#eee"></stop>
@@ -6,4 +7,9 @@
     </linearGradient>
   </defs>
 
-  <path d="M 0,700 C 0,700 0,350 0,350 C 189,297 378,244 618,244 C 858,244 1149,297 1440,350 C 1440,350 1440,700 1440,700 Z" stroke="none" stroke-width="0" fill="url(#gradient)" class="transition-all duration-300 ease-in-out delay-150"></path></svg>
+  <g transform="rotate(180) scale(2, 2)">
+    <path
+      d="M 0,700 C 0,700 0,350 0,350 C 189,297 378,244 618,244 C 858,244 1149,297 1440,350 C 1440,350 1440,700 1440,700 Z"
+      stroke="none" stroke-width="0" fill="url(#gradient)" class="transition-all duration-300 ease-in-out delay-150"></path>
+  </g>
+</svg>
