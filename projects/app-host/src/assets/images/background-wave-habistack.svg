@@ -1,15 +1,19 @@
-<svg height="100%" width="100%" id="bg-svg" viewBox="0 0 1440 700" xmlns="http://www.w3.org/2000/svg"
-  class="transition duration-300 ease-in-out delay-150" style="opacity: .90;">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920.11 608.25" style="opacity: .9">
   <defs>
-    <linearGradient id="gradient">
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="-0.09" y1="770.06" x2="0.91" y2="770.06"
+      gradientTransform="matrix(-1920, -0.45, -0.14, 608, 1859.43, -467894)" gradientUnits="userSpaceOnUse">
       <stop offset="5%" stop-color="#eee"></stop>
       <stop offset="40%" stop-color="#91513c"></stop>
     </linearGradient>
   </defs>
-
-  <g transform="rotate(180) scale(2, 2)">
-    <path
-      d="M 0,700 C 0,700 0,350 0,350 C 189,297 378,244 618,244 C 858,244 1149,297 1440,350 C 1440,350 1440,700 1440,700 Z"
-      stroke="none" stroke-width="0" fill="url(#gradient)" class="transition-all duration-300 ease-in-out delay-150"></path>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <path class="cls-1" d="M1920.11.45,1920,467.11c-252,70.61-504,141.22-824,141.14S388,537.42,0,466.67L.11,0Z" />
+    </g>
   </g>
 </svg>
