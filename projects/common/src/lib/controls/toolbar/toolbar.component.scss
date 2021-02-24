@@ -10,4 +10,10 @@
       width: 75px;
     }
   }
+
+  .title {
+    @extend .mat-title;
+    margin: auto;
+    font-size: 20px;
+  }
 }

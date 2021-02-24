@@ -27,6 +27,8 @@ export class ToolbarComponent implements OnInit {
     return true;
   }
 
+  public MenuAction: LCUActionState;
+
   @Input('state')
   public State: AppHostToolbarState;
 
@@ -36,7 +38,9 @@ export class ToolbarComponent implements OnInit {
   }
 
   //  Life Cycle
-  public ngOnInit() {}
+  public ngOnInit() {
+    this.buildMenuAction();
+  }
 
   //  API Methods
   public ActionClicked(action: LCUActionState) {
@@ -44,4 +48,10 @@ export class ToolbarComponent implements OnInit {
   }
 
   //  Helpers
+  protected buildMenuAction() {
+    this.MenuAction = {
+      Icon: 'menu',
+      Actions: this.State?.Actions,
+    };
+  }
 }

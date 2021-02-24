@@ -4,6 +4,7 @@ export * from './lib/controls/loader/loader.component';
 export * from './lib/controls/toolbar/toolbar.component';
 export * from './lib/elements/app-host/app-host.component';
 export * from './lib/elements/app-host/app-host.models';
+export * from './lib/elements/app-host/controls/footer/footer.component';
 export * from './lib/elements/app-host/controls/frame/frame.component';
 export * from './lib/elements/app-host/controls/header/header.component';
 export * from './lib/elements/app-host/controls/nav/nav.component';

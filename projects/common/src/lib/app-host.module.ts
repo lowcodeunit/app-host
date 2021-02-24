@@ -12,6 +12,8 @@ import { ActionComponent } from './controls/action/action.component';
 import { NavComponent } from './elements/app-host/controls/nav/nav.component';
 import { LazyElementModule } from '@lowcodeunit/lazy-element';
 import { LoaderComponent } from './controls/loader/loader.component';
+import { FooterComponent } from './elements/app-host/controls/footer/footer.component';
+import { SvgBackgroundComponent } from './controls/svg-background/svg-background.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { LoaderComponent } from './controls/loader/loader.component';
     ActionComponent,
     NavComponent,
     LoaderComponent,
+    FooterComponent,
+    SvgBackgroundComponent,
   ],
   imports: [
     FathymSharedModule,
@@ -43,6 +47,8 @@ import { LoaderComponent } from './controls/loader/loader.component';
     ActionComponent,
     NavComponent,
     LoaderComponent,
+    FooterComponent,
+    SvgBackgroundComponent,
   ],
   entryComponents: [
     LCUAppHostElementComponent,

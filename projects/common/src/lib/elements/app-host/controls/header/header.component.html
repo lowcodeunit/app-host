@@ -1,7 +1,11 @@
 <div class="app-header-container" ngClass.lt-sm="sm" ngClass.lt-md="md">
   <div fxLayout="row" fxLayout.lt-sm="column">
     <div fxFlex="auto" class="app-header-details">
-      <div fxLayout="row" fxLayout.lt-sm="column" class="app-header-details-container">
+      <div
+        fxLayout="row"
+        fxLayout.lt-sm="column"
+        class="app-header-details-container"
+      >
         <div fxFlex="40%" fxFlex.lt-sm="100%" class="app-header-title">
           <h1 fxLayout="column">
             <span class="welcome-text">{{ State.WelcomeTitle }}</span>
@@ -20,7 +24,12 @@
       </div>
     </div>
 
-    <div fxFlex="40%" fxFlex.md="30%" fxHide.lt-md="true" class="app-header-extras">
+    <div
+      fxFlex="40%"
+      fxFlex.md="30%"
+      fxHide.lt-md="true"
+      class="app-header-extras"
+    >
       <div class="app-header-extras-container">
         <ng-content></ng-content>
       </div>

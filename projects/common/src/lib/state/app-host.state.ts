@@ -1,4 +1,4 @@
-import { LazyElementConfig } from '@lowcodeunit/lazy-element';
+import { LazyElementConfig, LazyElementToken } from '@lowcodeunit/lazy-element';
 import { LCUActionState } from '../controls/action/action.component';
 
 export class AppHostStateBase {
@@ -21,6 +21,20 @@ export class AppHostState extends AppHostStateBase {
   public ElementConfigs?: { [key: string]: LazyElementConfig };
 
   public Pages?: AppHostPageState[];
+}
+
+export class AppHostFooterState {
+  public ActionGroups?: AppHostActionGroupState[];
+
+  public Partners?: AppHostActionGroupState;
+}
+
+export class AppHostActionGroupState {
+  public Actions?: LCUActionState[];
+
+  public Class?: string;
+
+  public Title?: string;
 }
 
 export class AppHostFrameState {
@@ -54,7 +68,10 @@ export class AppHostNavState {
 }
 
 export class AppHostPageState extends AppHostStateBase {
-  public ElementConfigs: string[];
+  /**
+   * Mapping of element config keys to use and the coresponding propert on State to use.
+   */
+  public ElementConfigs: LazyElementToken[];
 
   public Route: string;
 }
