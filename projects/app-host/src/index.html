@@ -159,12 +159,12 @@
           },
           "landing-pages-blocks-element": {
             Scripts: [
-              // "/assets/landing-pages.lcu.js",
-              "https://www.iot-ensemble.com/_lcu/lcu-landing-pages-lcu/wc/landing-pages.lcu.js",
+              "/assets/landing-pages.lcu.js",
+              // "https://www.iot-ensemble.com/_lcu/lcu-landing-pages-lcu/wc/landing-pages.lcu.js",
             ],
             Styles: [
-              // "/assets/landing-pages.lcu.css",
-              "https://www.iot-ensemble.com/_lcu/lcu-landing-pages-lcu/wc/landing-pages.lcu.css",
+              "/assets/landing-pages.lcu.css",
+              // "https://www.iot-ensemble.com/_lcu/lcu-landing-pages-lcu/wc/landing-pages.lcu.css",
             ],
             ElementName: "landing-pages-home-page-element",
           },
@@ -258,6 +258,8 @@
             "url(./assets/images/background-wave-cta-iot-ensemble.svg)",
         },
       };
+
+      blocksLandingPage.ElementConfigs = appHost.ElementConfigs;
 
       window.LCU = {
         // APIRoot: "https://localhost:44387",
