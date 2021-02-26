@@ -2,6 +2,7 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FathymSharedModule, MaterialModule } from '@lcu/common';
+import { DataGridModule } from '@lowcodeunit/data-grid';
 import { AppHostStateContext } from './state/app-host-state.context';
 import { LCUAppHostElementComponent } from './elements/app-host/app-host.component';
 import { ToolbarComponent } from './controls/toolbar/toolbar.component';
@@ -37,6 +38,7 @@ import { ApiAccessComponent } from './controls/api-access/api-access.component';
     FlexLayoutModule,
     MaterialModule,
     LazyElementModule,
+    DataGridModule,
   ],
   exports: [
     FlexLayoutModule,
@@ -52,6 +54,7 @@ import { ApiAccessComponent } from './controls/api-access/api-access.component';
     FooterComponent,
     SvgBackgroundComponent,
     ApiAccessComponent,
+    DataGridModule,
   ],
   entryComponents: [
     LCUAppHostElementComponent,
