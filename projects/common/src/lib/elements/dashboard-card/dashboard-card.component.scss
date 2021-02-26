@@ -19,6 +19,10 @@
 
       .card-nav {
         @extend .margin-bottom-3;
+
+        nav {
+          display: flex;
+        }
       }
     }
   }
