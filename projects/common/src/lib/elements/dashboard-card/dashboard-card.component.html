@@ -1,3 +1,40 @@
-<h2>AppHost DashboardCard Next Steps</h2>
+<mat-card class="dashboard-card" fxLayout="column">
+  <div class="card-container" fxLayout="row" fxLayout.lt-sm="column">
+    <mat-card-header
+      fxFlex
+      fxFlexOrder="1"
+      fxFlexOrder.lt-sm="2"
+      fxLayout="row"
+    >
+      <div mat-card-avatar fxLayoutAlign="center center" class="card-icon">
+        <mat-icon>{{ Context?.Icon }}</mat-icon>
+      </div>
 
-<p>Do stuff and things!</p>
+      <mat-card-title *ngIf="Context?.Title">
+        {{ Context?.Title }}
+      </mat-card-title>
+
+      <mat-card-subtitle fxLayout="row" fxLayoutAlign="start">
+        <ng-content select=".subtitle"></ng-content>
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <div
+      fxLayout="row"
+      fxFlexOrder="2"
+      fxFlexOrder.lt-sm="1"
+      fxLayoutAlign="end start"
+      class="card-nav"
+    >
+      <ng-content select="nav"></ng-content>
+    </div>
+  </div>
+
+  <mat-card-content>
+    <ng-content select="nav"></ng-content>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <ng-content select=".action"></ng-content>
+  </mat-card-actions>
+</mat-card>
