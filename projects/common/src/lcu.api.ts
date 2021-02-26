@@ -2,6 +2,7 @@ export * from './lib/app-host.module';
 export * from './lib/controls/action/action.component';
 export * from './lib/controls/api-access/api-access.component';
 export * from './lib/controls/loader/loader.component';
+export * from './lib/controls/swagger-ui/swagger-ui.component';
 export * from './lib/controls/toolbar/toolbar.component';
 export * from './lib/elements/app-host/app-host.component';
 export * from './lib/elements/app-host/app-host.models';

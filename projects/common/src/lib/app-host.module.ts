@@ -16,6 +16,7 @@ import { LoaderComponent } from './controls/loader/loader.component';
 import { FooterComponent } from './elements/app-host/controls/footer/footer.component';
 import { SvgBackgroundComponent } from './controls/svg-background/svg-background.component';
 import { ApiAccessComponent } from './controls/api-access/api-access.component';
+import { SwaggerUIComponent } from './controls/swagger-ui/swagger-ui.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ApiAccessComponent } from './controls/api-access/api-access.component';
     FooterComponent,
     SvgBackgroundComponent,
     ApiAccessComponent,
+    SwaggerUIComponent,
   ],
   imports: [
     FathymSharedModule,
@@ -55,6 +57,7 @@ import { ApiAccessComponent } from './controls/api-access/api-access.component';
     SvgBackgroundComponent,
     ApiAccessComponent,
     DataGridModule,
+    SwaggerUIComponent,
   ],
   entryComponents: [
     LCUAppHostElementComponent,
