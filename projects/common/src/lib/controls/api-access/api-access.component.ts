@@ -16,7 +16,7 @@ import {
 } from '@lowcodeunit/data-grid';
 import { of } from 'rxjs';
 
-export class ApiAccessKeyData {
+export class APIAccessKeyData {
   public Key: string;
 
   public KeyName: string;
@@ -33,7 +33,7 @@ export class ApiAccessComponent implements OnChanges, OnInit {
 
   //  Properties
   @Input('api-keys')
-  public APIKeys: ApiAccessKeyData[];
+  public APIKeys: APIAccessKeyData[];
 
   public GridParameters: DataGridConfigModel;
 
@@ -76,7 +76,7 @@ export class ApiAccessComponent implements OnChanges, OnInit {
     // this.toggleKeyVisibility = keyData.$ShowKey;
   }
 
-  public Regenerate(keyData: ApiAccessKeyData) {
+  public Regenerate(keyData: APIAccessKeyData) {
     if (
       confirm(
         `Are you sure you want to regenerate the key: ${keyData.KeyName}?`
