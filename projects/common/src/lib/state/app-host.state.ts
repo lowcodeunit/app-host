@@ -1,3 +1,4 @@
+import { MetaDefinition } from '@angular/platform-browser';
 import { LazyElementConfig, LazyElementToken } from '@lowcodeunit/lazy-element';
 import { LCUActionState } from '../controls/action/action.component';
 
@@ -77,7 +78,7 @@ export class AppHostPageState extends AppHostStateBase {
 }
 
 export class AppHostSEOState {
-  public Description?: string;
+  public MetaTags?: { [tag: string]: string };
 
   public Title?: string;
 }

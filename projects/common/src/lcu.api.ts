@@ -11,5 +11,6 @@ export * from './lib/elements/app-host/controls/frame/frame.component';
 export * from './lib/elements/app-host/controls/header/header.component';
 export * from './lib/elements/app-host/controls/nav/nav.component';
 export * from './lib/elements/dashboard-card/dashboard-card.component';
+export * from './lib/services/seo-service.service';
 export * from './lib/state/app-host-state.context';
 export * from './lib/state/app-host.state';

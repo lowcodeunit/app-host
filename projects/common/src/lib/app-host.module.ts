@@ -17,6 +17,7 @@ import { FooterComponent } from './elements/app-host/controls/footer/footer.comp
 import { SvgBackgroundComponent } from './controls/svg-background/svg-background.component';
 import { ApiAccessComponent } from './controls/api-access/api-access.component';
 import { SwaggerUIComponent } from './controls/swagger-ui/swagger-ui.component';
+import { SEOServiceService } from './services/seo-service.service';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,7 @@ export class AppHostModule {
   static forRoot(): ModuleWithProviders<AppHostModule> {
     return {
       ngModule: AppHostModule,
-      providers: [AppHostStateContext],
+      providers: [AppHostStateContext, SEOServiceService],
     };
   }
 }
