@@ -14,6 +14,7 @@ import { LazyElementModule } from '@lowcodeunit/lazy-element';
 import { LoaderComponent } from './controls/loader/loader.component';
 import { FooterComponent } from './elements/app-host/controls/footer/footer.component';
 import { SvgBackgroundComponent } from './controls/svg-background/svg-background.component';
+import { ApiAccessComponent } from './controls/api-access/api-access.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { SvgBackgroundComponent } from './controls/svg-background/svg-background
     LoaderComponent,
     FooterComponent,
     SvgBackgroundComponent,
+    ApiAccessComponent,
   ],
   imports: [
     FathymSharedModule,
@@ -49,6 +51,7 @@ import { SvgBackgroundComponent } from './controls/svg-background/svg-background
     LoaderComponent,
     FooterComponent,
     SvgBackgroundComponent,
+    ApiAccessComponent,
   ],
   entryComponents: [
     LCUAppHostElementComponent,
