@@ -21,8 +21,8 @@ export class APIAccessKeyData {
 
   public KeyName: string;
 }
-@Component({
 
+@Component({
   selector: 'lcu-api-access',
   templateUrl: './api-access.component.html',
   styleUrls: ['./api-access.component.scss'],
@@ -35,6 +35,9 @@ export class ApiAccessComponent implements OnChanges, OnInit {
   @Input('api-keys')
   public APIKeys: APIAccessKeyData[];
 
+  @Input('description')
+  public Description: string;
+
   public GridParameters: DataGridConfigModel;
 
   @Input('open-api-source')
@@ -43,9 +46,17 @@ export class ApiAccessComponent implements OnChanges, OnInit {
   @Output('regenerated')
   public Regenerated: EventEmitter<string>;
 
+  @Input('title')
+  public Title: string;
+
   //  Constructors
   constructor() {
+    this.Description =
+      'Here we have embedded Swagger so that you can see the parameters available for various APIs, as well as test to see the responses.';
+
     this.Regenerated = new EventEmitter();
+
+    this.Title = 'Try It';
   }
 
   //  Life Cycle
@@ -71,7 +82,6 @@ export class ApiAccessComponent implements OnChanges, OnInit {
   }
 
   public ShowKey(keyData: any) {
-
     keyData.$ShowKey = !keyData.$ShowKey;
     // this.toggleKeyVisibility = keyData.$ShowKey;
   }
@@ -117,7 +127,7 @@ export class ApiAccessComponent implements OnChanges, OnInit {
         Pipe: (keyData: any) => {
           // Pipe can be a function or a string
           return keyData.$ShowKey ? '' : 'password';
-        }
+        },
       }),
 
       new ColumnDefinitionModel({

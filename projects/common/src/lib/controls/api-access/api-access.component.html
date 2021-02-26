@@ -22,14 +22,16 @@
   <div class="margin-top-4">
     <div>
       <mat-card-header>
-        <mat-card-title> Try It </mat-card-title>
+        <mat-card-title>
+          {{ Title }}
+        </mat-card-title>
       </mat-card-header>
+
       <mat-card-content class="margin-left-5">
         <p>
-          Here we have embedded Swagger so that you can see the parameters
-          available for the Cold and Warm APIs, as well as test to see the
-          responses.
+          {{ Description }}
         </p>
+
         <div class="margin-top-4">
           <lcu-swagger-ui
             [source]="OpenAPISource"
