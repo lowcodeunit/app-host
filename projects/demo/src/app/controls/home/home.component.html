@@ -1,8 +1,26 @@
 <div fxLayout="column" class="home-container">
   <h1>Welcome to the LCU-Starter-App</h1>
   <div fxLayout="column">
-    <div fxLayout="row">
+    <app-host-dashboard-card-element
+      [context]="{ Title: 'Testing', Icon: 'compare_arrows' }"
+    >
+      <nav>
+        <a mat-raised-button>Things</a>
+      </nav>
 
-    </div>
+      <span class="card-subtitle">
+        We subtitling...
+      </span>
+
+      <span class="card-actions">
+        <div fxFlex></div>
+
+        <a mat-raised-button>Things</a>
+      </span>
+
+      <div>This be everything else</div>
+
+      <p>Get it</p>
+    </app-host-dashboard-card-element>
   </div>
 </div>
