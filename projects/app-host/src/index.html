@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>LowCodeUnit | Web Apps & Micro-Frontends Delivery SystemTeam</title>
+    <title>Loading Application...</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
@@ -20,6 +20,7 @@
             {
               Text: "Products",
               Align: "end",
+              IsMenu: true,
               Actions: [
                 {
                   Text: "IoT Ensemble",
@@ -139,8 +140,11 @@
           },
         },
         SEO: {
-          Title: "IoT Ensemble",
-          Description: "IoT Made Easy",
+          Title: "IoT Ensemble | Experience IoT in Minues",
+          MetaTags: {
+            description: "IoT projects that let you experience IoT in minutes.",
+            keywords: "iot, azure, internet of things, smart home",
+          },
         },
         Theme: {
           UsePageMargin: true,
@@ -187,10 +191,6 @@
                 StateKey: null,
               },
             ],
-            SEO: {
-              Title: "++Do It!",
-              Description: "IoT Made Easy-ish",
-            },
             Theme: {
               UsePageBackground: true,
             },
@@ -203,6 +203,15 @@
                 StateKey: "LandingPages.Blocks",
               },
             ],
+            SEO: {
+              Title: "Fathym Cloud | Get It Going",
+              MetaTags: {
+                description:
+                  "Get the cloud.",
+                keywords: "iot, azure, internet of things, smart home",
+                robots: 'index, follow'
+              },
+            },
             Frame: null,
             Nav: null,
             Header: null,
@@ -301,9 +310,9 @@
           Message:
             "Modular and reusable components and tools that help your team deliver repeatable, low-code solutions.",
           // Image: "./assets/images/fathym-cloud-dashboard.png",
-          // Elements: [
-          //   { Name: "lcu-billing-plan-view-element", StateKey: "Billing" },
-          // ],
+          Elements: [
+            { Name: "lcu-billing-plan-view-element", StateKey: "Billing" },
+          ],
         },
         InfoCards: [
           {
@@ -325,20 +334,20 @@
             Title: "Control",
           },
         ],
-        // CallToAction: {
-        //   Action: {
-        //     Text: "Sign up today",
-        //     Target: "_blank",
-        //     Path: "#",
-        //     Color: "accent",
-        //     Raised: true,
-        //   },
-        //   Title: "Sign up for free",
-        //   Message:
-        //     "Learn how fathym can save thousands of dollars in time and efficiency.",
-        //   BackgroundImage:
-        //     "url(./assets/images/background-wave-cta-iot-ensemble.svg)",
-        // },
+        CallToAction: {
+          Action: {
+            Text: "Sign up today",
+            Target: "_blank",
+            Path: "#",
+            Color: "accent",
+            Raised: true,
+          },
+          Title: "Sign up for free",
+          Message:
+            "Learn how fathym can save thousands of dollars in time and efficiency.",
+          BackgroundImage:
+            "url(./assets/images/background-wave-cta-iot-ensemble.svg)",
+        },
       };
 
       blocksLandingPage.ElementConfigs = appHost.ElementConfigs;

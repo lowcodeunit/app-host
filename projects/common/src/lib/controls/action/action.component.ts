@@ -4,6 +4,7 @@ import {
   HostBinding,
   Injector,
   Input,
+  OnChanges,
   OnInit,
   Output,
   ViewChild,
@@ -16,6 +17,8 @@ export class LCUActionState {
 
   public Align?: 'start' | 'end';
 
+  public BypassClick?: boolean;
+
   public ByRoute?: boolean;
 
   public Color?: string;
@@ -23,6 +26,8 @@ export class LCUActionState {
   public Icon?: string;
 
   public Image?: string;
+
+  public IsMenu?: boolean;
 
   public Path?: string;
 
@@ -38,7 +43,7 @@ export class LCUActionState {
   templateUrl: './action.component.html',
   styleUrls: ['./action.component.scss'],
 })
-export class ActionComponent implements OnInit {
+export class ActionComponent implements OnChanges, OnInit {
   //  Fields
 
   //  Properties
@@ -47,6 +52,8 @@ export class ActionComponent implements OnInit {
 
   @ViewChild('actionMenu')
   public ActionMenu: MatMenu;
+
+  public ActionType: string;
 
   @HostBinding('class.lcu-action')
   public get ClassLCUAction(): boolean {
@@ -62,11 +69,19 @@ export class ActionComponent implements OnInit {
   }
 
   //  Life Cycle
-  public ngOnInit() {}
+  public ngOnChanges() {
+    this.setActiontype();
+  }
+
+  public ngOnInit() {
+    this.setActiontype();
+  }
 
   //  API Methods
   public Clicked(e: MouseEvent) {
-    if (this.Action.ByRoute && this.Action.Path) {
+    if (this.Action.BypassClick) {
+      // e.preventDefault();
+    } else if (this.Action.ByRoute && this.Action.Path) {
       this.router.navigateByUrl(this.Action.Path);
 
       e.preventDefault();
@@ -78,4 +93,13 @@ export class ActionComponent implements OnInit {
   }
 
   //  Helpers
+  protected setActiontype() {
+    // this.ActionType = '';
+
+    // if (this.Action.IsMenuItem) {
+    //   this.ActionType = 'menu-item';
+    // } else if (this.Action.Raised) {
+    //   this.ActionType = 'raised';
+    // }
+  }
 }
