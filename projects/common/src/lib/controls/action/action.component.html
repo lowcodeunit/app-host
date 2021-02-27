@@ -61,7 +61,7 @@
     #actionMenu="matMenu"
     [overlapTrigger]="false"
     fxShow="Action.Actions?.length > 0"
-    [fxHide.lt-md]="Action.IsMenuItem && true"
+    [fxHide.lt-md]="Action.IsMenu && true"
   >
     <ng-container *ngFor="let action of Action.Actions">
       <lcu-action
@@ -72,7 +72,7 @@
     </ng-container>
   </mat-menu>
 
-  <div class="padding-left-1" *ngIf="Action.IsMenuItem && Action.Actions?.length > 0" fxHide [fxShow.lt-md]="true">
+  <div class="padding-left-1" *ngIf="Action.IsMenu && Action.Actions?.length > 0" fxHide [fxShow.lt-md]="true">
     <ng-container *ngFor="let action of Action.Actions">
       <lcu-action
         class="toolbar-menu-action"

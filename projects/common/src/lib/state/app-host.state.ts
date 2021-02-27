@@ -3,6 +3,8 @@ import { LazyElementConfig, LazyElementToken } from '@lowcodeunit/lazy-element';
 import { LCUActionState } from '../controls/action/action.component';
 
 export class AppHostStateBase {
+  public Footer?: AppHostFooterState;
+
   public Frame?: AppHostFrameState;
 
   public Header?: AppHostHeaderState;
