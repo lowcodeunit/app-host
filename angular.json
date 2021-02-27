@@ -36,9 +36,7 @@
               "projects/common/tsconfig.lib.json",
               "projects/common/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -77,6 +75,8 @@
               }
             ],
             "styles": [
+              "node_modules/swagger-ui/dist/swagger-ui.css",
+              "node_modules/swagger-ui-themes/themes/3.x/theme-material.css",
               "projects/lcu/src/styles.scss"
             ],
             "scripts": [
@@ -138,9 +138,7 @@
               "projects/lcu/src/favicon.ico",
               "projects/lcu/src/assets"
             ],
-            "styles": [
-              "projects/lcu/src/styles.scss"
-            ],
+            "styles": ["projects/lcu/src/styles.scss"],
             "scripts": []
           }
         },
@@ -152,9 +150,7 @@
               "projects/lcu/tsconfig.spec.json",
               "projects/lcu/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -202,6 +198,8 @@
               "projects/demo/src/docs"
             ],
             "styles": [
+              "node_modules/swagger-ui/dist/swagger-ui.css",
+              "node_modules/swagger-ui-themes/themes/3.x/theme-material.css",
               "projects/demo/src/styles.scss"
             ],
             "scripts": []
@@ -252,9 +250,7 @@
               "projects/demo/src/favicon.ico",
               "projects/demo/src/assets"
             ],
-            "styles": [
-              "projects/demo/src/styles.scss"
-            ],
+            "styles": ["projects/demo/src/styles.scss"],
             "scripts": []
           }
         },
@@ -266,9 +262,7 @@
               "projects/demo/tsconfig.spec.json",
               "projects/demo/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -315,6 +309,8 @@
               }
             ],
             "styles": [
+              "node_modules/swagger-ui/dist/swagger-ui.css",
+              "node_modules/swagger-ui-themes/themes/3.x/theme-material.css",
               "projects/app-host/src/styles.scss"
             ],
             "scripts": []
@@ -365,9 +361,7 @@
               "projects/app-host/src/favicon.ico",
               "projects/app-host/src/assets"
             ],
-            "styles": [
-              "projects/app-host/src/styles.scss"
-            ],
+            "styles": ["projects/app-host/src/styles.scss"],
             "scripts": []
           }
         },
@@ -379,9 +373,7 @@
               "projects/app-host/tsconfig.spec.json",
               "projects/app-host/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {

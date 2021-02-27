@@ -18,6 +18,7 @@ import {
 import { LazyElementConfig } from '@lowcodeunit/lazy-element';
 import { filter } from 'rxjs/operators';
 import { LCUActionState } from '../../controls/action/action.component';
+import { SEOServiceService } from '../../services/seo-service.service';
 import { AppHostPageState, AppHostState } from '../../state/app-host.state';
 import { LCUAppHostContext } from './app-host.models';
 
@@ -44,7 +45,6 @@ export class LCUAppHostElementComponent
   @Output('footer-action-click')
   public FooterActionClick: EventEmitter<LCUActionState>;
 
-
   @Output('nav-action-click')
   public NavActionClick: EventEmitter<LCUActionState>;
 
@@ -59,7 +59,8 @@ export class LCUAppHostElementComponent
   constructor(
     protected injector: Injector,
     private router: Router,
-    protected settings: LCUServiceSettings
+    protected settings: LCUServiceSettings,
+    protected seoSvc: SEOServiceService
   ) {
     super(injector);
 
@@ -182,6 +183,8 @@ export class LCUAppHostElementComponent
       this.ActivePage = this.processObjectForStrAdd(page, {
         ...this.State,
       });
+
+      this.seoSvc.SetSEO(this.ActivePage.SEO);
     }
   }
 

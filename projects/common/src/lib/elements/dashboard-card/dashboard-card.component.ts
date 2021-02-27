@@ -3,7 +3,11 @@ import { LCUElementContext, LcuElementComponent } from '@lcu/common';
 
 export class AppHostDashboardCardElementState {}
 
-export class AppHostDashboardCardContext extends LCUElementContext<AppHostDashboardCardElementState> {}
+export class AppHostDashboardCardContext extends LCUElementContext<AppHostDashboardCardElementState> {
+  public Icon: string;
+
+  public Title: string;
+}
 
 export const SELECTOR_APP_HOST_DASHBOARD_CARD_ELEMENT = 'app-host-dashboard-card-element';
 

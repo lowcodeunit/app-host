@@ -2,6 +2,7 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FathymSharedModule, MaterialModule } from '@lcu/common';
+import { DataGridModule } from '@lowcodeunit/data-grid';
 import { AppHostStateContext } from './state/app-host-state.context';
 import { LCUAppHostElementComponent } from './elements/app-host/app-host.component';
 import { ToolbarComponent } from './controls/toolbar/toolbar.component';
@@ -14,6 +15,9 @@ import { LazyElementModule } from '@lowcodeunit/lazy-element';
 import { LoaderComponent } from './controls/loader/loader.component';
 import { FooterComponent } from './elements/app-host/controls/footer/footer.component';
 import { SvgBackgroundComponent } from './controls/svg-background/svg-background.component';
+import { ApiAccessComponent } from './controls/api-access/api-access.component';
+import { SwaggerUIComponent } from './controls/swagger-ui/swagger-ui.component';
+import { SEOServiceService } from './services/seo-service.service';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,8 @@ import { SvgBackgroundComponent } from './controls/svg-background/svg-background
     LoaderComponent,
     FooterComponent,
     SvgBackgroundComponent,
+    ApiAccessComponent,
+    SwaggerUIComponent,
   ],
   imports: [
     FathymSharedModule,
@@ -35,6 +41,7 @@ import { SvgBackgroundComponent } from './controls/svg-background/svg-background
     FlexLayoutModule,
     MaterialModule,
     LazyElementModule,
+    DataGridModule,
   ],
   exports: [
     FlexLayoutModule,
@@ -49,6 +56,9 @@ import { SvgBackgroundComponent } from './controls/svg-background/svg-background
     LoaderComponent,
     FooterComponent,
     SvgBackgroundComponent,
+    ApiAccessComponent,
+    DataGridModule,
+    SwaggerUIComponent,
   ],
   entryComponents: [
     LCUAppHostElementComponent,
@@ -59,7 +69,7 @@ export class AppHostModule {
   static forRoot(): ModuleWithProviders<AppHostModule> {
     return {
       ngModule: AppHostModule,
-      providers: [AppHostStateContext],
+      providers: [AppHostStateContext, SEOServiceService],
     };
   }
 }
