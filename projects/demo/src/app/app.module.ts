@@ -15,8 +15,6 @@ import { LcuDocumentationModule } from '@lowcodeunit/lcu-documentation-common';
 import { AppHostModule } from '@lowcodeunit/app-host-common';
 import { environment } from '../environments/environment';
 
-const lcuSettings = FathymSharedModule.DefaultServiceSettings(environment);
-
 @NgModule({
   declarations: [AppComponent, HomeComponent, DocumentationComponent],
   imports: [
@@ -28,12 +26,12 @@ const lcuSettings = FathymSharedModule.DefaultServiceSettings(environment);
     FlexLayoutModule,
     LcuDocumentationModule.forRoot(),
     AppHostModule.forRoot(),
-    AppHostModule.forMonaco(lcuSettings.Settings?.Monaco || {}),
+    AppHostModule.forMonaco((window as any).LCU.Settings?.Monaco || {}),
   ],
   providers: [
     {
       provide: LCUServiceSettings,
-      useValue: lcuSettings,
+      useValue: FathymSharedModule.DefaultServiceSettings(environment),
     },
   ],
   bootstrap: [AppComponent],
