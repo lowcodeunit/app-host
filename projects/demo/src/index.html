@@ -1,65 +1,70 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>LowCodeUnit Demo</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <head>
+    <meta charset="utf-8" />
+    <title>LowCodeUnit Demo</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
-  <script id="lcu-reg">
-    window.LCU = {
-      // APIRoot: "https://localhost:44387",
-      APIRoot: "https://www.iot-ensemble.com",
-      Application: {},
-      State: {
-        ActionRoot: "/api/state",
-        Root: "/api/state",
-        // Environment: "local",
-        UsernameMock: "michael.gearhardt@fathym.com",
-        FreeboardURL: "https://fathym.fathym-it.com/freeboard",
-        Google: {
-          Analytics: {
-            MeasurementID: "G-NEWEXH7W8C",
+    <script id="lcu-reg">
+      window.LCU = {
+        // APIRoot: "https://localhost:44387",
+        APIRoot: "https://www.iot-ensemble.com",
+        Application: {},
+        State: {
+          ActionRoot: "/api/state",
+          Root: "/api/state",
+          // Environment: "local",
+          UsernameMock: "michael.gearhardt@fathym.com",
+          FreeboardURL: "https://fathym.fathym-it.com/freeboard",
+          Google: {
+            Analytics: {
+              MeasurementID: "G-NEWEXH7W8C",
+            },
           },
         },
-      },
-      Settings: {},
-      User: {
-        Email: "local-tester@fathym.com",
-      },
-    };
-  </script>
-
-  <script type="application/javascript">
-    (function (b, o, n, g, s, r, c) {
-      if (b[s]) return;
-      b[s] = {};
-      b[s].scriptToken = "XzcwMzAwMzkyNA";
-      b[s].callsQueue = [];
-      b[s].api = function () {
-        b[s].callsQueue.push(arguments);
+        Settings: {
+          Monaco: {
+            // BaseURL: "assets/monaco-editor/vs",
+            DefaultOptions: { scrollBeyondLastLine: false },
+          },
+        },
+        User: {
+          Email: "local-tester@fathym.com",
+        },
       };
-      r = o.createElement(n);
-      c = o.getElementsByTagName(n)[0];
-      r.async = 1;
-      r.src = g;
-      r.id = s + n;
-      c.parentNode.insertBefore(r, c);
-    })(
-      window,
-      document,
-      "script",
-      "https://cdn.oribi.io/XzcwMzAwMzkyNA/oribi.js",
-      "ORIBI"
-    );
+    </script>
 
-    if (window.LCU?.User?.Email) {
-      ORIBI.api("setUserEmail", window.LCU.User.Email);
-    }
-  </script>
-</head>
-<body>
-  <lcu-root></lcu-root>
-</body>
+    <script type="application/javascript">
+      (function (b, o, n, g, s, r, c) {
+        if (b[s]) return;
+        b[s] = {};
+        b[s].scriptToken = "XzcwMzAwMzkyNA";
+        b[s].callsQueue = [];
+        b[s].api = function () {
+          b[s].callsQueue.push(arguments);
+        };
+        r = o.createElement(n);
+        c = o.getElementsByTagName(n)[0];
+        r.async = 1;
+        r.src = g;
+        r.id = s + n;
+        c.parentNode.insertBefore(r, c);
+      })(
+        window,
+        document,
+        "script",
+        "https://cdn.oribi.io/XzcwMzAwMzkyNA/oribi.js",
+        "ORIBI"
+      );
+
+      if (window.LCU?.User?.Email) {
+        ORIBI.api("setUserEmail", window.LCU.User.Email);
+      }
+    </script>
+  </head>
+  <body>
+    <lcu-root></lcu-root>
+  </body>
 </html>

@@ -206,10 +206,9 @@
             SEO: {
               Title: "Fathym Cloud | Get It Going",
               MetaTags: {
-                description:
-                  "Get the cloud.",
+                description: "Get the cloud.",
                 keywords: "iot, azure, internet of things, smart home",
-                robots: 'index, follow'
+                robots: "index, follow",
               },
             },
             Frame: null,
@@ -435,6 +434,20 @@
           Email: "local-tester@fathym.com",
         },
       };
+    </script>
+
+    <script id="lcu-reg-handlers">
+      function buyNowClick(plan) {
+        console.log(plan.PlanGroup);
+
+        if (plan.PlanGroup === "Free") {
+          window.location.href = "https://www.iot-ensemble.com/dashboard";
+        } else if (plan.PlanGroup === "Enterprise") {
+          window.location.href = "mailto: sales@fathym.com";
+        } else {
+          window.location.href = `https://www.iot-ensemble.com/billing/iot/plan/${plan.PlanGroup}/${plan.Interval}`;
+        }
+      }
     </script>
   </head>
   <body>
