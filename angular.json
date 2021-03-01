@@ -72,6 +72,11 @@
                 "glob": "lcu.json",
                 "input": "./",
                 "output": "/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/monaco-editor/dev/",
+                "output": "/assets/monaco-editor/"
               }
             ],
             "styles": [
@@ -195,6 +200,11 @@
                 "input": "./projects/demo/",
                 "output": "/"
               },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/monaco-editor/dev/",
+                "output": "/assets/monaco-editor/"
+              },
               "projects/demo/src/docs"
             ],
             "styles": [
@@ -306,6 +316,11 @@
                 "glob": "package.json",
                 "input": "./projects/app-host/",
                 "output": "/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/monaco-editor/dev/",
+                "output": "/assets/monaco-editor/"
               }
             ],
             "styles": [
@@ -313,7 +328,8 @@
               "node_modules/swagger-ui-themes/themes/3.x/theme-material.css",
               "projects/app-host/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+            ]
           },
           "configurations": {
             "production": {
