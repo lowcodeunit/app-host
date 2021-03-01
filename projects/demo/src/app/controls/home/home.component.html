@@ -10,19 +10,26 @@
         <a mat-raised-button>Things</a>
       </nav>
 
-      <span class="card-subtitle">
-        We subtitling...
-      </span>
+      <span class="card-subtitle"> We subtitling... </span>
+
+      <div>
+        <div>This be everything else</div>
+
+        <p>Get it</p>
+
+        <lcu-code-editor
+          [options]="Options"
+          [(code)]="OptsStr"
+        ></lcu-code-editor>
+
+        <pre>{{ OptsStr | json }}</pre>
+      </div>
 
       <span class="card-actions">
         <div fxFlex></div>
 
-        <a mat-raised-button>Things</a>
+        <a mat-raised-button (click)="SetOptions()">Things</a>
       </span>
-
-      <div>This be everything else</div>
-
-      <p>Get it</p>
     </app-host-dashboard-card-element>
   </div>
 </div>

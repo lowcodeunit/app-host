@@ -18,6 +18,10 @@ import { SvgBackgroundComponent } from './controls/svg-background/svg-background
 import { ApiAccessComponent } from './controls/api-access/api-access.component';
 import { SwaggerUIComponent } from './controls/swagger-ui/swagger-ui.component';
 import { SEOServiceService } from './services/seo-service.service';
+import {
+  CodeEditorComponent,
+  LCU_CODE_EDITOR_CONFIG,
+} from './controls/code-editor/code-editor.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +37,7 @@ import { SEOServiceService } from './services/seo-service.service';
     SvgBackgroundComponent,
     ApiAccessComponent,
     SwaggerUIComponent,
+    CodeEditorComponent,
   ],
   imports: [
     FathymSharedModule,
@@ -59,6 +64,7 @@ import { SEOServiceService } from './services/seo-service.service';
     ApiAccessComponent,
     DataGridModule,
     SwaggerUIComponent,
+    CodeEditorComponent,
   ],
   entryComponents: [
     LCUAppHostElementComponent,
@@ -66,6 +72,18 @@ import { SEOServiceService } from './services/seo-service.service';
   ],
 })
 export class AppHostModule {
+  static forMonaco(config: any): ModuleWithProviders<AppHostModule> {
+    return {
+      ngModule: AppHostModule,
+      providers: [
+        {
+          provide: LCU_CODE_EDITOR_CONFIG,
+          useValue: config,
+        },
+      ],
+    };
+  }
+
   static forRoot(): ModuleWithProviders<AppHostModule> {
     return {
       ngModule: AppHostModule,
