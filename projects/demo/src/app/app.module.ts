@@ -23,7 +23,7 @@ const lcuSettings = FathymSharedModule.DefaultServiceSettings(environment);
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
-    FathymSharedModule,
+    FathymSharedModule.forRoot(),
     MaterialModule,
     FlexLayoutModule,
     LcuDocumentationModule.forRoot(),
