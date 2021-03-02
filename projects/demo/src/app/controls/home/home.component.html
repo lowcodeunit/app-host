@@ -17,12 +17,19 @@
 
         <p>Get it</p>
 
-        <lcu-code-editor
+        <ngx-monaco-editor
           [options]="Options"
-          [(code)]="OptsStr"
-        ></lcu-code-editor>
+          [(ngModel)]="Code"
+        ></ngx-monaco-editor>
 
         <pre>{{ OptsStr | json }}</pre>
+
+        <ngx-monaco-editor
+          [options]="Options"
+        ></ngx-monaco-editor>
+        <!-- <lcu-code-editor
+          [options]="Options"
+        ></lcu-code-editor> -->
       </div>
 
       <span class="card-actions">

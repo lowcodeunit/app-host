@@ -22,6 +22,7 @@ import {
   CodeEditorComponent,
   LCU_CODE_EDITOR_CONFIG,
 } from './controls/code-editor/code-editor.component';
+import { MonacoEditorModule } from 'ngx-monaco-editor';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import {
     MaterialModule,
     LazyElementModule,
     DataGridModule,
+    MonacoEditorModule,
   ],
   exports: [
     FlexLayoutModule,
@@ -63,6 +65,7 @@ import {
     SvgBackgroundComponent,
     ApiAccessComponent,
     DataGridModule,
+    MonacoEditorModule,
     SwaggerUIComponent,
     CodeEditorComponent,
   ],
