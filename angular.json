@@ -77,6 +77,11 @@
                 "glob": "**/*",
                 "input": "./node_modules/monaco-editor/dev/",
                 "output": "/assets/monaco-editor/"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/ngx-monaco-editor/assets/monaco",
+                "output": "./assets/monaco/"
               }
             ],
             "styles": [
@@ -205,6 +210,11 @@
                 "input": "./node_modules/monaco-editor/dev/",
                 "output": "/assets/monaco-editor/"
               },
+              {
+                "glob": "**/*",
+                "input": "node_modules/ngx-monaco-editor/assets/monaco",
+                "output": "./assets/monaco/"
+              },
               "projects/demo/src/docs"
             ],
             "styles": [
@@ -328,8 +338,7 @@
               "node_modules/swagger-ui-themes/themes/3.x/theme-material.css",
               "projects/app-host/src/styles.scss"
             ],
-            "scripts": [
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
