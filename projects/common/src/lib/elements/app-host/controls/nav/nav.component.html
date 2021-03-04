@@ -7,7 +7,11 @@
 
   <ng-container *ngFor="let action of State.Actions">
     <mat-list-item class="nav-item">
-      <mat-icon matListIcon class="nav-item-icon">
+      <mat-icon
+        matListIcon
+        class="nav-item-icon"
+        (click)="ActionClicked(action)"
+      >
         {{ action.Icon }}
       </mat-icon>
 
