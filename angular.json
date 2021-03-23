@@ -329,6 +329,11 @@
               },
               {
                 "glob": "**/*",
+                "input": "./projects/common/assets",
+                "output": "/assets/"
+              },
+              {
+                "glob": "**/*",
                 "input": "./node_modules/monaco-editor/dev/",
                 "output": "/assets/monaco-editor/"
               }
