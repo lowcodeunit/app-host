@@ -10,6 +10,7 @@ import {
 import { environment } from '../environments/environment';
 import { AppHostModule } from '@lowcodeunit/app-host-common';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { LcuIconsModule } from '@lowcodeunit/lcu-icons-common';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +20,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FlexLayoutModule,
     FathymSharedModule.forRoot(),
     AppHostModule.forRoot(),
-    AppRoutingModule,
+    AppRoutingModule
   ],
   providers: [
     {

@@ -16,6 +16,7 @@ import {
   LCUServiceSettings,
 } from '@lcu/common';
 import { LazyElementConfig } from '@lowcodeunit/lazy-element';
+import { SVGToMatIconModel, SvgToMatIconService } from '@lowcodeunit/lcu-icons-common';
 import { filter } from 'rxjs/operators';
 import { LCUActionState } from '../../controls/action/action.component';
 import { SEOServiceService } from '../../services/seo-service.service';
@@ -60,7 +61,8 @@ export class LCUAppHostElementComponent
     protected injector: Injector,
     private router: Router,
     protected settings: LCUServiceSettings,
-    protected seoSvc: SEOServiceService
+    protected seoSvc: SEOServiceService,
+    protected svgToMatIconService: SvgToMatIconService
   ) {
     super(injector);
 
@@ -82,6 +84,17 @@ export class LCUAppHostElementComponent
     if (!this.Context) {
       this.setContext();
     }
+
+    // const icons: Array<SVGToMatIconModel> =
+    // [
+    //   { Name: 'svghome', IconPath: 'homepage.svg' },
+    //   { Name: 'svgdownload', IconPath: 'download.svg' },
+    //   { Name: 'svgphone', IconPath: 'phone.svg' },
+    //   { Name: 'accelerate', IconPath: 'accelerate.svg' },
+    // ];
+
+    // const path: string = '/assets/images/svgs/';
+    // this.svgToMatIconService.SetIcons(icons, path);
 
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))

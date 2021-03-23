@@ -48,7 +48,7 @@ import { MonacoEditorModule } from 'ngx-monaco-editor';
     MaterialModule,
     LazyElementModule,
     DataGridModule,
-    MonacoEditorModule,
+    MonacoEditorModule
   ],
   exports: [
     FlexLayoutModule,
