@@ -45,7 +45,7 @@
     "@aspnet/signalr": "^1.1.4",
     "@lcu/common": "^1.80.714",
     "@lowcodeunit-devkit/ng-lcu": "^1.28.161",
-    "@lowcodeunit/data-grid": "^1.18.201",
+    "@lowcodeunit/data-grid": "^1.19.225",
     "@lowcodeunit/lazy-element": "^1.21.68",
     "@lowcodeunit/lcu-documentation-common": "^1.6.38",
     "@lowcodeunit/lcu-icons-common": "1.2.69-integration",
