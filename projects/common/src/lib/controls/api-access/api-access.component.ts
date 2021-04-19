@@ -51,12 +51,7 @@ export class ApiAccessComponent implements OnChanges, OnInit {
 
   //  Constructors
   constructor() {
-    this.Description =
-      'Here we have embedded Swagger so that you can see the parameters available for various APIs, as well as test to see the responses.';
-
     this.Regenerated = new EventEmitter();
-
-    this.Title = 'Try It';
   }
 
   //  Life Cycle
