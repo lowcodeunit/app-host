@@ -196,7 +196,7 @@ export class LCUAppHostElementComponent
       this.ActivePage = this.processObjectForStrAdd(page, {
         ...this.State,
       });
-
+      debugger;
       this.seoSvc.SetSEO(this.ActivePage.SEO);
     }
   }

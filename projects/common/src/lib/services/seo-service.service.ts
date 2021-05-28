@@ -17,7 +17,7 @@ export class SEOServiceService {
   public SetSEO(seo: AppHostSEOState) {
     console.log('Updating SEO to:');
     console.log(seo);
-
+    debugger;
     this.setTitle(seo.Title);
 
     //  TODO: Add support for Open Graph and twitter cards meta tags
