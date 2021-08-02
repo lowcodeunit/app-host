@@ -23,6 +23,7 @@ import {
   LCU_CODE_EDITOR_CONFIG,
 } from './controls/code-editor/code-editor.component';
 import { MonacoEditorModule } from 'ngx-monaco-editor';
+import { HamburgerMenuComponent } from './controls/hamburger-menu/hamburger-menu.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { MonacoEditorModule } from 'ngx-monaco-editor';
     ApiAccessComponent,
     SwaggerUIComponent,
     CodeEditorComponent,
+    HamburgerMenuComponent,
   ],
   imports: [
     FathymSharedModule,
@@ -68,10 +70,12 @@ import { MonacoEditorModule } from 'ngx-monaco-editor';
     MonacoEditorModule,
     SwaggerUIComponent,
     CodeEditorComponent,
+    HamburgerMenuComponent,
   ],
   entryComponents: [
     LCUAppHostElementComponent,
     AppHostDashboardCardElementComponent,
+    HamburgerMenuComponent,
   ],
 })
 export class AppHostModule {

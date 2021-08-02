@@ -1,0 +1,15 @@
+<input 
+    type="checkbox" 
+    id="nav-toggle" 
+    class="nav-toggle">
+<mat-list>
+    <mat-list-item
+        *ngFor="let action of Action.Actions; last as last">
+        <a [href]="action.Path">{{ action.Text }}</a>
+        <mat-divider *ngIf="!last"></mat-divider>
+    </mat-list-item>
+</mat-list>
+
+<label for="nav-toggle" class="nav-toggle-label">
+    <span></span>
+</label>

@@ -44,6 +44,7 @@ export class ToolbarComponent implements OnInit {
 
   //  API Methods
   public ActionClicked(action: LCUActionState) {
+  
     this.ActionClick.emit(action);
   }
 
@@ -51,6 +52,7 @@ export class ToolbarComponent implements OnInit {
   protected buildMenuAction() {
     this.MenuAction = {
       Icon: 'menu',
+      IsMobile: true,
       Actions: this.State?.Actions,
     };
   }
