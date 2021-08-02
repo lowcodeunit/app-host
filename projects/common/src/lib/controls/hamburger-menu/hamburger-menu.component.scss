@@ -1,10 +1,10 @@
 .mat-list {
   position: absolute;
-  text-align: right;
+  // text-align: left;
   top: 65px;
   right: 0;
   width: 100%;
-  background-color: rgb(2, 85, 110);
+  background-color: var(--theme-primary-500);
   transform: scale(1, 0);
   transform-origin: top;
   transition: transform 400ms ease-in-out;
@@ -14,17 +14,25 @@
 .mat-list a {
   color: white;
   text-decoration: none;
-  font-size: 1.2em;
+  // font-size: 1em;
   text-transform: uppercase;
   opacity: 0;
   transition: opacity 150ms ease-in-out;
 }
 
-.mat-list a:hover {
-  color: #000;
+// .mat-list a:hover {
+//   color: #000;
+// }
+
+.mat-list-item:hover {
+  background-color: var(--theme-accent-500);
+
+  span {
+    color: var(--initial-dark-text);
+  }
 }
 
-// ~ is looking for 'nav' that's a sibling of nav-toggle
+// ~ is looking for 'nav or mat-list' that's a sibling of nav-toggle
 .nav-toggle:checked ~ .mat-list {
   transform: scale(1, 1);
 }
@@ -42,10 +50,10 @@
 .nav-toggle-label span::before,
 .nav-toggle-label span::after {
   display: block;
-  background: white;
-  height: 2px;
-  width: 1.25em;
-  border-radius: 2px;
+  // background: white;
+  // height: 2px;
+  // width: 1.25em;
+  // border-radius: 2px;
   position: relative;
 }
 

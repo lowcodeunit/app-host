@@ -26,4 +26,18 @@ export class HamburgerMenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Link using 'Path', might need to use router.navigate, but
+   * setting it up this way for now - shannon
+   * 
+   * Also, using the class to link the href, so we
+   * can make the entire mat-list-item clickable
+   *
+   * @param action Model for state action
+   */
+  public Navigate(action: LCUActionState): void {
+
+    window.location.href = action.Path;
+  }
+
 }
