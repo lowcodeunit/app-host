@@ -2,7 +2,7 @@
 @import "../../../../node_modules/@lcu/common/assets/styles/utils/margins-padding";
 @import "../../../../node_modules/@lcu/common/assets/styles/utils/fathym-cursors";
 
-$global-theme: fathym-ivy-theme(true);
+// $global-theme: fathym-ivy-theme(true);
 
 $primary: map-get($global-theme, primary);
 $accent: map-get($global-theme, accent);
@@ -16,6 +16,8 @@ $purple-accent: map-get($mat-purple, 500);
 $cyan-accent: rgba(map-get($mat-cyan, A100), .75);
 $pink-accent: map-get($mat-pink, 500);
 $success:  map-get($mat-green, A700);
+$black: rgb(17, 17, 17);
+$white: rgb(238, 238, 238);
 $divider-size: 5px;
 
   /**
@@ -48,16 +50,11 @@ $divider-size: 5px;
     --pink-accent: #{map-get($mat-pink, 500)};
     --success: #{map-get($mat-green, A400)};
 }
-$black: rgb(17, 17, 17);
-$white: rgb(238, 238, 238);
 
-
-// $primary-logo: $fathym-default-logo;
 $logo-color: map-get(map-get($global-theme, "foreground"), "icon");
-$divider-size: 5px;
-$divider: mat-color($primary);
-$background: map-get(map-get($global-theme, "background"), "background");
-$background-fill: rgba(map-get($mat-grey, 900), 0.75);
+$divider: var(--theme-primary-500);
+// $background: map-get(map-get($global-theme, "background"), "background");
+// $background-fill: rgba(map-get($mat-grey, 500), 1);
 $background-fill-full: rgba(map-get($mat-grey, 900), 1);
 $foreground: map-get(map-get($global-theme, "foreground"), "base");
 $primary-text: mat-color($primary);
@@ -133,7 +130,8 @@ body {
 }
 
 .theme-accent-text {
-  color: mat-color($accent);
+ //  color: mat-color($accent);
+  color: var(--theme-accent-500); 
   background-color: transparent !important;
 }
 
@@ -164,7 +162,7 @@ body {
 }
 
 .background-fill {
-  background-color: $background-fill;
+  // background-color: $background-fill;
 }
 
 .background-fill-full {
