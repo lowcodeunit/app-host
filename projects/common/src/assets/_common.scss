@@ -2,7 +2,13 @@
 @import "../../../../node_modules/@lcu/common/assets/styles/utils/margins-padding";
 @import "../../../../node_modules/@lcu/common/assets/styles/utils/fathym-cursors";
 
-// $global-theme: fathym-ivy-theme(true);
+/**
+* Setting $global-theme will go away when we
+* start using the Theme Picker, which is 
+* already setup, but is commented out right now
+* will get back to this later - shannon
+*/
+$global-theme: fathym-ivy-theme(true);
 
 $primary: map-get($global-theme, primary);
 $accent: map-get($global-theme, accent);
@@ -161,6 +167,13 @@ body {
   width: 100%;
 }
 
+/**
+* commented this out, because it was causing some issues 
+* with background colors. Setting background colors to
+* mat-app-background, which works when changing the theme
+*
+* will get back to this later - shannon
+*/
 .background-fill {
   // background-color: $background-fill;
 }
