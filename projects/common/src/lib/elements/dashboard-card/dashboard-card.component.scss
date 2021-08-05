@@ -1,4 +1,5 @@
 @import '../../../../assets/common';
+@include theme-setup($global-theme);
 
 :host ::ng-deep {
   .dashboard-card {

@@ -1,10 +1,13 @@
+@import '../../../../assets/common';
+@include theme-setup($global-theme);
+
 .mat-list {
   position: absolute;
   // text-align: left;
   top: 65px;
   right: 0;
   width: 100%;
-  background-color: var(--theme-primary-500);
+  background-color: var(--primary);
   transform: scale(1, 0);
   transform-origin: top;
   transition: transform 400ms ease-in-out;
@@ -25,7 +28,7 @@
 // }
 
 .mat-list-item:hover {
-  background-color: var(--theme-accent-500);
+  background-color: var(--accent);
 
   span {
     color: var(--initial-dark-text);

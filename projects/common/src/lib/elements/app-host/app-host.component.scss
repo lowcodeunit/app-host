@@ -1,5 +1,5 @@
 @import '../../../../assets/common';
-// @include theme-setup($global-theme);
+@include theme-setup($global-theme);
 
 :host ::ng-deep {
   .page {
@@ -7,8 +7,7 @@
 
     &.background {
       color: $white;
-      // @extend .mat-app-background;
-      // @extend .background-fill;
+      background-color: $background;
     }
 
     > .page-toolbar {
@@ -22,12 +21,6 @@
 
       lcu-app-host-header {
         @extend .margin-bottom-2;
-
-        .getting-started-text {
-          @extend .plain-text;
-          @extend .theme-accent-text;
-          @extend .mat-subheading-2;
-        }
       }
 
       .app-frame {
