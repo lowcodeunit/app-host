@@ -1,4 +1,4 @@
-@import "../../../assets/common";
+@import '../../../../assets/common';
 // @include theme-setup($global-theme);
 
 :host ::ng-deep {
@@ -8,7 +8,7 @@
     &.background {
       color: $white;
       // @extend .mat-app-background;
-      // background-color: $background;
+      // @extend .background-fill;
     }
 
     > .page-toolbar {
