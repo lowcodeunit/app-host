@@ -9,7 +9,6 @@ import {
 } from '@angular/core';
 import { AppHostToolbarState } from '../../state/app-host.state';
 import { LCUActionState } from '../action/action.component';
-import { PalettePickerService, ThemeBuilderConstants, ThemeBuilderService, ThemePickerModel } from '@lowcodeunit/lcu-theme-builder-common';
 
 @Component({
   selector: 'lcu-toolbar',
@@ -42,21 +41,21 @@ export class ToolbarComponent implements OnInit {
   //  Life Cycle
   public ngOnInit() {
     this.buildMenuAction();
-
+    // this.themeBuilderService.MaterialTheme = 'https://www.iot-ensemble.com/assets/theming/theming.scss';
     // this.setupThemes();
   }
 
   //  API Methods
   public ActionClicked(action: LCUActionState) {
-  
+
     this.ActionClick.emit(action);
   }
 
   //  Helpers
 
-   /**
-   * Setup array of themes
-   */
+    /**
+     * Setup array of themes
+     */
     // protected setupThemes(): void {
     //   const themes: Array<ThemePickerModel> = [
     //     new ThemePickerModel(
@@ -87,7 +86,7 @@ export class ToolbarComponent implements OnInit {
     //       }
     //     )
     //   ];
-  
+
     //   this.themeBuilderService.SetThemes(themes);
     // }
 
