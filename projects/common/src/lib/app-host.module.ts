@@ -1,4 +1,3 @@
-import { ThemeBuilderModule } from '@lowcodeunit/lcu-theme-builder-common';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -51,8 +50,7 @@ import { HamburgerMenuComponent } from './controls/hamburger-menu/hamburger-menu
     MaterialModule,
     LazyElementModule,
     DataGridModule,
-    MonacoEditorModule,
-    ThemeBuilderModule
+    MonacoEditorModule
   ],
   exports: [
     FlexLayoutModule,
