@@ -142,6 +142,7 @@ export class LCUAppHostElementComponent
   }
 
   public ToolbarActionClicked(action: LCUActionState) {
+  
     this.ToolbarActionClick.emit(action);
   }
 

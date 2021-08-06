@@ -1,38 +1,46 @@
-<mat-toolbar color="primary">
-  <div
-    class="logo"
-    fxHide.lt-md="true"
-    [style.background-image]="'url(' + (State.Logo || State.LogoMobile) + ')'"
-    *ngIf="State.Logo || State.LogoMobile"
-  ></div>
+<mat-toolbar 
+  color="primary"
+  fxLayout="row"
+  fxFlex
+  fxLayoutAlign="space-between center">
+  <div 
+    fxLayout="row" 
+    fxLayoutAlign="start center" >
+    <div
+      class="logo"
+      fxHide.lt-md="true"
+      [style.background-image]="'url(' + (State.Logo || State.LogoMobile) + ')'"
+      *ngIf="State.Logo || State.LogoMobile">
+    </div>
+    <div
+      class="logo mobile"
+      fxHide
+      fxShow.lt-md="true"
+      [style.background-image]="'url(' + (State.LogoMobile || State.Logo) + ')'"
+      *ngIf="State.LogoMobile || State.Logo">
+    </div>
 
-  <div
-    class="logo mobile"
-    fxHide
-    fxShow.lt-md="true"
-    [style.background-image]="'url(' + (State.LogoMobile || State.Logo) + ')'"
-    *ngIf="State.LogoMobile || State.Logo"
-  ></div>
-
-  <a mat-button href="/" class="title" [innerHTML]="State.Title"></a>
-
-  <span fxHide.lt-md="true">
-    <ng-container *ngFor="let action of State.Actions">
-      <ng-container *ngIf="action.Align == 'start'">
-        <lcu-action
-          class="toolbar-action"
-          [action]="action"
-          (action-click)="ActionClicked($event)"
-        ></lcu-action>
+    <a 
+      mat-button href="/" 
+      class="title margin-left-2" 
+      [innerHTML]="State.Title">
+    </a>
+  </div>
+    <span fxHide.lt-md="true" style="background-color: blueviolet;">
+      <ng-container *ngFor="let action of State.Actions">
+        <ng-container *ngIf="action.Align === 'start'">
+          <lcu-action
+            class="toolbar-action"
+            [action]="action"
+            (action-click)="ActionClicked($event)"
+          ></lcu-action>
+        </ng-container>
       </ng-container>
-    </ng-container>
-  </span>
-
-  <div fxFlex></div>
+    </span>
 
   <span fxHide.lt-md="true">
     <ng-container *ngFor="let action of State.Actions">
-      <ng-container *ngIf="action.Align == 'end'">
+      <ng-container *ngIf="action.Align === 'end'">
         <lcu-action
           class="toolbar-action"
           [action]="action"
@@ -43,10 +51,12 @@
   </span>
 
   <span fxHide fxHide.lt-md="false">
-    <lcu-action
+    <!-- <lcu-action
       class="menu-action"
       [action]="MenuAction"
       (action-click)="ActionClicked($event)"
-    ></lcu-action>
+    ></lcu-action> -->
+    <lcu-hamburger-menu class="margin-top-3" [action]="MenuAction"></lcu-hamburger-menu>
   </span>
+  <!-- <lcu-theme-picker dark-mode="true"></lcu-theme-picker> -->
 </mat-toolbar>

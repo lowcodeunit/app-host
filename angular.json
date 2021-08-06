@@ -328,6 +328,11 @@
                 "output": "/"
               },
               {
+								"glob": "**/*",
+								"input": "node_modules/sass.js/dist",
+								"output": "/assets"
+							},
+              {
                 "glob": "**/*",
                 "input": "./projects/common/assets",
                 "output": "/assets/"
@@ -343,7 +348,11 @@
               "node_modules/swagger-ui-themes/themes/3.x/theme-material.css",
               "projects/app-host/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": 
+            [
+              "./node_modules/sass.js/dist/sass.js",
+							"./node_modules/sass.js/dist/sass.worker.js"
+            ]
           },
           "configurations": {
             "production": {
