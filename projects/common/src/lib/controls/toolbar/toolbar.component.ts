@@ -1,3 +1,4 @@
+import { ThemeBuilderService, ThemePickerModel, ThemeBuilderConstants } from '@lowcodeunit/lcu-theme-builder-common';
 import {
   Component,
   EventEmitter,
@@ -34,7 +35,8 @@ export class ToolbarComponent implements OnInit {
 
   //  Constructors
   constructor(
-    protected injector: Injector) {
+    protected injector: Injector, 
+    protected themeBuilderService: ThemeBuilderService) {
     this.ActionClick = new EventEmitter();
   }
 
@@ -56,39 +58,39 @@ export class ToolbarComponent implements OnInit {
     /**
      * Setup array of themes
      */
-    // protected setupThemes(): void {
-    //   const themes: Array<ThemePickerModel> = [
-    //     new ThemePickerModel(
-    //       {
-    //         ID: 'Fathym Brand',
-    //         Primary: ThemeBuilderConstants.document.getPropertyValue('--initial-primary'),
-    //         Accent: ThemeBuilderConstants.document.getPropertyValue('--initial-accent'),
-    //         Warn: ThemeBuilderConstants.document.getPropertyValue('--initial-warn'),
-    //         DarkMode: true
-    //       }
-    //     ),
-    //     new ThemePickerModel(
-    //       {
-    //         ID: 'Yellow', 
-    //         Primary: '#ffcc11',
-    //         Accent: '#06a5ff',
-    //         Warn: '#990000',
-    //         DarkMode: false
-    //       }
-    //     ),
-    //     new ThemePickerModel(
-    //       {
-    //         ID: 'Pink',
-    //         Primary: '#a83271',
-    //         Accent: '#6103ff',
-    //         Warn: '#b9f013',
-    //         DarkMode: true
-    //       }
-    //     )
-    //   ];
+    protected setupThemes(): void {
+      const themes: Array<ThemePickerModel> = [
+        new ThemePickerModel(
+          {
+            ID: 'Fathym Brand',
+            Primary: ThemeBuilderConstants.document.getPropertyValue('--initial-primary'),
+            Accent: ThemeBuilderConstants.document.getPropertyValue('--initial-accent'),
+            Warn: ThemeBuilderConstants.document.getPropertyValue('--initial-warn'),
+            DarkMode: true
+          }
+        ),
+        new ThemePickerModel(
+          {
+            ID: 'Yellow', 
+            Primary: '#ffcc11',
+            Accent: '#06a5ff',
+            Warn: '#990000',
+            DarkMode: false
+          }
+        ),
+        new ThemePickerModel(
+          {
+            ID: 'Pink',
+            Primary: '#a83271',
+            Accent: '#6103ff',
+            Warn: '#b9f013',
+            DarkMode: true
+          }
+        )
+      ];
 
-    //   this.themeBuilderService.SetThemes(themes);
-    // }
+      this.themeBuilderService.SetThemes(themes);
+    }
 
   protected buildMenuAction() {
     this.MenuAction = {
