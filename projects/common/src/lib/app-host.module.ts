@@ -73,6 +73,7 @@ import { HamburgerMenuComponent } from './controls/hamburger-menu/hamburger-menu
     SwaggerUIComponent,
     CodeEditorComponent,
     HamburgerMenuComponent,
+    ThemeBuilderModule
   ],
   entryComponents: [
     LCUAppHostElementComponent,
