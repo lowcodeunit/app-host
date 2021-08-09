@@ -1,0 +1,25 @@
+<input 
+    type="checkbox" 
+    id="nav-toggle" 
+    class="nav-toggle">
+   
+<mat-list>
+     <!-- <a [routerLink]="action.Path">{{ action.Text }}</a> -->
+    <mat-list-item
+        *ngFor="let action of Action.Actions; last as last">
+        <span fxFlex (click)="Navigate(action)">
+            {{ action.Text }}
+            <!-- <a [href]="action.Path">{{ action.Text }}</a> -->
+            <mat-divider *ngIf="!last"></mat-divider>
+        </span>
+    </mat-list-item>
+</mat-list>
+
+<label for="nav-toggle" class="nav-toggle-label">
+    <!-- Empty span will work with commented out style
+         for creating hamburger lines under .nav-toggle-label -->
+    <!-- <span></span> -->
+        <!-- <button mat-button> -->
+            <mat-icon>menu</mat-icon>
+        <!-- </button> -->
+</label>

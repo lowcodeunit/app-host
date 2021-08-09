@@ -29,6 +29,8 @@ export class LCUActionState {
 
   public IsMenu?: boolean;
 
+  public IsMobile?: boolean;
+
   public Path?: string;
 
   public Raised?: boolean;
@@ -43,12 +45,20 @@ export class LCUActionState {
   templateUrl: './action.component.html',
   styleUrls: ['./action.component.scss'],
 })
+
 export class ActionComponent implements OnChanges, OnInit {
   //  Fields
 
+  private _action: LCUActionState;
   //  Properties
   @Input('action')
-  public Action: LCUActionState;
+    public set Action(val: LCUActionState) {
+      this._action = val;
+  }
+
+  public get Action(): LCUActionState {
+    return this._action;
+  }
 
   @ViewChild('actionMenu')
   public ActionMenu: MatMenu;
@@ -63,22 +73,30 @@ export class ActionComponent implements OnChanges, OnInit {
   @Output('action-click')
   public Click: EventEmitter<LCUActionState>;
 
+  public ToggleMobileMenu: boolean;
+
   //  Constructors
   constructor(protected injector: Injector, protected router: Router) {
     this.Click = new EventEmitter();
+    this.ToggleMobileMenu = false;
   }
 
   //  Life Cycle
-  public ngOnChanges() {
+  public ngOnChanges(): void {
     this.setActiontype();
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.setActiontype();
   }
 
   //  API Methods
-  public Clicked(e: MouseEvent) {
+  public Clicked(e: MouseEvent): void {
+
+    if (this.Action.IsMobile) {
+      this.ToggleMobileMenu = !this.ToggleMobileMenu;
+    }
+
     if (this.Action.BypassClick) {
       // e.preventDefault();
     } else if (this.Action.ByRoute && this.Action.Path) {
@@ -93,7 +111,7 @@ export class ActionComponent implements OnChanges, OnInit {
   }
 
   //  Helpers
-  protected setActiontype() {
+  protected setActiontype(): void {
     // this.ActionType = '';
 
     // if (this.Action.IsMenuItem) {

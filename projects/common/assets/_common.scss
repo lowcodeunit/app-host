@@ -1,6 +1,6 @@
-@import "../../../../node_modules/@lcu/common/assets/theming/common-theme";
-@import "../../../../node_modules/@lcu/common/assets/styles/utils/margins-padding";
-@import "../../../../node_modules/@lcu/common/assets/styles/utils/fathym-cursors";
+@import "../../../node_modules/@lcu/common/assets/theming/common-theme";
+@import "../../../node_modules/@lcu/common/assets/styles/utils/margins-padding";
+@import "../../../node_modules/@lcu/common/assets/styles/utils/fathym-cursors";
 
 $global-theme: fathym-ivy-theme(true);
 
@@ -29,6 +29,37 @@ $secondary-text: map-get(
   map-get($global-theme, "foreground"),
   "secondary-text"
 );
+
+  /**
+  * Set initial color values
+  */
+  :root {
+    /**
+    * Set initial theme color values
+    * these are pulled from the current theme, but can be whomever.
+    */
+      --primary: #{mat-color($primary)};
+      --accent: #{mat-color($accent)};
+      --warn: #{mat-color($warn)};
+      --dark-background: #222222;
+      --light-background: #f2f2f2;
+      // --dark-background: #{invert(mat-color($background, card, 1))};
+      // --light-background: #{mat-color($background, card)};
+      --light-text: #{map-get(map-get($global-theme, 'foreground'), 'text')};
+      --dark-text: #{invert(map-get(map-get($global-theme, 'foreground'), 'text'))};
+      // --background: #{invert(map-get($background, background))};
+  
+      /**
+      * Brand accent colors - pulled from current theme, but can be whomever
+      */
+      --orange-accent: #{map-get($mat-orange, 500)};
+      --green-accent: #{map-get($mat-green, A400)};
+      --yellow-accent: #{map-get($mat-yellow, 600)};
+      --purple-accent: #{map-get($mat-purple, 500)};
+      --cyan-accent: #{rgba(map-get($mat-cyan, A100), .75)};
+      --pink-accent: #{map-get($mat-pink, 500)};
+      --success: #{map-get($mat-green, A400)};
+  }
 
 @function set-opacity($color, $opacity) {
   @return rgba($color, $opacity);

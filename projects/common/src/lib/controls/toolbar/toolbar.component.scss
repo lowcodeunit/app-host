@@ -1,11 +1,11 @@
-@import "../../../../../common/src/assets/common";
+@import '../../../../../common/assets/common';
+@include theme-setup($global-theme);
 
 :host ::ng-deep {
   .logo {
     height: 60px;
     width: 160px;
     @extend .logo-config;
-
     &.mobile {
       width: 75px;
     }
