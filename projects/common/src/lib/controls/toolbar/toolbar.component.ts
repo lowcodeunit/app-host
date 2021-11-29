@@ -43,8 +43,8 @@ export class ToolbarComponent implements OnInit {
   //  Life Cycle
   public ngOnInit() {
     this.buildMenuAction();
-    // this.themeBuilderService.MaterialTheme = 'https://www.iot-ensemble.com/assets/theming/theming.scss';
-    // this.setupThemes();
+    this.themeBuilderService.MaterialTheme = 'https://www.iot-ensemble.com/assets/theming/theming.scss';
+    this.setupThemes();
   }
 
   //  API Methods

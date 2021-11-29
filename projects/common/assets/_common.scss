@@ -1,8 +1,11 @@
-@import "../../../node_modules/@lcu/common/assets/theming/common-theme";
-@import "../../../node_modules/@lcu/common/assets/styles/utils/margins-padding";
-@import "../../../node_modules/@lcu/common/assets/styles/utils/fathym-cursors";
+// @import "../../../node_modules/@lcu/common/assets/theming/common-theme";
+// @import "../../../node_modules/@lcu/common/assets/styles/utils/margins-padding";
+// @import "../../../node_modules/@lcu/common/assets/styles/utils/fathym-cursors";
 
-$global-theme: fathym-ivy-theme(true);
+@import '../../../node_modules/@lcu/common/assets/styles/fathym-global.styles';
+@import '../../../node_modules/@lcu/common/assets/theming/common-theme';
+
+// $global-theme: fathym-ivy-theme(true);
 
 $primary: map-get($global-theme, primary);
 $accent: map-get($global-theme, accent);
@@ -20,7 +23,8 @@ $success: map-get($mat-green, A700);
 $logo-color: map-get(map-get($global-theme, "foreground"), "icon");
 $divider-size: 5px;
 $divider: mat-color($primary);
-$background: map-get(map-get($global-theme, "background"), "background");
+// $background: map-get(map-get($global-theme, "background"), "background");
+$background: map-get($global-theme, background);
 $background-fill: rgba(map-get($mat-grey, 900), 0.75);
 $background-fill-full: rgba(map-get($mat-grey, 900), 1);
 $foreground: map-get(map-get($global-theme, "foreground"), "base");
@@ -38,16 +42,25 @@ $secondary-text: map-get(
     * Set initial theme color values
     * these are pulled from the current theme, but can be whomever.
     */
+
+    --initial-primary: #{mat-color($primary)};
+    --initial-accent: #{mat-color($accent)};
+    --initial-warn: #{mat-color($warn)};
+    --initial-dark-background: #222222;
+    --initial-light-background: #f2f2f2;
+    --initial-dark-background: #{invert(mat-color($background, card, 1))};
+    --initial-light-background: #{mat-color($background, card)};
+    --initial-light-text: #{map-get(map-get($global-theme, 'foreground'), 'text')};
+    --initial-dark-text: #{invert(map-get(map-get($global-theme, 'foreground'), 'text'))};
+    --background: #{invert(map-get($background, background))};
+
       --primary: #{mat-color($primary)};
       --accent: #{mat-color($accent)};
       --warn: #{mat-color($warn)};
       --dark-background: #222222;
       --light-background: #f2f2f2;
-      // --dark-background: #{invert(mat-color($background, card, 1))};
-      // --light-background: #{mat-color($background, card)};
       --light-text: #{map-get(map-get($global-theme, 'foreground'), 'text')};
       --dark-text: #{invert(map-get(map-get($global-theme, 'foreground'), 'text'))};
-      // --background: #{invert(map-get($background, background))};
   
       /**
       * Brand accent colors - pulled from current theme, but can be whomever
