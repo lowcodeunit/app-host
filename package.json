@@ -43,7 +43,7 @@
     "@angular/platform-browser-dynamic": "~11.1.2",
     "@angular/router": "~11.1.2",
     "@aspnet/signalr": "^1.1.4",
-    "@lcu/common": "^1.80.714",
+    "@lcu/common": "^1.84.747-integration",
     "@lowcodeunit-devkit/ng-lcu": "^1.28.161",
     "@lowcodeunit/data-grid": "^1.19.225",
     "@lowcodeunit/lazy-element": "^1.21.68",
