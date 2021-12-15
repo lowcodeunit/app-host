@@ -170,6 +170,8 @@ body {
   background-color: rgba(map-get($accent, 500), 0.07);
 }
 
-.mat-button-base {
-  padding: 0 16px !important;
-}
+//This is commented out because it is causing the mat ripple to not be centered
+
+// .mat-button-base {
+//   padding: 0 16px !important;
+// }
