@@ -77,11 +77,6 @@
                 "glob": "**/*",
                 "input": "./node_modules/monaco-editor/dev/",
                 "output": "/assets/monaco-editor/"
-              },
-              {
-                "glob": "**/*",
-                "input": "node_modules/ngx-monaco-editor/assets/monaco",
-                "output": "./assets/monaco/"
               }
             ],
             "styles": [
@@ -204,16 +199,6 @@
                 "glob": "package.json",
                 "input": "./projects/demo/",
                 "output": "/"
-              },
-              {
-                "glob": "**/*",
-                "input": "./node_modules/monaco-editor/dev/",
-                "output": "/assets/monaco-editor/"
-              },
-              {
-                "glob": "**/*",
-                "input": "node_modules/ngx-monaco-editor/assets/monaco",
-                "output": "./assets/monaco/"
               },
               "projects/demo/src/docs"
             ],

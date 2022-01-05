@@ -16,3 +16,4 @@ export * from './lib/services/seo-service.service';
 export * from './lib/state/app-host-state.context';
 export * from './lib/state/app-host.state';
 export * from './lib/controls/hamburger-menu/hamburger-menu.component';
+export * from './lib/controls/svg-background/svg-background.component';

@@ -23,7 +23,6 @@ import {
   CodeEditorComponent,
   LCU_CODE_EDITOR_CONFIG,
 } from './controls/code-editor/code-editor.component';
-import { MonacoEditorModule } from 'ngx-monaco-editor';
 import { HamburgerMenuComponent } from './controls/hamburger-menu/hamburger-menu.component';
 
 @NgModule({
@@ -51,7 +50,6 @@ import { HamburgerMenuComponent } from './controls/hamburger-menu/hamburger-menu
     MaterialModule,
     LazyElementModule,
     DataGridModule,
-    MonacoEditorModule,
     ThemeBuilderModule
   ],
   exports: [
@@ -69,7 +67,6 @@ import { HamburgerMenuComponent } from './controls/hamburger-menu/hamburger-menu
     SvgBackgroundComponent,
     ApiAccessComponent,
     DataGridModule,
-    MonacoEditorModule,
     SwaggerUIComponent,
     CodeEditorComponent,
     HamburgerMenuComponent,

@@ -18,7 +18,6 @@ import { fromEvent, Subscription } from 'rxjs';
 import { LCUServiceSettings } from '@lcu/common';
 
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { NgxEditorModel } from 'ngx-monaco-editor';
 
 export const LCU_CODE_EDITOR_CONFIG = new InjectionToken(
   'LCU_CODE_EDITOR_CONFIG'
@@ -94,7 +93,7 @@ export class CodeEditorComponent
   @Output('codeChange')
   public CodeChange: EventEmitter<string>;
 
-  public CodeModel: NgxEditorModel;
+  // public CodeModel: NgxEditorModel;
 
   @Input('diff-code')
   public DiffCode: string;
@@ -321,10 +320,10 @@ export class CodeEditorComponent
   // }
 
   protected setCode() {
-    this.CodeModel = {
-      value: this.Code,
-      language: this.Language
-    };
+    // this.CodeModel = {
+    //   value: this.Code,
+    //   language: this.Language
+    // };
 
     // if (this.codeEditor) {
     //   if (this.codeEditor.getValue() !== this.Code) {

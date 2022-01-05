@@ -91,7 +91,7 @@ export class ActionComponent implements OnChanges, OnInit {
   }
 
   //  API Methods
-  public Clicked(e: MouseEvent): void {
+  public Clicked(e: any): void {
 
     if (this.Action.IsMobile) {
       this.ToggleMobileMenu = !this.ToggleMobileMenu;

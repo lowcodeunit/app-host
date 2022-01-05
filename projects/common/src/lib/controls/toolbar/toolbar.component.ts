@@ -65,8 +65,7 @@ export class ToolbarComponent implements OnInit {
             ID: 'Fathym Brand',
             Primary: ThemeBuilderConstants.document.getPropertyValue('--initial-primary'),
             Accent: ThemeBuilderConstants.document.getPropertyValue('--initial-accent'),
-            Warn: ThemeBuilderConstants.document.getPropertyValue('--initial-warn'),
-            DarkMode: true
+            Warn: ThemeBuilderConstants.document.getPropertyValue('--initial-warn')
           }
         ),
         new ThemePickerModel(
@@ -74,8 +73,7 @@ export class ToolbarComponent implements OnInit {
             ID: 'Yellow', 
             Primary: '#ffcc11',
             Accent: '#06a5ff',
-            Warn: '#990000',
-            DarkMode: false
+            Warn: '#990000'
           }
         ),
         new ThemePickerModel(
@@ -83,8 +81,7 @@ export class ToolbarComponent implements OnInit {
             ID: 'Pink',
             Primary: '#a83271',
             Accent: '#6103ff',
-            Warn: '#b9f013',
-            DarkMode: true
+            Warn: '#b9f013'
           }
         )
       ];

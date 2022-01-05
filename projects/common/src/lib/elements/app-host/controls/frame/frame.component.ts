@@ -15,7 +15,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { MatDrawer } from '@angular/material/sidenav';
+import { MatDrawer, MatDrawerMode } from '@angular/material/sidenav';
 import { MediaChange, MediaObserver } from '@angular/flex-layout';
 import { Subscription } from 'rxjs';
 import { AppHostFrameState } from '../../../../state/app-host.state';
@@ -55,7 +55,8 @@ export class FrameComponent implements OnChanges, OnDestroy, OnInit {
   @ViewChild('navDrawer')
   public NavDrawer: MatDrawer;
 
-  public get NavDrawerMode(): string {
+  public get NavDrawerMode(): MatDrawerMode {
+
     return this.LessThanMD ? 'over' : 'side';
   }
 
