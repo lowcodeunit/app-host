@@ -25,7 +25,7 @@
 		"suppressImplicitAnyIndexErrors": true
 	},
 	"angularCompilerOptions": {
-		"enableIvy": false,
+		"enableIvy": true,
 		"strictInjectionParameters": true,
 		"strictTemplates": true
 	}
