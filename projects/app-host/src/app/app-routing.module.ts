@@ -5,7 +5,7 @@ import { PagesModule } from './pages/pages.module';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: './pages/pages.module#PagesModule'
+    loadChildren: () => import('./pages/pages.module').then(x => x.PagesModule)
   }
 ];
 

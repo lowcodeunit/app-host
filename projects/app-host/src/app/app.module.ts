@@ -20,7 +20,8 @@ import { LcuIconsModule } from '@lowcodeunit/lcu-icons-common';
     FlexLayoutModule,
     FathymSharedModule.forRoot(),
     AppHostModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule
   ],
   providers: [
     {
