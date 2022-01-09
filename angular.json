@@ -80,6 +80,8 @@
               }
             ],
             "styles": [
+              "node_modules/swagger-ui/dist/swagger-ui.css",
+              "node_modules/swagger-ui-themes/themes/3.x/theme-material.css",
               "projects/lcu/src/styles.scss"
             ],
             "scripts": [
@@ -200,6 +202,8 @@
               "projects/demo/src/docs"
             ],
             "styles": [
+              "node_modules/swagger-ui/dist/swagger-ui.css",
+              "node_modules/swagger-ui-themes/themes/3.x/theme-material.css",
               "projects/demo/src/styles.scss"
             ],
             "scripts": []
@@ -324,6 +328,8 @@
               }
             ],
             "styles": [
+              "node_modules/swagger-ui/dist/swagger-ui.css",
+              "node_modules/swagger-ui-themes/themes/3.x/theme-material.css",
               "projects/app-host/src/styles.scss"
             ],
             "scripts": 
