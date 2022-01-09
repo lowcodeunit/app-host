@@ -5,7 +5,7 @@ import {
   ElementRef,
   AfterViewInit,
 } from '@angular/core';
-import SwaggerUI from 'swagger-ui';
+// import SwaggerUI from 'swagger-ui';
 
 @Component({
   selector: 'lcu-swagger-ui',
@@ -59,7 +59,7 @@ export class SwaggerUIComponent implements AfterViewInit, OnInit {
       };
     }
 
-    const swag = SwaggerUI(swaggerCfg);
+    // const swag = SwaggerUI(swaggerCfg);
     // const ui = SwaggerUIBundle({
     //   dom_id: '#swagger-ui',
     //   layout: 'BaseLayout',
