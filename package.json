@@ -45,7 +45,7 @@
     "@aspnet/signalr": "^1.1.4",
     "@lcu/common": "1.84.755-angular-13",
     "@lowcodeunit-devkit/ng-lcu": "^1.28.161",
-    "@lowcodeunit/data-grid": "1.20.249-angular-13",
+    "@lowcodeunit/data-grid": "1.20.256-angular-13",
     "@lowcodeunit/lazy-element": "1.21.82-angular-13",
     "@lowcodeunit/lcu-documentation-common": "1.6.59-angular-13",
     "@lowcodeunit/lcu-icons-common": "1.2.76-angular-13",
