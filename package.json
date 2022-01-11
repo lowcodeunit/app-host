@@ -5,7 +5,7 @@
     "build:app-host": "ng build app-host --configuration production",
     "build:common": "ng build common --configuration production",
     "build:demo": "ng build demo --configuration production",
-    "build:lcu": "ng build lcu --configuration production --single-bundle && npm run pack",
+    "build:lcu": "ng build lcu --configuration production && npm run pack",
     "demo": "npm run build:common && npm run start:demo",
     "demo:lcu": "npm run build:common && npm run build:lcu && npm run start:demo",
     "deploy": "npm version patch && npm run deploy:all",
