@@ -10,7 +10,7 @@
       "prefix": "lcu",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "builder": "ngx-build-plus:build",
           "options": {
             "tsConfig": "projects/common/tsconfig.lib.json",
             "project": "projects/common/ng-package.json"
