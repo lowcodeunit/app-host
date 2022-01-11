@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
-import { ThemeColorPickerService } from '@lcu/common';
+// import { ThemeColorPickerService } from '@lcu/common';
 
 @Component({
   selector: 'lcu-root',
@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   public Themes: Array<any>;
   public Title = 'LCU-Starter-App';
 
-  constructor(protected themeService: ThemeColorPickerService) {}
+  constructor() {}
 
   public ngOnInit(): void {
     this.resetTheme();
@@ -20,11 +20,11 @@ export class AppComponent implements OnInit {
   }
 
   protected resetTheme(): void {
-    this.ThemeClass = this.themeService.GetColorClass();
+    // this.ThemeClass = this.themeService.GetColorClass();
   }
 
   public PickTheme(color: string): void {
-    this.themeService.SetColorClass(`fathym-${color}-theme`);
+    // this.themeService.SetColorClass(`fathym-${color}-theme`);
   }
 
   protected setThemes(): void {
