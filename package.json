@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "scripts": {
     "build:app-host": "ng build app-host --configuration production",
-    "build:common": "ng build common",
+    "build:common": "ng build common --configuration production",
     "build:demo": "ng build demo --configuration production",
     "build:lcu": "ng build lcu --configuration production --single-bundle && npm run pack",
     "demo": "npm run build:common && npm run start:demo",
