@@ -48,7 +48,6 @@
     "@lowcodeunit/lazy-element": "1.21.82-angular-13",
     "@lowcodeunit/lcu-documentation-common": "1.6.56-angular-13",
     "@lowcodeunit/lcu-icons-common": "1.2.76-angular-13",
-    "@lowcodeunit/lcu-theme-builder-common": "1.5.102-angular-13",
     "@webcomponents/custom-elements": "^1.5.0",
     "@webcomponents/webcomponentsjs": "^2.6.0",
     "esbuild": "^0.14.10",
