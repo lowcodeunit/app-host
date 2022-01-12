@@ -181,7 +181,7 @@
       "prefix": "lcu",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:browser",
           "options": {
             "outputPath": "dist/demo",
             "index": "projects/demo/src/index.html",
@@ -291,7 +291,7 @@
       "prefix": "lcu",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:browser",
           "options": {
             "outputPath": "dist/app-host",
             "index": "projects/app-host/src/index.html",
