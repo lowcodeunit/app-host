@@ -14,13 +14,11 @@
 		"typeRoots": [
 			"node_modules/@types"
 		],
-		"target": "es2015",
+		"target": "es2017",
 		"module": "esnext",
 		"lib": [
-      "es2015",
-      "es2017",
 			"es2020",
-			"dom"
+      		"dom"
 		],
 		"paths": {
 			"@lowcodeunit/app-host-common": [
