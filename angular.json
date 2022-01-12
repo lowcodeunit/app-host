@@ -53,7 +53,7 @@
       "prefix": "lcu",
       "architect": {
         "build": {
-          "builder": "ngx-build-plus:build",
+          "builder": "ngx-build-plus:browser",
           "options": {
             "outputPath": "dist/lcu",
             "index": "projects/lcu/src/index.html",
@@ -410,6 +410,6 @@
   },
   "defaultProject": "lcu",
   "cli": {
-    "analytics": false
+    "analytics": "3aaa37fc-50d1-4e28-82d3-846dcee2368d"
   }
 }
