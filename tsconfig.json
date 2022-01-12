@@ -9,8 +9,13 @@
 		"experimentalDecorators": true,
 		"moduleResolution": "node",
 		"importHelpers": true,
+		"noImplicitAny": true,
+		"suppressImplicitAnyIndexErrors": true,
+		"typeRoots": [
+			"node_modules/@types"
+		],
 		"target": "es2017",
-		"module": "es2020",
+		"module": "esnext",
 		"lib": [
 			"es2020",
 			"dom"
@@ -20,9 +25,7 @@
 				"dist/common/common",
 				"dist/common"
 			]
-		},
-		"noImplicitAny": false,
-		"suppressImplicitAnyIndexErrors": true
+		}
 	},
 	"angularCompilerOptions": {
 		"compilationMode": "partial",
