@@ -9,7 +9,7 @@
 		"experimentalDecorators": true,
 		"moduleResolution": "node",
 		"importHelpers": true,
-		"noImplicitAny": true,
+		"noImplicitAny": false,
 		"suppressImplicitAnyIndexErrors": true,
 		"typeRoots": [
 			"node_modules/@types"
@@ -22,8 +22,10 @@
 		],
 		"paths": {
 			"@lowcodeunit/app-host-common": [
-				"dist/common/common",
 				"dist/common"
+			],
+			"@lowcodeunit/app-host-common/*": [
+				"dist/common/*"
 			]
 		}
 	},
