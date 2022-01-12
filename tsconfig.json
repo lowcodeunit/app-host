@@ -14,7 +14,7 @@
 		"typeRoots": [
 			"node_modules/@types"
 		],
-		"target": "es2017",
+		"target": "es2015",
 		"module": "esnext",
 		"lib": [
 			"es2020",
