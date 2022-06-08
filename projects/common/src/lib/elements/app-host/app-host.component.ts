@@ -16,7 +16,10 @@ import {
   LCUServiceSettings,
 } from '@lcu/common';
 import { LazyElementConfig } from '@lowcodeunit/lazy-element';
-import { SVGToMatIconModel, SvgToMatIconService } from '@lowcodeunit/lcu-icons-common';
+import {
+  SVGToMatIconModel,
+  SvgToMatIconService,
+} from '@lowcodeunit/lcu-icons-common';
 import { filter } from 'rxjs/operators';
 import { LCUActionState } from '../../controls/action/action.component';
 import { SEOServiceService } from '../../services/seo-service.service';
@@ -32,7 +35,8 @@ export const SELECTOR_LCU_APP_HOST_ELEMENT = 'lcu-app-host-element';
 })
 export class LCUAppHostElementComponent
   extends LcuElementComponent<LCUAppHostContext>
-  implements OnChanges, OnInit {
+  implements OnChanges, OnInit
+{
   //  Fields
 
   //  Properties
@@ -100,9 +104,13 @@ export class LCUAppHostElementComponent
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         this.setActivePage(event.url);
+        console.log('Set Active Page in subscribe' + event.url);
       });
 
     this.setActivePage(this.router.routerState.snapshot.url);
+    console.log(
+      'Set Active Page outside subscribe' + this.router.routerState.snapshot.url
+    );
   }
 
   //  API Methods
@@ -142,7 +150,6 @@ export class LCUAppHostElementComponent
   }
 
   public ToolbarActionClicked(action: LCUActionState) {
-  
     this.ToolbarActionClick.emit(action);
   }
 
@@ -197,7 +204,7 @@ export class LCUAppHostElementComponent
       this.ActivePage = this.processObjectForStrAdd(page, {
         ...this.State,
       });
-
+      console.log('Set SEO' + this.ActivePage.SEO);
       this.seoSvc.SetSEO(this.ActivePage.SEO);
     }
   }
