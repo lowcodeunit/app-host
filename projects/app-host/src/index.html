@@ -13,224 +13,103 @@
 
     <script id="lcu-reg">
       const appHost = {
-        Toolbar: {
-          Title: "IoT Ensemble Beta",
-          Logo: "./assets/logo.svg",
-          Actions: [
-            {
-              Text: "Products",
-              Align: "end",
-              IsMenu: true,
-              Actions: [
+        "Toolbar": {
+            "Title": "Habistack Beta",
+            "Logo": "./assets/logo.svg",
+            "Actions": [
                 {
-                  Text: "IoT Ensemble",
-                  Path: "https://www.iot-ensemble.com/home",
-                  Align: "end",
-                  Target: "_blank",
+                    "Text": "Docs",
+                    "Path": "/docs",
+                    "Align": "end",
+                    "Target": "_blank"
                 },
                 {
-                  Text: "Habistack",
-                  Path: "https://www.habistack.com/home",
-                  Align: "end",
-                  Target: "_blank",
-                },
-              ],
-            },
-            {
-              Text: "Pricing",
-              Path: "/pricing",
-              Align: "end",
-              ByRoute: true,
-            },
-            {
-              Text: "Docs",
-              Path: "/docs",
-              Align: "end",
-              Target: "_blank",
-            },
-            {
-              Text: "Upgrade",
-              Path: "/billing/iot",
-              Align: "end",
-            },
-            {
-              Text: "Sign Out",
-              Path: "/.oauth/logout",
-              Align: "end",
-            },
-          ],
-        },
-        Header: {
-          BrandTitle: "IoT Ensemble",
-          InfoText:
-            "Emulate, simulate, and connect your devices to unlock the power of your IoT applications.",
-          InfoTitle: "Device Dashboard",
-          WelcomeTitle: "Welcome to",
-        },
-        Frame: {
-          Collapsed: true,
-          Opened: true,
-          StaticMenuTop: 250,
-          StickyNav: true,
-        },
-        Nav: {
-          ShowCollapse: true,
-          Actions: [
-            {
-              Text: "Dashboard",
-              Path: "/",
-              Icon: "dashboard",
-            },
-            {
-              Text: "Landing Page",
-              Path: "/landing-page",
-              Icon: "cloud",
-              ByRoute: true,
-            },
-          ],
-        },
-        Footer: {
-          ActionGroups: [
-            {
-              Title: "Next Steps",
-              Actions: [
-                {
-                  Text: "Getting started",
-                  Path: "/docs",
+                    "Text": "Upgrade",
+                    "Path": "/billing/forecast",
+                    "Align": "end"
                 },
                 {
-                  Text: "Pricing",
-                  Path: "/pricing",
+                    "Text": "Sign Out",
+                    "Path": "/.oauth/logout",
+                    "Align": "end"
+                }
+            ]
+        },
+        "Frame": {
+            "Collapsed": true,
+            "Opened": true,
+            "StaticMenuTop": 250,
+            "StickyNav": true
+        },
+        "Header": {
+            "BrandTitle": "Habistack",
+            "InfoText": "The habitat we live in, at your fingertips.  Start with Fathym's ground weather forecast.",
+            "InfoTitle": "Forecast Dashboard",
+            "WelcomeTitle": "Welcome to"
+        },
+        "Nav": {
+            "Title": "Habistack Beta",
+            "ShowCollapse": true,
+            "Actions": [
+                {
+                    "Text": "Developers",
+                    "Path": "/dashboard",
+                    "Icon": "code"
                 },
                 {
-                  Text: "Support",
-                  Path: "/docs/introduction/support",
-                },
-              ],
+                    "Text": "Forecast Demo",
+                    "Path": "/dashboard/demo",
+                    "Icon": "cloud"
+                }
+            ]
+        },
+        "SEO": {
+            "Title": "Habistack | Ground Weather Forecast",
+            "MetaTags": {
+                "description": "The habitat we live in, at your fingertips.  Start with Fathym's ground weather forecast."
+            }
+        },
+        "Theme": {
+            "UsePageBackground": true,
+            "UsePageMargin": true
+        },
+        "ElementConfigs": {
+            "api-keys": {
+                "Scripts": [
+                    "/_lcu/lcu-fathym-forecast-lcu/wc/lcu-fathym-forecast.lcu.js"
+                ],
+                "Styles": [],
+                "ElementName": "lcu-fathym-forecast-api-keys-element"
+            },
+            "fathym-forecast": {
+                "Scripts": [
+                    "/_lcu/lcu-fathym-forecast-lcu/wc/lcu-fathym-forecast.lcu.js"
+                ],
+                "Styles": [],
+                "ElementName": "lcu-fathym-forecast-fathym-forecast-element"
+            }
+        },
+        "Pages": [
+            {
+                "Route": "/",
+                "ElementConfigs": [
+                    {
+                        "Name": "api-keys",
+                        "StateKey": null
+                    }
+                ]
             },
             {
-              Title: "Community",
-              Actions: [
-                {
-                  Text: "Stack Overflow",
-                  Path: "https://stackoverflow.com/questions/tagged/fathym",
-                  Target: "_blank",
-                },
-                {
-                  Text: "Discord",
-                  Path: "https://discordapp.com/invite/fathym",
-                  Target: "_blank",
-                },
-                {
-                  Text: "Twitter",
-                  Path: "https://twitter.com/fathym",
-                  Target: "_blank",
-                },
-              ],
-            },
-          ],
-          Partners: {
-            Actions: [
-              {
-                Image: "./assets/images/gold-cloud-partner.gif",
-                Path: "https://www.microsoft.com",
-                Target: "_blank",
-              },
-            ],
-          },
-        },
-        SEO: {
-          Title: "IoT Ensemble | Experience IoT in Minues",
-          MetaTags: {
-            description: "IoT projects that let you experience IoT in minutes.",
-            keywords: "iot, azure, internet of things, smart home",
-          },
-        },
-        Theme: {
-          UsePageMargin: true,
-        },
-        ElementConfigs: {
-          "lcu-device-data-flow-manage-element": {
-            Scripts: [
-              // "/assets/lcu-device-data-flow.lcu.js",
-              "https://www.iot-ensemble.com/_lcu/lcu-device-data-flow-lcu/wc/lcu-device-data-flow.lcu.js",
-            ],
-            Styles: [
-              // "/assets/lcu-device-data-flow.lcu.css",
-              "https://www.iot-ensemble.com/_lcu/lcu-device-data-flow-lcu/wc/lcu-device-data-flow.lcu.css",
-            ],
-            ElementName: "lcu-device-data-flow-manage-element",
-          },
-          "landing-pages-home-page-element": {
-            Scripts: [
-              "/assets/landing-pages.lcu.js",
-              // "https://www.iot-ensemble.com/_lcu/lcu-landing-pages-lcu/wc/landing-pages.lcu.js",
-            ],
-            Styles: [
-              "/assets/landing-pages.lcu.css",
-              // "https://www.iot-ensemble.com/_lcu/lcu-landing-pages-lcu/wc/landing-pages.lcu.css",
-            ],
-            ElementName: "landing-pages-home-page-element",
-          },
-          "lcu-billing-plan-view-element": {
-            Scripts: [
-              "https://www.iot-ensemble.com/_lcu/lcu-billing-lcu/wc/lcu-billing.lcu.js",
-            ],
-            Styles: [
-              // "https://www.iot-ensemble.com/_lcu/lcu-billing-lcu/wc/lcu-billing.lcu.css",
-            ],
-            ElementName: "lcu-billing-plan-view-element",
-          },
-        },
-        Pages: [
-          {
-            Route: "/",
-            ElementConfigs: [
-              {
-                Name: "lcu-device-data-flow-manage-element",
-                StateKey: null,
-              },
-            ],
-            Theme: {
-              UsePageBackground: true,
-            },
-          },
-          {
-            Route: "/landing-page",
-            ElementConfigs: [
-              {
-                Name: "landing-pages-home-page-element",
-                StateKey: "LandingPages.Blocks",
-              },
-            ],
-            SEO: {
-              Title: "Fathym Cloud | Get It Going",
-              MetaTags: {
-                description: "Get the cloud.",
-                keywords: "iot, azure, internet of things, smart home",
-                robots: "index, follow",
-              },
-            },
-            Frame: null,
-            Nav: null,
-            Header: null,
-            Theme: null,
-          },
-          {
-            Route: "/pricing",
-            ElementConfigs: [
-              {
-                Name: "landing-pages-home-page-element",
-                StateKey: "LandingPages.Pricing",
-              },
-            ],
-            Frame: null,
-            Nav: null,
-            Header: null,
-            Theme: null,
-          },
-        ],
-      };
+                "Route": "/demo",
+                "ElementConfigs": [
+                    {
+                        "Name": "fathym-forecast",
+                        "StateKey": null
+                    }
+                ]
+            }
+        ]
+    };
 
       const blocksLandingPage = {
         Hero: {
@@ -354,14 +233,14 @@
       pricingLandingPage.ElementConfigs = appHost.ElementConfigs;
 
       window.LCU = {
-        // APIRoot: "https://localhost:44387",
-        APIRoot: "https://www.iot-ensemble.com",
+        APIRoot: "https://localhost:44337",
+        // APIRoot: "https://www.iot-ensemble.com",
         Application: {},
         State: {
           ActionRoot: "/api/state",
           Root: "/api/state",
-          // Environment: "local",
-          UsernameMock: "michael.gearhardt@fathym.com",
+          Environment: "local",
+          UsernameMock: "trevor.richardson@fathym.com",
           FreeboardURL: "https://www.iot-ensemble.com/freeboard",
           Analytics: {
             Google: {
