@@ -58,6 +58,8 @@ export class AppHostHeaderState {
   public InfoTitle?: string;
 
   public WelcomeTitle?: string;
+
+  public DocumentationLink?: string;
 }
 
 export class AppHostNavState {
