@@ -14,7 +14,7 @@
     "deploy:common": "npm version patch --prefix projects/common && npm run build:common && npm publish ./dist/common --access public",
     "deploy:demo": "npm version patch --prefix projects/demo && npm run build:demo && npm publish ./dist/demo --access public",
     "deploy:lcu": "npm version patch --prefix projects/lcu && npm run build:lcu && npm publish ./dist/lcu --access public",
-    "ng": "ng",
+    "ng": "ng", 
     "pack": "npm run pack:lcu",
     "pack:join": "concat-glob-cli -f \"dist/lcu/wc/lcu.*.js\" -o dist/lcu/wc/app-host.lcu.js",
     "pack:lcu": "rimraf dist/lcu/wc && mkdirp dist/lcu/wc && npm run pack:main && npm run pack:pollyfills && npm run pack:join",
